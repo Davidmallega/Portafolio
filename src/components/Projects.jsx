@@ -72,20 +72,19 @@ function ProjectCard({ project, onCompile }) {
         </p>
       )}
 
-      {/* compiling: texto escribiéndose */}
-      {phase === 'compiling' && (
-        <p className="font-sans text-[12px] text-white/40 leading-relaxed">
+      {/* texto: persiste durante compiling y done sin re-render */}
+      {(phase === 'compiling' || phase === 'done') && (
+        <p className="font-sans text-[12px] text-white/40 leading-relaxed mb-3">
           {typed}
-          <span className="inline-block w-[2px] h-[13px] bg-[#4ec9b0] ml-[1px] align-middle animate-pulse" />
+          {phase === 'compiling' && (
+            <span className="inline-block w-[2px] h-[13px] bg-[#4ec9b0] ml-[1px] align-middle animate-pulse" />
+          )}
         </p>
       )}
 
-      {/* done: descripción completa + link */}
+      {/* link: aparece solo en done con fade-in igual que certificates */}
       {phase === 'done' && (
         <div className="compile-done">
-          <p className="text-[12px] text-white/50 font-sans leading-relaxed mb-3">
-            {project.description}
-          </p>
           {project.internal ? (
             <button
               onClick={e => { e.stopPropagation(); navigate(project.internalLink) }}

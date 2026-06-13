@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 const JOBS = [
   {
     id: 'freelance',
-    filename: 'freelance-developer.ts',
+    filename: 'freelance-developer',
     role: 'Desarrollador Freelance',
     period: 'may 2026',
     dot: '#c792ea',
@@ -17,7 +17,7 @@ const JOBS = [
   },
   {
     id: 'dev-fullstack',
-    filename: 'desarrollador-fullstack.ts',
+    filename: 'desarrollador-fullstack',
     role: 'Desarrollador Fullstack — Práctica Profesional',
     period: 'dic 2025 – feb 2026',
     dot: '#61dafb',
@@ -29,7 +29,7 @@ const JOBS = [
   },
   {
     id: 'analista-ti',
-    filename: 'analista-implementacion-ti.ts',
+    filename: 'analista-implementacion-ti',
     role: 'Analista de Implementación TI / Soporte Técnico',
     period: 'ene 2026 – presente',
     dot: '#4ec9b0',
@@ -42,7 +42,7 @@ const JOBS = [
   },
   {
     id: 'admin-web',
-    filename: 'admin-web-wordpress.ts',
+    filename: 'admin-web-wordpress',
     role: 'Administrador Web WordPress',
     period: 'ene 2020 – presente',
     dot: '#e8d88a',
@@ -53,7 +53,7 @@ const JOBS = [
   },
   {
     id: 'admin-general',
-    filename: 'administrador-general.ts',
+    filename: 'administrador-general',
     role: 'Administrador General',
     period: 'oct 2015 – presente',
     dot: '#f0a070',

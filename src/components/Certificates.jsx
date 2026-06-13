@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { RefreshCw } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import { certificates } from '../data/certificates'
 import { credlyBadges } from '../data/badges'
@@ -94,7 +95,7 @@ function CertCard({ cert, onClick }) {
           )}
           {phase === 'request' && (
             <span className="font-mono text-[10px] text-[#4ec9b0] whitespace-nowrap flex items-center gap-1">
-              <span className="inline-block animate-spin" style={{ animationDuration: '0.9s' }}>⟳</span>
+              <RefreshCw size={11} className="animate-spin" style={{ animationDuration: '0.9s' }} />
               <span>p.request</span>
             </span>
           )}
