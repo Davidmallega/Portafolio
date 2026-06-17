@@ -16,7 +16,7 @@ function PreviewModal({ project, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-sm flex items-center justify-center lg:p-6"
+      className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-md flex items-center justify-center lg:p-6"
       onClick={onClose}
     >
       {/* Mobile */}
@@ -135,11 +135,9 @@ function ProjectCard({ project, onCompile, lang }) {
       {/* Top row */}
       <div className="flex items-start justify-between mb-3">
         <h3 className="font-sans text-[14px] lg:text-[16px] font-medium text-white">{project.title}</h3>
-        <div className="ml-2 shrink-0 flex items-center justify-end" style={{ minWidth: 60, minHeight: 20 }}>
+        <div className="ml-2 shrink-0 flex items-center justify-end">
           {phase === 'idle' && (
-            <span className="err-badge font-mono text-[10px] px-2 py-[2px] rounded bg-[#ff6b6b]/10 border border-[#ff6b6b]/20 text-[#ff6b6b] whitespace-nowrap">
-              {project.error} ⚠
-            </span>
+            <span className="font-mono text-[12px] px-2 py-[2px] rounded bg-[#ff6b6b]/10 border border-[#ff6b6b]/20 text-[#ff6b6b]">⚠</span>
           )}
           {phase === 'compiling' && (
             <span className="compile-spinner-active" />
@@ -155,12 +153,6 @@ function ProjectCard({ project, onCompile, lang }) {
         {project.stack}
       </p>
 
-      {/* idle: error message */}
-      {phase === 'idle' && (
-        <p className="font-mono text-[11px] text-[#ff6b6b]/50 italic squiggle">
-          {project.errorMsg}
-        </p>
-      )}
 
       {/* texto: persiste durante compiling y done sin re-render */}
       {(phase === 'compiling' || phase === 'done') && (

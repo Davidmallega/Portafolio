@@ -38,7 +38,7 @@ export default function Contact() {
             style={{ aspectRatio: '1.75 / 1' }}
           >
             {/* Base oscuro de la tarjeta */}
-            <div className="absolute inset-0 bg-[#07070d] border border-white/[0.09] rounded-2xl" />
+            <div className="absolute inset-0 bg-[#010812] border border-[#1a3a5c]/30 rounded-2xl" />
 
             {/* Patrón de barniz — sólo visible donde apunta el mouse */}
             <div

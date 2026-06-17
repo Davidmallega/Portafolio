@@ -24,7 +24,7 @@ export default function Hero() {
         </div>
 
         <div className="min-w-0">
-          <h1 className="font-sans text-[1.85rem] sm:text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-tight mb-1.5 lg:mb-3 whitespace-nowrap">
+          <h1 className="font-sans text-[1.85rem] sm:text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-tight mb-1.5 lg:mb-3">
             David Mallega
           </h1>
           <p className="font-mono text-[13px] lg:text-[16px] text-[#4ec9b0] mb-1 lg:mb-2">Fullstack Developer</p>

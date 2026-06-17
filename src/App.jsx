@@ -10,7 +10,7 @@ import StatsBanner from './components/StatsBanner'
 import Contact from './components/Contact'
 import Certificates from './components/Certificates'
 import SDLCPage from './components/SDLCPage'
-import CircuitBackground from './components/CircuitBackground'
+import ParticlesBackground from './components/ParticlesBackground'
 import StatusBar from './components/StatusBar'
 import { projects } from './data/projects'
 
@@ -56,12 +56,12 @@ function AppInner() {
   return (
     <>
       <ScrollToTop />
+      <ParticlesBackground />
       <TopBar />
       <Routes>
         <Route path="/" element={<Home onCompile={handleCompile} />} />
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/sdlc" element={<SDLCPage />} />
-        <Route path="/circuit" element={<CircuitBackground />} />
       </Routes>
       <StatusBar totalErrors={projects.length} doneCount={doneCount} />
     </>
