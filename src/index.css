@@ -5,8 +5,23 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 8, 20, 0.85);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root { position: relative; z-index: 1; }
+
 body {
-  background: #0d0d0f;
+  background-color: #020a18;
+  background-image: url('/assets/fondo.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
   color: #e8e8e8;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
@@ -176,6 +191,8 @@ body {
   transform: translateY(-3px);
 }
 .skill-badge.electron:hover { color: #9cdcfe; border-color: rgba(156,220,254,0.4); background: rgba(156,220,254,0.06); }
+.skill-badge.ps:hover { color: #31a8ff; border-color: rgba(49,168,255,0.4); background: rgba(49,168,255,0.06); }
+.skill-badge.ai:hover { color: #ff9a00; border-color: rgba(255,154,0,0.4); background: rgba(255,154,0,0.06); }
 
 /* Experience tree expand/collapse */
 .exp-body {

@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { RefreshCw } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
+import { useLang } from '../context/LanguageContext'
 import { certificates } from '../data/certificates'
 import { credlyBadges } from '../data/badges'
 import CertificateModal from './CertificateModal'
 
-function CertCard({ cert, onClick }) {
+function CertCard({ cert, onClick, lang, t }) {
   const [phase, setPhase]         = useState('idle')
   const [arrowOn, setArrowOn]     = useState(true)
   const [typed, setTyped]         = useState('')
@@ -37,7 +38,7 @@ function CertCard({ cert, onClick }) {
     setFilledBars(0)
 
     let i = 0
-    const text = cert.description
+    const text = lang === 'en' && cert.descriptionEn ? cert.descriptionEn : cert.description
     typingRef.current = setInterval(() => {
       i++
       setTyped(text.slice(0, i))
@@ -130,7 +131,7 @@ function CertCard({ cert, onClick }) {
       {typed && (
         <p className="font-sans text-[12px] lg:text-[13px] text-[#4ec9b0]/80 leading-relaxed">
           {typed}
-          {typed.length < cert.description.length && (
+          {typed.length < (lang === 'en' && cert.descriptionEn ? cert.descriptionEn : cert.description).length && (
             <span className="inline-block w-[2px] h-[12px] bg-[#4ec9b0] ml-[1px] align-middle animate-pulse" />
           )}
         </p>
@@ -141,14 +142,14 @@ function CertCard({ cert, onClick }) {
           onClick={e => { e.stopPropagation(); onClick(cert) }}
           className="compile-done mt-3 font-mono text-[11px] text-[#4ec9b0]/60 hover:text-[#4ec9b0] transition-colors flex items-center gap-1"
         >
-          → ver certificado
+          {t.certificates.viewBtn}
         </button>
       )}
     </div>
   )
 }
 
-function BadgeCard({ badge }) {
+function BadgeCard({ badge, t }) {
   return (
     <div className="badge-card group flex flex-col items-center p-5 text-center">
       <img
@@ -168,7 +169,7 @@ function BadgeCard({ badge }) {
         rel="noopener noreferrer"
         className="font-mono text-[10px] px-2 py-[2px] rounded bg-[#4ec9b0]/10 border border-[#4ec9b0]/20 text-[#4ec9b0] opacity-0 group-hover:opacity-100 transition-opacity"
       >
-        ✓ verificar credencial
+        {t.certificates.verifyBtn}
       </a>
     </div>
   )
@@ -179,31 +180,30 @@ export default function Certificates() {
   const r2 = useReveal()
   const r3 = useReveal()
   const [selected, setSelected] = useState(null)
+  const { lang, t } = useLang()
 
   return (
     <section
       id="certificates"
-      className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 pt-16 lg:pt-24 pb-32 lg:pb-40"
+      className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 xl:px-24 pt-16 lg:pt-24 pb-32 lg:pb-40"
     >
       <div ref={r1} className="reveal mb-10 lg:mb-14">
         <h1 className="font-sans text-4xl lg:text-6xl font-semibold tracking-tight text-white leading-none mb-4">
-          Certificados
+          {lang === 'en' ? 'Certificates' : 'Certificados'}
         </h1>
-        <p className="font-mono text-[12px] lg:text-[14px] text-white/35">
-          <span className="text-[#4ec9b0]">{certificates.length}</span>
-          <span className="text-white/20"> commits · </span>
-          <span className="text-white/50">cada uno, una versión nueva.</span>
+        <p className="font-mono text-[12px] lg:text-[14px] text-white/50">
+          {t.certificates.subtitle}
         </p>
       </div>
 
       <div ref={r2} className="reveal">
         <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-6 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
-          <span className="text-white/20 select-none">~/</span>certificados <span className="text-white/30 normal-case">— {certificates.length} commits</span>
+          <span className="text-white/20 select-none">~/</span>{t.certificates.header}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
           {certificates.map(c => (
-            <CertCard key={c.id} cert={c} onClick={setSelected} />
+            <CertCard key={c.id} cert={c} onClick={setSelected} lang={lang} t={t} />
           ))}
         </div>
       </div>
@@ -211,14 +211,14 @@ export default function Certificates() {
       <div ref={r3} className="reveal mt-16 lg:mt-20">
         <div className="h-px bg-white/[0.07] mb-10" />
         <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
-          <span className="text-white/20 select-none">~/</span>insignias verificadas
+          <span className="text-white/20 select-none">~/</span>{t.certificates.badgesHeader}
         </p>
         <p className="font-mono text-[10px] text-white/20 mb-8">
-          {'// verified credentials · credly.com'}
+          {t.certificates.badgesNote}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
           {credlyBadges.map(b => (
-            <BadgeCard key={b.id} badge={b} />
+            <BadgeCard key={b.id} badge={b} t={t} />
           ))}
         </div>
       </div>

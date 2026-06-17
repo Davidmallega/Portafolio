@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { useReveal } from '../hooks/useReveal'
+import { useLang } from '../context/LanguageContext'
 import { Mail, MapPin } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa'
@@ -7,6 +8,7 @@ import { FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 export default function Contact() {
   const ref      = useReveal()
   const cardRef  = useRef(null)
+  const { t }    = useLang()
   const [pos, setPos]         = useState({ x: 50, y: 50 })
   const [hovered, setHovered] = useState(false)
 
@@ -19,12 +21,10 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 pb-32 lg:pb-40">
-      <div className="h-px bg-white/[0.07] mb-12" />
-
+    <section id="contact" className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 xl:px-24 pb-32 lg:pb-40">
       <div ref={ref} className="reveal">
         <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-10 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
-          <span className="text-white/20 select-none">~/</span>contacto
+          <span className="text-white/20 select-none">~/</span>{t.contact.header}
         </p>
 
         {/* Business Card */}
@@ -134,11 +134,6 @@ export default function Contact() {
                 <span className="font-mono text-[12px]">Santiago, Chile</span>
               </div>
 
-              {/* Ubicación mobile */}
-              <div className="flex lg:hidden items-center justify-end gap-1.5 text-white/20">
-                <MapPin size={11} />
-                <span className="font-mono text-[10px]">Santiago, Chile</span>
-              </div>
 
             </div>
           </div>

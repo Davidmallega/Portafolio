@@ -1,13 +1,102 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
+import { useLang } from '../context/LanguageContext'
 import { projects } from '../data/projects'
 
-function ProjectCard({ project, onCompile }) {
+function PreviewModal({ project, onClose }) {
+  const images = project.previews ?? (project.preview ? [project.preview] : [])
+  const mobileImages = project.previewMobile ? [project.previewMobile] : images
+  const [idx, setIdx] = useState(0)
+  const total = images.length
+
+  const prev = (e) => { e.stopPropagation(); setIdx(i => (i - 1 + total) % total) }
+  const next = (e) => { e.stopPropagation(); setIdx(i => (i + 1) % total) }
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-sm flex items-center justify-center lg:p-6"
+      onClick={onClose}
+    >
+      {/* Mobile */}
+      <div className="lg:hidden flex flex-col w-full" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between px-3 pb-2">
+          <span className="font-mono text-[11px] text-[#4ec9b0]/70">{project.title} — preview</span>
+          {total > 1 && <span className="font-mono text-[10px] text-white/30">{idx + 1} / {total}</span>}
+        </div>
+        <div className="relative w-full">
+          <div className="w-full rounded-xl border border-white/10 bg-white/[0.03] p-1">
+            <img src={mobileImages[idx]} alt={`Preview ${project.title}`} className="w-full rounded-lg" />
+          </div>
+          {total > 1 && (
+            <>
+              <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[14px]">‹</button>
+              <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[14px]">›</button>
+            </>
+          )}
+        </div>
+        {total > 1 && (
+          <div className="flex justify-center gap-1.5 pt-2">
+            {images.map((_, i) => (
+              <button key={i} onClick={e => { e.stopPropagation(); setIdx(i) }}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === idx ? 'bg-[#bc8cff]' : 'bg-white/20'}`} />
+            ))}
+          </div>
+        )}
+        <button onClick={onClose} className="font-mono text-[15px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors px-3 pt-3 pb-1 text-right">
+          × cerrar
+        </button>
+      </div>
+
+      {/* Desktop */}
+      <div className="hidden lg:block relative w-full max-w-[1175px]" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-mono text-[11px] text-[#4ec9b0]/70">
+            {project.title} — preview {total > 1 && <span className="text-white/30">{idx + 1} / {total}</span>}
+          </span>
+          <button onClick={onClose} className="font-mono text-[13px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors">
+            × cerrar
+          </button>
+        </div>
+        <div className="relative w-full rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+          <img src={images[idx]} alt={`Preview ${project.title}`} className="w-full rounded-xl" />
+          {total > 1 && (
+            <>
+              <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">‹</button>
+              <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">›</button>
+            </>
+          )}
+        </div>
+        {total > 1 && (
+          <div className="flex justify-center gap-2 pt-3">
+            {images.map((_, i) => (
+              <button key={i} onClick={e => { e.stopPropagation(); setIdx(i) }}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === idx ? 'bg-[#bc8cff]' : 'bg-white/20'}`} />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>,
+    document.body
+  )
+}
+
+function ProjectCard({ project, onCompile, lang }) {
   const navigate = useNavigate()
-  const [phase, setPhase]   = useState('idle')
-  const [typed, setTyped]   = useState('')
+  const [phase, setPhase]       = useState('idle')
+  const [typed, setTyped]       = useState('')
+  const [showPreview, setShowPreview] = useState(false)
   const intervalRef = useRef(null)
+  const timeoutRef  = useRef(null)
+
+  // Reset typed text when language changes while card is in done state
+  useEffect(() => {
+    if (phase === 'done') {
+      const text = lang === 'en' && project.descriptionEn ? project.descriptionEn : project.description
+      setTyped(text)
+    }
+  }, [lang])
 
   const handleEnter = () => {
     if (phase !== 'idle') return
@@ -15,13 +104,13 @@ function ProjectCard({ project, onCompile }) {
     setTyped('')
 
     let i = 0
-    const text = project.description
+    const text = lang === 'en' && project.descriptionEn ? project.descriptionEn : project.description
     intervalRef.current = setInterval(() => {
       i++
       setTyped(text.slice(0, i))
       if (i >= text.length) {
         clearInterval(intervalRef.current)
-        setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
           setPhase('done')
           onCompile()
         }, 350)
@@ -32,6 +121,7 @@ function ProjectCard({ project, onCompile }) {
   const handleLeave = () => {
     if (phase === 'done') return
     clearInterval(intervalRef.current)
+    clearTimeout(timeoutRef.current)
     setPhase('idle')
     setTyped('')
   }
@@ -82,35 +172,40 @@ function ProjectCard({ project, onCompile }) {
         </p>
       )}
 
-      {/* link: aparece solo en done con fade-in igual que certificates */}
+      {/* link + preview: aparece solo en done con fade-in */}
       {phase === 'done' && (
-        <div className="compile-done">
+        <div className="compile-done flex flex-col gap-1.5">
           {project.internal ? (
             <button
               onClick={e => { e.stopPropagation(); navigate(project.internalLink) }}
-              className="font-mono text-[11px] text-[#4ec9b0] hover:opacity-70 transition-opacity"
+              className="font-mono text-[11px] text-[#4ec9b0] hover:opacity-70 transition-opacity text-left"
             >
               → {project.linkLabel}
             </button>
           ) : (
-            <>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-[11px] text-[#4ec9b0] hover:opacity-70 transition-opacity"
-                onClick={e => e.stopPropagation()}
-              >
-                → {project.linkLabel}
-              </a>
-              {project.demo && (
-                <span className="ml-3 font-mono text-[10px] px-2 py-[2px] rounded bg-[#4ec9b0]/10 border border-[#4ec9b0]/20 text-[#4ec9b0]">
-                  demo live
-                </span>
-              )}
-            </>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[11px] text-[#4ec9b0] hover:opacity-70 transition-opacity"
+              onClick={e => e.stopPropagation()}
+            >
+              → {project.linkLabel}
+            </a>
+          )}
+          {(project.preview || project.previews) && (
+            <button
+              onClick={e => { e.stopPropagation(); setShowPreview(true) }}
+              className="font-mono text-[11px] text-[#bc8cff]/60 hover:text-[#bc8cff] transition-colors flex items-center gap-1 text-left"
+            >
+              ▶ preview
+            </button>
           )}
         </div>
+      )}
+
+      {showPreview && (
+        <PreviewModal project={project} onClose={() => setShowPreview(false)} />
       )}
     </div>
   )
@@ -118,19 +213,20 @@ function ProjectCard({ project, onCompile }) {
 
 export default function Projects({ onCompile }) {
   const ref = useReveal()
+  const { lang, t } = useLang()
 
   return (
-    <section id="projects" className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 pb-20 lg:pb-28">
+    <section id="projects" className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 xl:px-24 pb-20 lg:pb-28">
       <div className="h-px bg-white/[0.07] mb-12" />
 
       <div ref={ref} className="reveal">
         <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-6 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
-          <span className="text-white/20 select-none">~/</span>proyectos <span className="text-white/30 normal-case">— hover para compilar</span>
+          <span className="text-white/20 select-none">~/</span>{t.projects.header} <span className="text-white/30 normal-case">— <span className="sm:hidden">touch</span><span className="hidden sm:inline">hover</span> {t.projects.hint}</span>
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
           {projects.map(p => (
-            <ProjectCard key={p.id} project={p} onCompile={onCompile} />
+            <ProjectCard key={p.id} project={p} onCompile={onCompile} lang={lang} />
           ))}
         </div>
       </div>

@@ -9,6 +9,7 @@ export const certificates = [
     bars: 8,
     badge: 'Distinción Máxima',
     description: 'Carrera completa: programación, redes, BD, sistemas operativos y desarrollo de software.',
+    descriptionEn: 'Full degree: programming, networking, databases, operating systems and software development.',
     img: '/assets/certificates/titulo-iacc.jpg',
   },
   {
@@ -21,6 +22,7 @@ export const certificates = [
     bars: 5,
     badge: null,
     description: 'HTML, CSS, JavaScript, React, Node.js y bases de datos. Stack completo frontend + backend.',
+    descriptionEn: 'HTML, CSS, JavaScript, React, Node.js and databases. Full frontend + backend stack.',
     img: '/assets/certificates/diplomado-web-iacc.jpg',
   },
   {
@@ -33,6 +35,7 @@ export const certificates = [
     bars: 4,
     badge: null,
     description: 'Patrones de diseño, arquitectura de software, estructuras de datos y algoritmos.',
+    descriptionEn: 'Design patterns, software architecture, data structures and algorithms.',
     img: '/assets/certificates/diplomado-prog-avz-iacc.jpg',
   },
   {
@@ -45,6 +48,7 @@ export const certificates = [
     bars: 5,
     badge: null,
     description: 'Lógica de programación, SQL, modelado de datos y fundamentos de desarrollo.',
+    descriptionEn: 'Programming logic, SQL, data modeling and development fundamentals.',
     img: '/assets/certificates/diplomado-fundamentos-iacc.jpg',
   },
   {
@@ -57,6 +61,7 @@ export const certificates = [
     bars: 2,
     badge: null,
     description: 'Machine learning, deep learning, IA ética y herramientas IBM Watson.',
+    descriptionEn: 'Machine learning, deep learning, ethical AI and IBM Watson tools.',
     img: '/assets/certificates/ai-fundamentals-cisco-ibm.jpg',
   },
   {
@@ -69,6 +74,7 @@ export const certificates = [
     bars: 2,
     badge: null,
     description: 'Fundamentos de seguridad, tipos de amenazas, firewalls y buenas prácticas en redes.',
+    descriptionEn: 'Security fundamentals, threat types, firewalls and network best practices.',
     img: '/assets/certificates/ciberseguridad-cisco.jpg',
   },
   {
@@ -81,6 +87,7 @@ export const certificates = [
     bars: 1,
     badge: null,
     description: 'Metodologías ágiles, Scrum, Kanban y gestión de equipos de desarrollo.',
+    descriptionEn: 'Agile methodologies, Scrum, Kanban and development team management.',
     img: '/assets/certificates/gestion-proyectos-agile.jpg',
   },
   {
@@ -93,6 +100,7 @@ export const certificates = [
     bars: 1,
     badge: null,
     description: 'Análisis de datos, estadística básica y visualización con herramientas modernas.',
+    descriptionEn: 'Data analysis, basic statistics and visualization with modern tools.',
     img: '/assets/certificates/ciencia-datos-open-academy.jpg',
   },
   {
@@ -105,6 +113,7 @@ export const certificates = [
     bars: 2,
     badge: 'score: 100/100',
     description: 'Programación funcional, ES6+, DOM, asincronía y buenas prácticas. Puntaje perfecto.',
+    descriptionEn: 'Functional programming, ES6+, DOM, async patterns and best practices. Perfect score.',
     img: '/assets/certificates/javascript-sence-movistar.jpg',
   },
   {
@@ -117,6 +126,7 @@ export const certificates = [
     bars: 1,
     badge: null,
     description: 'Desarrollo asistido por IA usando Cursor IDE con Python integrado.',
+    descriptionEn: 'AI-assisted development using Cursor IDE with integrated Python.',
     img: '/assets/certificates/cursor-python-ia.jpg',
   },
   {
@@ -129,6 +139,7 @@ export const certificates = [
     bars: 2,
     badge: null,
     description: 'JavaScript moderno ES9, HTML5, CSS3 y Node.js desde cero hasta nivel profesional.',
+    descriptionEn: 'Modern JavaScript ES9, HTML5, CSS3 and Node.js from zero to professional level.',
     img: '/assets/certificates/javascript-es9-nodejs-udemy.jpg',
   },
   {
@@ -141,6 +152,7 @@ export const certificates = [
     bars: 1,
     badge: null,
     description: 'Primeros pasos en programación: lógica, variables, funciones y estructuras de control.',
+    descriptionEn: 'First steps in programming: logic, variables, functions and control structures.',
     img: '/assets/certificates/programacion-principiantes-udemy.jpg',
   },
   {
@@ -153,6 +165,7 @@ export const certificates = [
     bars: 3,
     badge: null,
     description: 'Apps nativas para iOS y Android con React Native CLI, hooks, navegación y consumo de APIs.',
+    descriptionEn: 'Native apps for iOS and Android with React Native CLI, hooks, navigation and API consumption.',
     img: '/assets/certificates/react-native-cli-udemy.jpg',
   },
 ]

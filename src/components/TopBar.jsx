@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useLang } from '../context/LanguageContext'
 
 const tabs = [
   { id: 'hero',         label: 'portfolio',     route: null,            showDot: true,  color: '#4ec9b0' },
@@ -14,9 +15,10 @@ const ROUTE_ACTIVE = {
   '/sdlc':         'projects',
 }
 
-export default function TopBar({ errCount }) {
+export default function TopBar() {
   const navigate   = useNavigate()
   const location   = useLocation()
+  const { lang, toggle } = useLang()
   const onSubpage  = location.pathname !== '/'
   const [active, setActive] = useState(ROUTE_ACTIVE[location.pathname] ?? 'hero')
 
@@ -38,40 +40,40 @@ export default function TopBar({ errCount }) {
   }
 
   return (
-    <header className="sticky top-0 z-50 flex items-center h-10 bg-[#0d0d0f]/95 backdrop-blur-md border-b border-white/[0.07]">
-      {/* Traffic lights */}
-      <div className="flex items-center gap-[6px] px-4">
-        <span className="w-[8px] h-[8px] rounded-full bg-[#ff5f57]" />
-        <span className="w-[8px] h-[8px] rounded-full bg-[#febc2e]" />
-        <span className="w-[8px] h-[8px] rounded-full bg-[#28c840]" />
-      </div>
+    <header className="sticky top-0 z-50 h-10 bg-[#0d0d0f]/95 backdrop-blur-md border-b border-white/[0.07]">
+      <div className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-0 lg:px-16 xl:px-24 flex items-center h-full w-full">
+        {/* Tabs */}
+        <nav className="flex h-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+          {tabs.map(tab => {
+            const isActive = active === tab.id
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleTab(tab)}
+                style={isActive ? { borderTopColor: tab.color } : {}}
+                className={`
+                  flex items-center gap-[7px] px-3 sm:px-4 h-full text-[11px] sm:text-[12px] font-mono shrink-0
+                  border-r border-white/[0.07] transition-colors border-t border-t-transparent
+                  ${isActive ? 'text-[#e8e8e8]' : 'text-white/30 hover:text-white/60'}
+                `}
+              >
+                {tab.showDot && isActive && (
+                  <span className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: tab.color }} />
+                )}
+                {tab.label}
+              </button>
+            )
+          })}
+        </nav>
 
-      {/* Tabs */}
-      <nav className="flex h-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
-        {tabs.map(tab => {
-          const isActive = active === tab.id
-          return (
-            <button
-              key={tab.id}
-              onClick={() => handleTab(tab)}
-              style={isActive ? { borderTopColor: tab.color } : {}}
-              className={`
-                flex items-center gap-[7px] px-3 sm:px-4 h-full text-[11px] sm:text-[12px] font-mono shrink-0
-                border-r border-white/[0.07] transition-colors border-t border-t-transparent
-                ${isActive ? 'text-[#e8e8e8]' : 'text-white/30 hover:text-white/60'}
-              `}
-            >
-              {tab.showDot && isActive && (
-                <span
-                  className="w-[6px] h-[6px] rounded-full"
-                  style={{ backgroundColor: tab.color }}
-                />
-              )}
-              {tab.label}
-            </button>
-          )
-        })}
-      </nav>
+        {/* Language toggle */}
+        <button
+          onClick={toggle}
+          className="ml-auto px-3 h-full font-mono text-[11px] text-white/30 hover:text-[#4ec9b0] transition-colors shrink-0 tracking-widest"
+        >
+          {lang === 'es' ? 'EN' : 'ES'}
+        </button>
+      </div>
     </header>
   )
 }
