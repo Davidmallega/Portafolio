@@ -10,9 +10,40 @@ function PreviewModal({ project, onClose }) {
   const mobileImages = project.previewMobile ? [project.previewMobile] : images
   const [idx, setIdx] = useState(0)
   const total = images.length
+  const touchX    = useRef(null)
+  const swipeRef  = useRef(null)
+
+  // Bloquea scroll mientras el modal está abierto
+  useEffect(() => {
+    const y = window.scrollY
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
+      window.scrollTo(0, y)
+    }
+  }, [])
+
+  // Previene scroll de página al hacer swipe en la imagen (requiere passive:false)
+  useEffect(() => {
+    const el = swipeRef.current
+    if (!el) return
+    const prevent = (e) => e.preventDefault()
+    el.addEventListener('touchmove', prevent, { passive: false })
+    return () => el.removeEventListener('touchmove', prevent)
+  }, [])
 
   const prev = (e) => { e.stopPropagation(); setIdx(i => (i - 1 + total) % total) }
   const next = (e) => { e.stopPropagation(); setIdx(i => (i + 1) % total) }
+
+  const onTouchStart = (e) => { touchX.current = e.touches[0].clientX }
+  const onTouchEnd   = (e) => {
+    if (touchX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchX.current
+    if (Math.abs(dx) > 40) dx < 0 ? setIdx(i => (i + 1) % total) : setIdx(i => (i - 1 + total) % total)
+    touchX.current = null
+  }
 
   return createPortal(
     <div
@@ -25,7 +56,7 @@ function PreviewModal({ project, onClose }) {
           <span className="font-mono text-[11px] text-[#4ec9b0]/70">{project.title} — preview</span>
           {total > 1 && <span className="font-mono text-[10px] text-white/30">{idx + 1} / {total}</span>}
         </div>
-        <div className="relative w-full">
+        <div ref={swipeRef} className="relative w-full" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <div className="w-full rounded-xl border border-white/10 bg-white/[0.03] p-1">
             <img src={mobileImages[idx]} alt={`Preview ${project.title}`} className="w-full rounded-lg" />
           </div>

@@ -47,6 +47,7 @@ export const projects = [
     descriptionEn: 'Tip management SaaS. 4 roles, MercadoPago payments, email invitations, dark mode, rate limiting. 10 Scrum sprints, 40+ user stories.',
     link: 'https://github.com/Davidmallega',
     linkLabel: 'en desarrollo',
+    previews: ['/assets/previews/propinapp.png', '/assets/previews/propinapp1.png'],
   },
   {
     id: 4,

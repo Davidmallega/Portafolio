@@ -7,6 +7,17 @@ export default function CertificateModal({ cert, onClose }) {
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
 
+  useEffect(() => {
+    const y = window.scrollY
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
+      window.scrollTo(0, y)
+    }
+  }, [])
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
