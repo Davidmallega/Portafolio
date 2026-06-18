@@ -193,6 +193,7 @@ body {
 }
 .skill-badge.electron:hover { color: #9cdcfe; border-color: rgba(156,220,254,0.4); background: rgba(156,220,254,0.06); }
 .skill-badge.ps:hover { color: #31a8ff; border-color: rgba(49,168,255,0.4); background: rgba(49,168,255,0.06); }
+
 .skill-badge.ai:hover { color: #ff9a00; border-color: rgba(255,154,0,0.4); background: rgba(255,154,0,0.06); }
 
 /* Experience tree expand/collapse */

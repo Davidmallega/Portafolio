@@ -60,7 +60,10 @@ export default function TopBar() {
                 {tab.showDot && isActive && (
                   <span className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: tab.color }} />
                 )}
-                {tab.label}
+                {tab.id === 'certificates'
+                  ? <><span className="sm:hidden">certs</span><span className="hidden sm:inline">certificates</span></>
+                  : tab.label
+                }
               </button>
             )
           })}

@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 const COLORS   = ['#00d4ff', '#00aaff', '#0077ff', '#33eeff', '#00ffee']
 const COUNT    = 80
 const MAX_DIST = 150
-const OPACITY  = 0.110  // 0.0 = invisible · 1.0 = máximo
+const OPACITY  = 0.30  // 0.0 = invisible · 1.0 = máximo
 
 export default function ParticlesBackground() {
   const canvasRef = useRef(null)

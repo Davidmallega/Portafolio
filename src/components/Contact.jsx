@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import { Mail, MapPin } from 'lucide-react'
@@ -11,6 +11,13 @@ export default function Contact() {
   const { t }    = useLang()
   const [pos, setPos]         = useState({ x: 50, y: 50 })
   const [hovered, setHovered] = useState(false)
+  const [screenW, setScreenW] = useState(() => window.innerWidth)
+
+  useEffect(() => {
+    const update = () => setScreenW(window.innerWidth)
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
 
   const handleMouseMove = (e) => {
     const rect = cardRef.current.getBoundingClientRect()
@@ -35,7 +42,7 @@ export default function Contact() {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             className="relative w-full max-w-[560px] lg:max-w-none rounded-2xl overflow-hidden select-none"
-            style={{ aspectRatio: '1.75 / 1' }}
+            style={screenW >= 640 ? { aspectRatio: '1.75 / 1' } : {}}
           >
             {/* Base oscuro de la tarjeta */}
             <div className="absolute inset-0 bg-[#010812] border border-[#1a3a5c]/30 rounded-2xl" />
@@ -84,7 +91,9 @@ export default function Contact() {
             />
 
             {/* Contenido — mobile: columna / lg: fila */}
-            <div className="relative z-10 h-full flex flex-col justify-between p-8 lg:flex-row lg:items-center lg:justify-between lg:px-14 lg:py-0">
+            <div className="relative z-10 flex flex-col justify-between gap-4 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-0 lg:px-14 lg:py-0"
+              style={screenW >= 640 ? { height: '100%' } : {}}
+            >
 
               {/* Nombre + título */}
               <div className="lg:shrink-0">
@@ -108,18 +117,22 @@ export default function Contact() {
                     davidmallega@gmail.com
                   </span>
                 </a>
-                <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
-                  <FaLinkedin size={12} className="text-white/25 group-hover:text-[#0a66c2] shrink-0 transition-colors" />
-                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
-                    linkedin.com/in/david-mallega
-                  </span>
-                </a>
-                <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
-                  <SiGithub size={12} className="text-white/25 group-hover:text-white shrink-0 transition-colors" />
-                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
-                    github.com/Davidmallega
-                  </span>
-                </a>
+                {screenW >= 390 && (
+                  <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
+                    <FaLinkedin size={12} className="text-white/25 group-hover:text-[#0a66c2] shrink-0 transition-colors" />
+                    <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                      linkedin.com/in/david-mallega
+                    </span>
+                  </a>
+                )}
+                {screenW >= 390 && (
+                  <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
+                    <SiGithub size={12} className="text-white/25 group-hover:text-white shrink-0 transition-colors" />
+                    <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                      github.com/Davidmallega
+                    </span>
+                  </a>
+                )}
                 <a href="https://wa.me/56996148763" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <FaWhatsapp size={12} className="text-white/25 group-hover:text-[#25d366] shrink-0 transition-colors" />
                   <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-[#25d366] transition-colors">
