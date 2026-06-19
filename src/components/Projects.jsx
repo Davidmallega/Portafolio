@@ -51,7 +51,7 @@ function PreviewModal({ project, lang, onClose }) {
       onClick={onClose}
     >
       {/* Mobile */}
-      <div className="lg:hidden flex flex-col w-full" onClick={e => e.stopPropagation()}>
+      <div className="md:hidden flex flex-col w-full" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between px-3 pb-2">
           <span className="font-mono text-[11px] text-[#4ec9b0]/70">{project.title} — preview</span>
           {total > 1 && <span className="font-mono text-[10px] text-white/30">{idx + 1} / {total}</span>}
@@ -86,8 +86,8 @@ function PreviewModal({ project, lang, onClose }) {
       </div>
 
       {/* Desktop */}
-      <div className="hidden lg:block relative w-full max-w-[1175px]" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between mb-3">
+      <div className="hidden md:flex flex-col relative w-full max-w-[820px] max-h-[88vh]" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-3 shrink-0">
           <span className="font-mono text-[11px] text-[#4ec9b0]/70">
             {project.title} — preview {total > 1 && <span className="text-white/30">{idx + 1} / {total}</span>}
           </span>
@@ -95,6 +95,7 @@ function PreviewModal({ project, lang, onClose }) {
             × cerrar
           </button>
         </div>
+        <div className="overflow-y-auto">
         <div className="relative w-full rounded-2xl border border-white/10 bg-white/[0.03] p-3">
           <img src={images[idx]} alt={`Preview ${project.title}`} className="w-full rounded-xl" />
           {total > 1 && (
@@ -117,7 +118,8 @@ function PreviewModal({ project, lang, onClose }) {
             {lang === 'en' && project.previewDescEn ? project.previewDescEn : project.previewDesc}
           </p>
         )}
-      </div>
+        </div>{/* overflow-y-auto */}
+      </div>{/* desktop wrapper */}
     </div>,
     document.body
   )
