@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import { projects } from '../data/projects'
 
-function PreviewModal({ project, onClose }) {
+function PreviewModal({ project, lang, onClose }) {
   const images = project.previews ?? (project.preview ? [project.preview] : [])
   const mobileImages = project.previewMobile ? [project.previewMobile] : images
   const [idx, setIdx] = useState(0)
@@ -75,7 +75,12 @@ function PreviewModal({ project, onClose }) {
             ))}
           </div>
         )}
-        <button onClick={onClose} className="font-mono text-[15px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors px-3 pt-3 pb-1 text-right">
+        {(project.previewDesc || project.previewDescEn) && (
+          <p className="font-sans text-[11px] text-white/35 leading-relaxed px-3 pt-2">
+            {lang === 'en' && project.previewDescEn ? project.previewDescEn : project.previewDesc}
+          </p>
+        )}
+        <button onClick={onClose} className="font-mono text-[15px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors px-3 pt-2 pb-1 text-right">
           × cerrar
         </button>
       </div>
@@ -106,6 +111,11 @@ function PreviewModal({ project, onClose }) {
                 className={`w-1.5 h-1.5 rounded-full transition-colors ${i === idx ? 'bg-[#bc8cff]' : 'bg-white/20'}`} />
             ))}
           </div>
+        )}
+        {(project.previewDesc || project.previewDescEn) && (
+          <p className="font-sans text-[12px] text-white/35 leading-relaxed mt-4 border-t border-white/[0.06] pt-3">
+            {lang === 'en' && project.previewDescEn ? project.previewDescEn : project.previewDesc}
+          </p>
         )}
       </div>
     </div>,
@@ -228,7 +238,7 @@ function ProjectCard({ project, onCompile, lang }) {
       )}
 
       {showPreview && (
-        <PreviewModal project={project} onClose={() => setShowPreview(false)} />
+        <PreviewModal project={project} lang={lang} onClose={() => setShowPreview(false)} />
       )}
     </div>
   )

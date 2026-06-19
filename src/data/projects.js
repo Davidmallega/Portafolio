@@ -23,6 +23,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Inspector-IA',
     preview: '/assets/previews/inspector.png',
     previewMobile: '/assets/previews/inspector1.png',
+    previewDesc: 'Sube una foto y elige qué quieres saber: descripción, detección de objetos, OCR, emoción, alt-text o pregunta libre. Gemini multimodal analiza la imagen desde Cloud Storage via URI gs:// — sin convertir a base64 — y responde en lenguaje natural. Muestra tiempos de subida y análisis por separado.',
+    previewDescEn: 'Upload a photo and choose what you want to know: description, object detection, OCR, emotion, alt-text or free question. Multimodal Gemini analyzes the image from Cloud Storage via gs:// URI — no base64 — and replies in natural language. Shows upload and analysis times separately.',
   },
   {
     id: 2,
@@ -36,6 +38,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Uptime-Monitor',
     preview: '/assets/previews/uptime.png',
     previewMobile: '/assets/previews/uptime1.png',
+    previewDesc: 'Agrega URLs desde el dashboard y Cloud Scheduler las pingea automáticamente cada 15 minutos con Promise.all + AbortController (timeout 10s). Cada URL tiene un semáforo verde/rojo según su uptime en las últimas 24h, KPIs globales y auto-refresh cada 60s.',
+    previewDescEn: 'Add URLs from the dashboard and Cloud Scheduler pings them automatically every 15 minutes with Promise.all + AbortController (10s timeout). Each URL has a green/red traffic light based on its 24h uptime, global KPIs and 60s auto-refresh.',
   },
   {
     id: 3,
@@ -48,6 +52,8 @@ export const projects = [
     link: 'https://github.com/Davidmallega',
     linkLabel: 'en desarrollo',
     previews: ['/assets/previews/propinapp.png', '/assets/previews/propinapp1.png'],
+    previewDesc: 'SaaS para gestión de propinas en locales gastronómicos. 4 roles (admin, cajero, garzón, cocina), pagos con MercadoPago, invitaciones por email, dark mode y rate limiting. Desarrollado en 10 sprints Scrum con más de 40 user stories.',
+    previewDescEn: 'Tip management SaaS for restaurants. 4 roles (admin, cashier, waiter, kitchen), MercadoPago payments, email invitations, dark mode and rate limiting. Built over 10 Scrum sprints with 40+ user stories.',
   },
   {
     id: 4,
@@ -59,6 +65,8 @@ export const projects = [
     descriptionEn: 'Desktop app for business expenses. SII invoices, cross-period credit notes, recurring commitments. Multiplatform build.',
     link: 'https://github.com/Davidmallega/Gastos-App',
     linkLabel: 'github.com/Davidmallega/Gastos-App',
+    previewDesc: 'App de escritorio para gastos empresariales. Importa facturas SII, maneja Notas de Crédito entre períodos y compromisos de pago recurrentes. Múltiples proveedores, categorías configurables, informes exportables y papelera de recuperación.',
+    previewDescEn: 'Desktop app for business expense management. Imports SII invoices, handles cross-period credit notes and recurring payment commitments. Multiple suppliers, configurable categories, exportable reports and a recovery trash bin.',
     previews: [
       '/assets/previews/gastosapp/dashboard.png',
       '/assets/previews/gastosapp/gastos-caja.png',
@@ -86,6 +94,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/SismosCL',
     preview: '/assets/previews/sismos.png',
     previewMobile: '/assets/previews/sismos1.png',
+    previewDesc: 'Dashboard con ~42.000 sismos en Chile desde 1990, cargados desde el USGS via ETL. Muestra el sismo más reciente, KPIs históricos, volumen anual, distribución por magnitud y el Top 10 — incluye el 27F de 2010 (Maule, M 8.8). Cada visita ejecuta queries SQL analíticas en BigQuery en tiempo real.',
+    previewDescEn: 'Dashboard with ~42,000 Chilean earthquakes since 1990, loaded from the USGS via ETL. Shows the most recent quake, historical KPIs, annual volume, magnitude distribution and Top 10 — including the 2010 Maule M8.8 earthquake. Each visit runs live analytical SQL queries on BigQuery.',
   },
   {
     id: 6,
@@ -99,6 +109,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Objectlens',
     preview: '/assets/previews/objectlens.png',
     previewMobile: '/assets/previews/objectlens1.png',
+    previewDesc: 'Sube una imagen y Cloud Vision API detecta objetos dibujando bounding boxes sobre la foto, con color único y porcentaje de confianza por objeto. Las coordenadas normalizadas (0-1) se traducen a % CSS — escala en cualquier pantalla. Slider para filtrar por confianza sin rellamar a la API.',
+    previewDescEn: 'Upload an image and Cloud Vision API detects objects by drawing bounding boxes on the photo, each with a unique color and confidence percentage. Normalized coordinates (0-1) map to CSS % — scales on any screen. Confidence slider filters without re-calling the API.',
   },
   {
     id: 7,
@@ -112,6 +124,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Clima-live',
     preview: '/assets/previews/clima.png',
     previewMobile: '/assets/previews/clima1.png',
+    previewDesc: 'Busca cualquier ciudad del mundo y muestra clima actual (temperatura, sensación térmica, humedad, viento, presión) más pronóstico de 5 días al mediodía. La API key de OpenWeatherMap vive en Secret Manager — nunca en el bundle JS ni en GitHub.',
+    previewDescEn: 'Search any city in the world and see current weather (temperature, feels-like, humidity, wind, pressure) plus a 5-day midday forecast. The OpenWeatherMap API key lives in Secret Manager — never in the JS bundle or GitHub.',
   },
   {
     id: 8,
@@ -125,6 +139,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Chat-Live',
     preview: '/assets/previews/chat.png',
     previewMobile: '/assets/previews/chat1.png',
+    previewDesc: 'Sala de chat global con mensajes en tiempo real: aparecen al instante en todas las pestañas sin recargar. Login con Google en un clic. Sin backend — las Reglas de Firestore reemplazan al servidor. Solo puedes borrar tus propios mensajes.',
+    previewDescEn: 'Global chat room with real-time messages: they appear instantly across all tabs without refreshing. One-click Google login. No backend — Firestore Rules replace the server. You can only delete your own messages.',
   },
   {
     id: 9,
@@ -138,6 +154,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Transferencia-Bancaria',
     preview: '/assets/previews/transferencia.png',
     previewMobile: '/assets/previews/transferencia1.png',
+    previewDesc: 'Simula transferencias bancarias con validación asíncrona: el usuario recibe un 202 Accepted inmediato y un worker de Pub/Sub valida en segundo plano (saldo, límite). El frontend hace polling cada 1s y muestra el estado en vivo: En validación → Aprobada ✓ o Rechazada ✗.',
+    previewDescEn: 'Simulates bank transfers with async validation: the user gets an immediate 202 Accepted and a Pub/Sub worker validates in the background (balance, limit). The frontend polls every 1s and shows the live state: Validating → Approved ✓ or Rejected ✗.',
   },
   {
     id: 10,
@@ -151,6 +169,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Mini-Tienda',
     preview: '/assets/previews/mini-tienda.png',
     previewMobile: '/assets/previews/mini-tienda1.png',
+    previewDesc: 'Catálogo de productos con CRUD completo. El frontend nunca manipula datos directamente — todo pasa por la API REST en capas sobre Cloud Run. Doble validación cliente-servidor, modo claro/oscuro y los cuatro estados de UI: cargando, vacío, error, con datos.',
+    previewDescEn: 'Product catalog with full CRUD. The frontend never manipulates data directly — everything goes through the layered REST API on Cloud Run. Double client-server validation, light/dark mode and the four UI states: loading, empty, error, with data.',
   },
   {
     id: 11,
@@ -164,6 +184,8 @@ export const projects = [
     linkLabel: 'github.com/Davidmallega/Galeria-Cloud-Storage',
     preview: '/assets/previews/galeria.png',
     previewMobile: '/assets/previews/galeria1.png',
+    previewDesc: 'Galería con subida por drag & drop. El backend recibe la imagen como multipart/form-data y la sube a Cloud Storage via Buffer en memoria — sin tocar disco, sin temporales. Una vez subida, el navegador carga la imagen directamente desde la URL pública del bucket.',
+    previewDescEn: 'Gallery with drag & drop upload. The backend receives the image as multipart/form-data and uploads it to Cloud Storage via in-memory Buffer — no disk, no temp files. Once uploaded, the browser loads the image directly from the bucket public URL.',
   },
 ]
 
