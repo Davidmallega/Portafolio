@@ -175,10 +175,19 @@ function BadgeCard({ badge, t }) {
   )
 }
 
+const INFLUENCERS = [
+  { name: 'Héctor de León', handle: 'hdeleon.net',        url: 'https://hdeleon.net/' },
+  { name: 'midudev',        handle: 'midu.dev',           url: 'https://midu.dev/' },
+  { name: 'Fernando Herrera', handle: 'fernando-herrera.com', url: 'https://fernando-herrera.com/' },
+  { name: 'Nicolás Schurmann', handle: 'holamundo.io',    url: 'https://www.holamundo.io/' },
+  { name: 'mouredev',       handle: 'moure.dev',          url: 'https://moure.dev/' },
+]
+
 export default function Certificates() {
   const r1 = useReveal()
   const r2 = useReveal()
   const r3 = useReveal()
+  const r4 = useReveal()
   const [selected, setSelected] = useState(null)
   const { lang, t } = useLang()
 
@@ -219,6 +228,40 @@ export default function Certificates() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
           {credlyBadges.map(b => (
             <BadgeCard key={b.id} badge={b} t={t} />
+          ))}
+        </div>
+      </div>
+
+      {/* Influencers / referencias */}
+      <div ref={r4} className="reveal mt-16 lg:mt-20">
+        <div className="h-px bg-white/[0.07] mb-10" />
+        <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
+          <span className="text-white/20 select-none">~/</span>
+          {lang === 'en' ? 'references' : 'referencias'}
+        </p>
+        <p className="font-mono text-[10px] text-white/20 mb-8">
+          {lang === 'en'
+            ? '// creators who keep me sharp and up to date'
+            : '// creadores que me mantienen al día con las tecnologías'}
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {INFLUENCERS.map(inf => (
+            <a
+              key={inf.handle}
+              href={inf.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:border-[#4ec9b0]/40 hover:bg-[#4ec9b0]/05 transition-all duration-200"
+            >
+              <div>
+                <p className="font-sans text-[13px] text-white/70 group-hover:text-white transition-colors leading-tight">
+                  {inf.name}
+                </p>
+                <p className="font-mono text-[10px] text-white/25 group-hover:text-[#4ec9b0]/60 transition-colors">
+                  {inf.handle} ↗
+                </p>
+              </div>
+            </a>
           ))}
         </div>
       </div>

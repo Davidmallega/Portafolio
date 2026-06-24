@@ -168,4 +168,17 @@ export const certificates = [
     descriptionEn: 'Native apps for iOS and Android with React Native CLI, hooks, navigation and API consumption.',
     img: '/assets/certificates/react-native-cli-udemy.jpg',
   },
+  {
+    id: 14,
+    category: 'Curso',
+    title: 'Git + GitHub: Todo un sistema de control de versiones',
+    institution: 'Udemy',
+    year: 2026,
+    effort: '+Xh',
+    bars: 2,
+    badge: null,
+    description: 'Control de versiones con Git: ramas, merges, resolución de conflictos, flujos de trabajo y GitHub.',
+    descriptionEn: 'Version control with Git: branches, merges, conflict resolution, workflows and GitHub.',
+    img: '/assets/certificates/git-github-udemy.jpg',
+  },
 ]

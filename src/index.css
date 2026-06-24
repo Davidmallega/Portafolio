@@ -196,6 +196,12 @@ body {
 
 .skill-badge.ai:hover { color: #ff9a00; border-color: rgba(255,154,0,0.4); background: rgba(255,154,0,0.06); }
 
+/* Chat typing dots */
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
+  30%            { opacity: 1;   transform: translateY(-3px); }
+}
+
 /* Experience tree expand/collapse */
 .exp-body {
   display: grid;

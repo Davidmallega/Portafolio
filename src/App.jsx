@@ -10,6 +10,7 @@ import StatsBanner from './components/StatsBanner'
 import Contact from './components/Contact'
 import Certificates from './components/Certificates'
 import SDLCPage from './components/SDLCPage'
+import About from './components/About'
 import ParticlesBackground from './components/ParticlesBackground'
 import StatusBar from './components/StatusBar'
 import { projects } from './data/projects'
@@ -44,14 +45,14 @@ function ScrollToTop() {
 }
 
 function AppInner() {
-  const [doneCount, setDoneCount] = useState(0)
+  const [compiledIds, setCompiledIds] = useState(new Set())
   const location = useLocation()
 
   useEffect(() => {
-    if (location.pathname === '/') setDoneCount(0)
+    if (location.pathname === '/') setCompiledIds(new Set())
   }, [location.pathname])
 
-  const handleCompile = () => setDoneCount(d => d + 1)
+  const handleCompile = (id) => setCompiledIds(prev => new Set([...prev, id]))
 
   return (
     <>
@@ -62,8 +63,9 @@ function AppInner() {
         <Route path="/" element={<Home onCompile={handleCompile} />} />
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/sdlc" element={<SDLCPage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
-      <StatusBar totalErrors={projects.length} doneCount={doneCount} />
+      <StatusBar totalErrors={projects.length} doneCount={compiledIds.size} />
     </>
   )
 }
