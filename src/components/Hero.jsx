@@ -101,7 +101,7 @@ export default function Hero() {
       {/* Modal del chat */}
       {chatOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 pt-4 sm:pt-6"
           onClick={() => setChatOpen(false)}
         >
           {/* Backdrop */}
@@ -109,7 +109,7 @@ export default function Hero() {
 
           {/* Contenedor del chat */}
           <div
-            className="relative z-10 w-full max-w-md"
+            className="relative z-10 w-full sm:max-w-md"
             onClick={e => e.stopPropagation()}
           >
             <ChatWindow onClose={() => setChatOpen(false)} />

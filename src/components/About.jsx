@@ -121,12 +121,12 @@ function TypingIndicator({ status }) {
 function QuickReplies({ replies, onSelect }) {
   if (!replies?.length) return null
   return (
-    <div className="flex flex-wrap gap-2 px-3 py-3">
+    <div className="flex sm:flex-wrap gap-2 px-3 py-3 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       {replies.map(r => (
         <button
           key={r}
           onClick={() => onSelect(r)}
-          className="font-mono text-[11px] px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] text-white/40 hover:border-[#bc8cff]/40 hover:text-[#bc8cff]/80 hover:bg-[#bc8cff]/05 transition-all"
+          className="font-mono text-[11px] px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] text-white/40 hover:border-[#bc8cff]/40 hover:text-[#bc8cff]/80 hover:bg-[#bc8cff]/05 transition-all shrink-0"
         >
           {r}
         </button>
@@ -224,7 +224,7 @@ export function ChatWindow({ onClose } = {}) {
       </div>
 
       {/* Historial de mensajes */}
-      <div className="h-[340px] overflow-y-auto p-4 flex flex-col bg-[#0f0f12]">
+      <div className="h-[240px] sm:h-[340px] overflow-y-auto p-4 flex flex-col bg-[#0f0f12]">
         {messages.map(m => <Bubble key={m.id} msg={m} />)}
         <TypingIndicator status={typing} />
         <div ref={bottomRef} />
@@ -241,7 +241,7 @@ export function ChatWindow({ onClose } = {}) {
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKey}
           placeholder="Escríbeme algo..."
-          className="flex-1 bg-transparent font-mono text-[12px] text-white/70 placeholder:text-white/20 outline-none"
+          className="flex-1 bg-transparent font-mono text-[16px] sm:text-[12px] text-white/70 placeholder:text-white/20 outline-none"
         />
         <button
           onClick={() => sendMessage(input)}
