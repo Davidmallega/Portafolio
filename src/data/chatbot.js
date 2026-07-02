@@ -132,7 +132,7 @@ export const RESPONSES = [
       'buscas a futuro', 'qué esperas lograr', 'que esperas lograr',
     ],
     response:
-      'Busco consolidarme en una empresa donde pueda aportar por años — en mi último trabajo estuve 10 años y eso refleja cómo me relaciono con el trabajo. A mediano plazo me interesa crecer hacia roles de arquitectura de software o liderazgo técnico. La estabilidad es clave para mí, tengo compromisos serios como padre y dueño de propiedades.',
+      'Busco consolidarme en una empresa donde pueda aportar por años — en mi último trabajo estuve 10 años y eso refleja cómo me relaciono con el trabajo. A mediano plazo me interesa crecer hacia roles de arquitectura de software o liderazgo técnico. La estabilidad es clave para mí, tengo compromisos serios como padre.',
     followUp: ['¿Qué aprendiste últimamente?', '¿Cómo te mantienes al día?', '¿Cuáles son tus hobbies?'],
   },
 
