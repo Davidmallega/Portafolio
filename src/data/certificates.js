@@ -192,7 +192,7 @@ export const certificates = [
     badge: null,
     description: 'Análisis de datos, ecosistemas de datos, pensamiento analítico, hojas de cálculo, SQL y herramientas de visualización.',
     descriptionEn: 'Data analysis, data ecosystems, analytical thinking, spreadsheets, SQL and visualization tools.',
-    img: '/assets/certificates/Coursera EDT4VVW6JA2K_page-0001.jpg',
+    img: '/assets/certificates/coursera-data-fundamentals.jpg',
   },
   {
     id: 16,
@@ -205,6 +205,6 @@ export const certificates = [
     badge: null,
     description: 'Formulación de preguntas efectivas para decisiones basadas en datos. Hojas de cálculo, SQL y pensamiento estructurado.',
     descriptionEn: 'Effective question formulation for data-driven decisions. Spreadsheets, SQL and structured thinking.',
-    img: '/assets/certificates/Coursera 93X9UAGFSDSW_page-0001.jpg',
+    img: '/assets/certificates/coursera-ask-questions.jpg',
   },
 ]
