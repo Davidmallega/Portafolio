@@ -27,11 +27,16 @@ Máximo 3 oraciones por respuesta. Sin emojis. Sin listas.
 
 === CERTIFICACIONES VERIFICADAS (badges Credly) ===
 - Introduction to Cybersecurity — Cisco 2026 (+40h)
+- Ethical Hacker — Cisco Networking Academy 2026 (+70h, badge verificado Credly): ethical hacking, pentesting, Kali Linux, WebSploit, scoping y reporte de vulnerabilidades
 - AI Fundamentals with IBM SkillsBuild — Cisco + IBM 2026 (+40h)
 - Artificial Intelligence Fundamentals — IBM SkillsBuild 2026
 - Gestión de Proyectos y Agile — Open Academy 2025
 - JavaScript — SENCE/Movistar 2025 (+40h, score 100/100)
 - React Native CLI — Udemy 2026 (+33h)
+- Git + GitHub — Udemy 2026
+- Fundamentos: Datos, datos por todas partes — Google/Coursera 2026 (curso 1 del certificado profesional de Analista de Datos de Google)
+- Ask Questions to Make Data-Driven Decisions — Google/Coursera 2026 (curso 2 del certificado profesional de Analista de Datos de Google)
+Actualmente cursando el Certificado Profesional de Analista de Datos de Google en Coursera (serie de 8 cursos). Ya completó 2 de los 8 cursos.
 Cuando pregunten por certificados, sugiere ver la pestaña de certificados del portfolio.
 
 === PROYECTOS DEL PORTFOLIO ===
@@ -76,7 +81,7 @@ Si preguntan si sabe o maneja alguna de estas tecnologías, confirma que sí con
 - Disponibilidad: 100% remoto preferido — presencial solo si es cerca de casa (sector Maipú o alrededores)
 - Familia: dos hijos, Rafaela y Lucas — su pilar y motivación principal
 - Hobbies: guitarra eléctrica (Ibanez JS240PS Joe Satriani), home studio, videojuegos
-- Ciberseguridad: certificado Cisco, estación Kali Linux, ethical hacking y pentesting`
+- Ciberseguridad: dos badges Credly Cisco — Introducción a Ciberseguridad y Ethical Hacker (2026), estación Kali Linux, 34 actividades prácticas con WebSploit`
 
 // ─── Respuestas hardcodeadas — orden importa: más específico primero ───────
 export const RESPONSES = [
@@ -150,9 +155,13 @@ export const RESPONSES = [
       'qué sabes nuevo', 'que sabes nuevo',
       'qué tecnologia aprendiste', 'que tecnologia aprendiste',
       'ultimamente aprendiste', 'últimamente aprendiste',
+      'coursera', 'google coursera', 'certificado google', 'google certificate',
+      'analista de datos', 'data analyst', 'analisis de datos', 'análisis de datos',
+      'datos por todas partes', 'ask questions', 'data driven',
+      'diploma google', 'nuevo diploma', 'nuevos diplomas', 'que diplomas',
     ],
     response:
-      'El último año lo invertí principalmente en arquitectura cloud con GCP — servicios como Cloud Run, Pub/Sub, BigQuery y Gemini. Cada proyecto de mi portfolio nació de algo que no sabía antes de empezarlo. Aprender construyendo es lo que más me funciona.',
+      'Últimamente estoy completando el Certificado Profesional de Analista de Datos de Google en Coursera — llevo 2 de los 8 cursos terminados: "Fundamentos: Datos, datos por todas partes" y "Ask Questions to Make Data-Driven Decisions". En paralelo seguí profundizando en arquitectura cloud con GCP. Aprender construyendo es lo que más me funciona.',
     followUp: ['¿Cómo te mantienes al día?', '¿Tienes proyectos personales?', '¿Dónde te ves en 5 años?'],
   },
 
@@ -173,7 +182,7 @@ export const RESPONSES = [
       'estudias nuevas', 'estudias tecnologias',
     ],
     response:
-      'Construyendo cosas. Cuando algo me llama la atención lo implemento de cero — así nacieron la mayoría de los proyectos de mi portfolio. También sigo documentación oficial y comunidades técnicas. Para mí leer sin tocar el teclado no es suficiente.',
+      'Construyendo cosas y certificándome. Actualmente estoy cursando el Certificado Profesional de Analista de Datos de Google en Coursera. También sigo documentación oficial y comunidades técnicas. Para mí leer sin tocar el teclado no es suficiente.',
     followUp: ['¿Tienes proyectos personales?', '¿Cuál es tu stack?', '¿Qué aprendiste últimamente?'],
   },
 
@@ -305,16 +314,18 @@ export const RESPONSES = [
     triggers: [
       'ciberseguridad', 'cyberseguridad', 'ciberseg',
       'seguridad informatica', 'seguridad informática', 'seguridad en redes',
-      'hacking', 'ethical hacking', 'pentesting', 'pentest',
+      'hacking', 'ethical hacking', 'ethical hacker', 'hacker etico', 'hacker ético',
+      'pentesting', 'pentest',
       'kali', 'kali linux',
       'cisco', 'certificado cisco', 'certificado seguridad',
+      'webSploit', 'websploit', 'scoping', 'reporte de vulnerabilidades',
       'vulnerabilidades', 'exploit', 'ataques informaticos', 'ataques ciberneticos',
       'malware', 'firewall', 'intrusion',
       'redes', 'laboratorio de redes', 'lab de seguridad',
       'te interesa la seguridad', 'ctf', 'proteccion', 'protección',
     ],
     response:
-      'Tengo el certificado y badge de Introducción a Ciberseguridad de Cisco (Credly), y una estación dedicada con Kali Linux para ethical hacking, pentesting y laboratorio de redes. Lo estudio por interés real — me ayuda a entender las amenazas desde el otro lado y a escribir código más seguro. Puedes ver el badge en la pestaña de certificados.',
+      'Tengo dos certificaciones Cisco verificadas en Credly: Introducción a Ciberseguridad y Ethical Hacker (agosto 2026) — este último cubre pentesting, scoping, reporte de vulnerabilidades y 34 actividades prácticas con Kali Linux y WebSploit. También tengo una estación dedicada con Kali Linux para laboratorio de redes. Lo estudio por interés real — me ayuda a escribir código más seguro. Puedes ver los badges en la pestaña de certificados.',
     followUp: ['Setup desarrollo', 'Setup musical', '¿Tienes proyectos personales?'],
   },
 
