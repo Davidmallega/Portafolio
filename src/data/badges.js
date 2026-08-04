@@ -23,4 +23,12 @@ export const credlyBadges = [
     img: 'https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png',
     url: 'https://www.credly.com/badges/3a19b482-62cb-4eec-ae3d-25676eeeada8/public_url',
   },
+  {
+    id: 'e73fc65b-9f27-49e4-85f2-4e7c1f6b4ab6',
+    name: 'Ethical Hacker',
+    issuer: 'Cisco',
+    date: 'Agosto 2026',
+    img: 'https://images.credly.com/size/340x340/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png',
+    url: 'https://www.credly.com/badges/e73fc65b-9f27-49e4-85f2-4e7c1f6b4ab6/public_url',
+  },
 ]

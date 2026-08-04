@@ -207,4 +207,17 @@ export const certificates = [
     descriptionEn: 'Effective question formulation for data-driven decisions. Spreadsheets, SQL and structured thinking.',
     img: '/assets/certificates/coursera-ask-questions.jpg',
   },
+  {
+    id: 17,
+    category: 'Certificación',
+    title: 'Ethical Hacker',
+    institution: 'Cisco Networking Academy',
+    year: 2026,
+    effort: '+70h',
+    bars: 4,
+    badge: 'Credly verified',
+    description: 'Ethical hacking, pentesting, scoping y reporte de vulnerabilidades. 34 actividades prácticas con Kali Linux, WebSploit y otras herramientas.',
+    descriptionEn: 'Ethical hacking, penetration testing, scoping and vulnerability reporting. 34 hands-on activities with Kali Linux, WebSploit and other tools.',
+    img: '/assets/certificates/ethical-hacker-cisco.jpg',
+  },
 ]
