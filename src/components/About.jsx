@@ -39,6 +39,13 @@ function norm(str) {
   return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 }
 
+// ─── Detecta idioma: español si contiene palabras clave, inglés si no ────────
+const ES_WORDS = new Set(['que', 'como', 'donde', 'cuando', 'tienes', 'estas', 'eres', 'hay', 'para', 'una', 'los', 'del', 'cual', 'con', 'tus', 'por', 'cual', 'quien', 'cuanto', 'dónde', 'cuándo', 'estás'])
+function detectLang(text) {
+  const words = norm(text).split(/\W+/).filter(Boolean)
+  return words.some(w => ES_WORDS.has(w)) ? 'es' : 'en'
+}
+
 // ─── Resolver de respuestas hardcodeadas ─────────────────────────────────────
 function resolveLocal(input) {
   const lower = norm(input)
@@ -162,10 +169,12 @@ export function ChatWindow({ onClose } = {}) {
     const local = resolveLocal(trimmed)
 
     if (local) {
+      const lang = detectLang(trimmed)
+      const text = lang === 'en' && local.responseEn ? local.responseEn : local.response
       setTyping('thinking')
       await delay(600 + Math.random() * 600)
       setTyping(null)
-      setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: local.response, source: 'local', whatsapp: !!local.whatsapp }])
+      setMessages(prev => [...prev, { id: Date.now(), role: 'david', text, source: 'local', whatsapp: !!local.whatsapp }])
       setQuickReplies(local.followUp ?? [])
       return
     }
