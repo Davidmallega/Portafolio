@@ -15,7 +15,7 @@ export const credlyBadges = [
     date: 'Abril 2026',
     img: 'https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png',
     url: 'https://www.credly.com/badges/61441c4d-c522-468a-b210-51b82a85e516/public_url',
-    cert: '/assets/certificates/ai-fundamentals-cisco-ibm-n.jpg',
+    cert: '/assets/certificates/ai-fundamentals-cisco-ibm.jpg',
   },
   {
     id: '3a19b482-62cb-4eec-ae3d-25676eeeada8',
