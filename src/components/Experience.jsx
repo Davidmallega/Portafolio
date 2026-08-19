@@ -189,11 +189,12 @@ export default function Experience() {
         <a
           href="/cv-david-mallega.pdf"
           download
-          className="normal-case font-mono text-[11px] px-3 py-[4px] rounded bg-[#4ec9b0]/10 border border-[#4ec9b0]/20 text-[#4ec9b0]/60 hover:text-[#4ec9b0] hover:border-[#4ec9b0]/40 transition-colors flex items-center gap-1 shrink-0"
+          className="normal-case font-mono text-[11px] px-3 py-1.5 rounded-full bg-[#4ec9b0]/10 border border-[#4ec9b0]/30 text-[#4ec9b0]/70 hover:bg-[#4ec9b0]/20 hover:text-[#4ec9b0] hover:border-[#4ec9b0]/60 transition-all duration-200 flex items-center gap-1.5 shrink-0"
+          style={{ boxShadow: '0 0 8px rgba(78,201,176,0.08)' }}
           onClick={e => e.stopPropagation()}
         >
           <Download size={10} />
-          cv
+          descargar cv
         </a>
       </p>
 
