@@ -187,6 +187,19 @@ export const projects = [
     previewDesc: 'Galería con subida por drag & drop. El backend recibe la imagen como multipart/form-data y la sube a Cloud Storage via Buffer en memoria — sin tocar disco, sin temporales. Una vez subida, el navegador carga la imagen directamente desde la URL pública del bucket.',
     previewDescEn: 'Gallery with drag & drop upload. The backend receives the image as multipart/form-data and uploads it to Cloud Storage via in-memory Buffer — no disk, no temp files. Once uploaded, the browser loads the image directly from the bucket public URL.',
   },
+  {
+    id: 12,
+    title: 'LogTrans MVP',
+    stack: 'React 18 · Vite · Tailwind · recharts · xlsx',
+    error: 'DataError',
+    errorMsg: "transportista.rut is undefined",
+    description: 'MVP de gestión logística para empresa de transporte. Importación de Excel multi-hoja, 77 transportistas y 241 viajes reales. Sin backend — localStorage. Demo funcional entregada a cliente.',
+    descriptionEn: 'Logistics management MVP for a transport company. Multi-sheet Excel import, 77 carriers and 241 real trips. No backend — localStorage. Functional demo delivered to client.',
+    link: null,
+    linkLabel: null,
+    previewDesc: 'Sistema de gestión logística para empresa de transporte. Importa Excel con múltiples hojas (CUARTA/QUINTA/SEPTIMA), normaliza campos de transportistas y viajes, muestra KPIs con recharts y permite buscar por patente, ruta, proveedor o dirección. Datos reales de 77 transportistas y 241 viajes de junio 2026.',
+    previewDescEn: 'Logistics management system for a transport company. Imports multi-sheet Excel files, normalizes carrier and trip fields, shows KPIs with recharts and supports search by plate, route, supplier or address. Real data: 77 carriers and 241 trips from June 2026.',
+  },
 ]
 
 export const skillGroups = [

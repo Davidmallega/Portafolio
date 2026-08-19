@@ -5,6 +5,23 @@ import { useLang } from '../context/LanguageContext'
 
 const JOBS = [
   {
+    id: 'logtrans',
+    filename: 'logtrans-mvp',
+    role: 'Desarrollador Freelance — MVP LogTrans SpA',
+    period: 'ago 2026',
+    dot: '#4ec9b0',
+    items: [
+      'Desarrollé MVP de sistema de gestión logística para empresa de transporte usando React 18 + Vite + Tailwind.',
+      'Implementé importación de Excel multi-hoja, visualización de viajes con recharts y gestión de 77 transportistas con persistencia en localStorage.',
+      'Entregué demo funcional con datos reales del cliente para presentación comercial.',
+    ],
+    itemsEn: [
+      'Built a logistics management MVP for a transport company using React 18 + Vite + Tailwind.',
+      'Implemented multi-sheet Excel import, trip visualization with recharts and 77 carrier records with localStorage persistence.',
+      'Delivered a functional demo with real client data for a commercial presentation.',
+    ],
+  },
+  {
     id: 'freelance',
     filename: 'freelance-developer',
     role: 'Desarrollador Freelance',

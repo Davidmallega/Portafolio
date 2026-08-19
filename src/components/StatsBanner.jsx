@@ -8,6 +8,22 @@ export default function StatsBanner() {
   const ref = useReveal()
   const { t } = useLang()
 
+  // Calcular el total de horas dinámicamente
+  const totalHours = certificates.reduce((acc, cert) => {
+    if (!cert.effort) return acc
+    // Extrae la parte de horas (ej: "+1.100h" -> "1100" o "+70h" -> "70")
+    const match = cert.effort.match(/\+?([\d.]+)\s*h/)
+    if (match) {
+      // Quita los puntos de miles si existen y convierte a número
+      const hours = parseInt(match[1].replace(/\./g, ''), 10)
+      return acc + (isNaN(hours) ? 0 : hours)
+    }
+    return acc
+  }, 0)
+
+  // Formatear el número para mostrar puntos de miles (ej: 2553 -> "+2.553h")
+  const formattedHours = `+${totalHours.toLocaleString('es-CL')}h`
+
   return (
     <div ref={ref} className="reveal max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 xl:px-24 pb-12 lg:pb-16">
       <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-6 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
@@ -20,12 +36,16 @@ export default function StatsBanner() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="grid grid-cols-3 gap-x-4 sm:flex sm:items-center sm:gap-8 lg:gap-12">
             <div>
-              <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">1.100h</p>
+              <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">
+                {formattedHours}
+              </p>
               <p className="font-mono text-[10px] lg:text-[12px] text-white/30">{t.hero.statHours}</p>
             </div>
             <div className="hidden sm:block w-px h-8 bg-white/[0.07]" />
             <div>
-              <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">{certificates.length}</p>
+              <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">
+                {certificates.length}
+              </p>
               <p className="font-mono text-[10px] lg:text-[12px] text-white/30">{t.hero.statCerts}</p>
             </div>
             <div className="hidden sm:block w-px h-8 bg-white/[0.07]" />

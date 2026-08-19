@@ -1,10 +1,22 @@
 import { useState, useRef, useEffect } from 'react'
 import { RefreshCw } from 'lucide-react'
+import { SiGoogle, SiCisco, SiUdemy } from 'react-icons/si'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import { certificates } from '../data/certificates'
 import { credlyBadges } from '../data/badges'
 import CertificateModal from './CertificateModal'
+
+const FILTERS = [
+  { id: 'all',       label: 'Todos',        icon: null,     color: '#4ec9b0', match: () => true },
+  { id: 'google',    label: 'Google',       icon: SiGoogle, color: '#4285F4', match: c => /google|coursera/i.test(c.institution) },
+  { id: 'cisco',     label: 'Cisco',        icon: SiCisco,  color: '#1ba0d7', match: c => /cisco/i.test(c.institution) },
+  { id: 'ibm',       label: 'IBM',          icon: null,     color: '#006699', match: c => /ibm/i.test(c.institution) },
+  { id: 'udemy',     label: 'Udemy',        icon: SiUdemy,  color: '#a435f0', match: c => /udemy/i.test(c.institution) },
+  { id: 'iacc',      label: 'IACC',         icon: null,     color: '#e8d88a', match: c => /iacc/i.test(c.institution) },
+  { id: 'santander', label: 'Open Academy', icon: null,     color: '#ec4040', match: c => /open academy/i.test(c.institution) },
+  { id: 'sence',     label: 'SENCE',        icon: null,     color: '#9ca3af', match: c => /sence|movistar/i.test(c.institution) },
+]
 
 function CertCard({ cert, onClick, lang, t }) {
   const [phase, setPhase]         = useState('idle')
@@ -149,7 +161,7 @@ function CertCard({ cert, onClick, lang, t }) {
   )
 }
 
-function BadgeCard({ badge, t }) {
+function BadgeCard({ badge, t, onViewCert }) {
   return (
     <div className="badge-card group flex flex-col items-center p-5 text-center">
       <img
@@ -163,14 +175,24 @@ function BadgeCard({ badge, t }) {
       <p className="font-mono text-[10px] lg:text-[11px] text-white/30 mb-3">
         {badge.issuer} · {badge.date}
       </p>
-      <a
-        href={badge.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-mono text-[10px] px-2 py-[2px] rounded bg-[#4ec9b0]/10 border border-[#4ec9b0]/20 text-[#4ec9b0] opacity-0 group-hover:opacity-100 transition-opacity"
-      >
-        {t.certificates.verifyBtn}
-      </a>
+      <div className="flex flex-col items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+        <a
+          href={badge.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-[10px] px-2 py-[2px] rounded bg-[#4ec9b0]/10 border border-[#4ec9b0]/20 text-[#4ec9b0]"
+        >
+          {t.certificates.verifyBtn}
+        </a>
+        {badge.cert && (
+          <button
+            onClick={() => onViewCert(badge.cert, badge.name)}
+            className="font-mono text-[10px] px-2 py-[2px] rounded bg-[#bc8cff]/10 border border-[#bc8cff]/20 text-[#bc8cff]"
+          >
+            ver certificado
+          </button>
+        )}
+      </div>
     </div>
   )
 }
@@ -189,7 +211,13 @@ export default function Certificates() {
   const r3 = useReveal()
   const r4 = useReveal()
   const [selected, setSelected] = useState(null)
+  const [certImg, setCertImg] = useState(null)
+  const [activeFilter, setActiveFilter] = useState('all')
   const { lang, t } = useLang()
+
+  const filteredCerts = activeFilter === 'all'
+    ? certificates
+    : certificates.filter(FILTERS.find(f => f.id === activeFilter)?.match ?? (() => true))
 
   return (
     <section
@@ -210,8 +238,43 @@ export default function Certificates() {
           <span className="text-white/20 select-none">~/</span>{t.certificates.header}
         </p>
 
+        {/* Filtro por institución */}
+        <div
+          className="flex gap-2 mb-6 overflow-x-auto pb-1"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {FILTERS.map(f => {
+            const Icon = f.icon
+            const active = activeFilter === f.id
+            return (
+              <button
+                key={f.id}
+                onClick={() => setActiveFilter(f.id)}
+                className="flex items-center gap-1.5 shrink-0 font-mono text-[11px] px-3 py-1.5 rounded-full border transition-all duration-200"
+                style={active ? {
+                  borderColor: `${f.color}80`,
+                  backgroundColor: `${f.color}18`,
+                  color: f.color,
+                } : {
+                  borderColor: 'rgba(255,255,255,0.08)',
+                  backgroundColor: 'rgba(255,255,255,0.02)',
+                  color: 'rgba(255,255,255,0.35)',
+                }}
+              >
+                {Icon && <Icon size={12} />}
+                {f.label}
+                {active && f.id !== 'all' && (
+                  <span className="font-mono text-[10px] opacity-60">
+                    ({filteredCerts.length})
+                  </span>
+                )}
+              </button>
+            )
+          })}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-          {certificates.map(c => (
+          {filteredCerts.map(c => (
             <CertCard key={c.id} cert={c} onClick={setSelected} lang={lang} t={t} />
           ))}
         </div>
@@ -227,7 +290,7 @@ export default function Certificates() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
           {credlyBadges.map(b => (
-            <BadgeCard key={b.id} badge={b} t={t} />
+            <BadgeCard key={b.id} badge={b} t={t} onViewCert={(img, name) => setCertImg({ img, name })} />
           ))}
         </div>
       </div>
@@ -268,6 +331,26 @@ export default function Certificates() {
 
       {selected && (
         <CertificateModal cert={selected} onClose={() => setSelected(null)} />
+      )}
+
+      {certImg && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10"
+          onClick={() => setCertImg(null)}
+        >
+          <div className="relative w-full max-w-3xl" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-mono text-[11px] text-[#bc8cff]/70">{certImg.name} — certificado</span>
+              <button
+                onClick={() => setCertImg(null)}
+                className="font-mono text-[13px] text-white/50 hover:text-white transition-colors"
+              >
+                × cerrar
+              </button>
+            </div>
+            <img src={certImg.img} alt={certImg.name} className="w-full rounded-xl border border-white/10" />
+          </div>
+        </div>
       )}
     </section>
   )

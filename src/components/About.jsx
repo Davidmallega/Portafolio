@@ -172,14 +172,18 @@ export function ChatWindow({ onClose } = {}) {
 
     if (GEMINI_KEY) {
       setTyping(`> ${GEMINI_MODEL}...`)
-      const t0 = Date.now()
-      const reply = await askGemini(trimmed)
-      const ms = Date.now() - t0
-      setTyping(null)
-      if (reply) {
-        setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: reply, source: 'gemini', ms }])
-        setQuickReplies(INITIAL_QUICK_REPLIES)
-        return
+      try {
+        const t0 = Date.now()
+        const reply = await askGemini(trimmed)
+        const ms = Date.now() - t0
+        setTyping(null)
+        if (reply) {
+          setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: reply, source: 'gemini', ms }])
+          setQuickReplies(INITIAL_QUICK_REPLIES)
+          return
+        }
+      } catch {
+        setTyping(null)
       }
     }
 

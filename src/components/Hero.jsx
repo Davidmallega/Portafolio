@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { SiGithub } from 'react-icons/si'
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import { Mail, MessageCircle } from 'lucide-react'
@@ -12,24 +12,20 @@ export default function Hero() {
   const r2 = useReveal()
   const r3 = useReveal()
   const [chatOpen, setChatOpen] = useState(false)
+  const savedScrollY = useRef(0)
 
   useEffect(() => {
-    if (chatOpen) {
-      const scrollY = window.scrollY
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
-      document.body.style.width = '100%'
-    } else {
-      const top = parseInt(document.body.style.top || '0') * -1
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.width = ''
-      window.scrollTo(0, top)
-    }
+    if (!chatOpen) return
+    savedScrollY.current = window.scrollY
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${savedScrollY.current}px`
+    document.body.style.width = '100%'
     return () => {
+      const y = savedScrollY.current
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
+      window.scrollTo(0, y)
     }
   }, [chatOpen])
 
