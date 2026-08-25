@@ -67,9 +67,6 @@ function Delta({ n, suffix = '', label }) {
 }
 
 // ─── Heatmap ──────────────────────────────────────────────────────────────────
-const MONTH_ABBR = ['en','fe','ma','ab','my','jn','jl','ag','se','oc','no','di']
-const MONTH_ABBR_EN = ['ja','fe','ma','ap','my','jn','jl','au','se','oc','no','de']
-
 function Heatmap({ heatData, lang }) {
   const [tip, setTip] = useState(null)
 
@@ -84,8 +81,6 @@ function Heatmap({ heatData, lang }) {
     return Object.entries(map).sort()
   }, [heatData])
 
-  const abbr = lang === 'en' ? MONTH_ABBR_EN : MONTH_ABBR
-
   return (
     <div className="mt-5 pt-4 border-t border-white/[0.06]">
       {/* Filas por año */}
@@ -94,26 +89,15 @@ function Heatmap({ heatData, lang }) {
           <div key={year}>
             {/* Celdas */}
             <div className="flex items-end gap-[3px] mb-1">
-              {data.map(({ month, count, hours }) => {
-                const mo = Number(month.slice(5))
-                const showLabel = [1, 4, 7, 10].includes(mo)
-                return (
-                  <div key={month} className="flex flex-col items-center gap-[3px]">
-                    <div
-                      className="w-[11px] h-[11px] rounded-[2px] cursor-default transition-transform duration-100 hover:scale-[1.4]"
-                      style={{
-                        background: cellColor(count),
-                        boxShadow: cellGlow(count),
-                      }}
-                      onMouseEnter={() => setTip({ month, count, hours })}
-                      onMouseLeave={() => setTip(null)}
-                    />
-                    <span className="font-mono text-[6px] text-white/20 leading-none select-none w-[11px] text-center">
-                      {showLabel ? abbr[mo - 1] : ''}
-                    </span>
-                  </div>
-                )
-              })}
+              {data.map(({ month, count, hours }) => (
+                <div
+                  key={month}
+                  className="w-[11px] h-[11px] rounded-[2px] cursor-default transition-transform duration-100 hover:scale-[1.4]"
+                  style={{ background: cellColor(count), boxShadow: cellGlow(count) }}
+                  onMouseEnter={() => setTip({ month, count, hours })}
+                  onMouseLeave={() => setTip(null)}
+                />
+              ))}
             </div>
             {/* Año */}
             <p className="font-mono text-[8px] text-white/25 mt-0.5">{year}</p>
