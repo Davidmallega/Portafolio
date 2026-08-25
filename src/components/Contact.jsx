@@ -5,19 +5,38 @@ import { Mail, MapPin } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 
+const FORMSPREE = 'https://formspree.io/f/xrpznlqy'
+
 export default function Contact() {
   const ref      = useReveal()
   const cardRef  = useRef(null)
-  const { t }    = useLang()
+  const { t, lang } = useLang()
   const [pos, setPos]         = useState({ x: 50, y: 50 })
   const [hovered, setHovered] = useState(false)
   const [screenW, setScreenW] = useState(() => window.innerWidth)
+  const [form, setForm]       = useState({ name: '', email: '', message: '' })
+  const [status, setStatus]   = useState('idle')
 
   useEffect(() => {
     const update = () => setScreenW(window.innerWidth)
     window.addEventListener('resize', update)
     return () => window.removeEventListener('resize', update)
   }, [])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('loading')
+    try {
+      const res = await fetch(FORMSPREE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      })
+      setStatus(res.ok ? 'success' : 'error')
+    } catch {
+      setStatus('error')
+    }
+  }
 
   const handleMouseMove = (e) => {
     const rect = cardRef.current.getBoundingClientRect()
@@ -147,6 +166,64 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        {/* Formulario de contacto */}
+        <div className="mt-10 mb-4">
+          <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
+            <span className="text-white/20 select-none">~/</span>
+            {lang === 'en' ? 'send a message' : 'enviar mensaje'}
+          </p>
+        </div>
+        <form onSubmit={handleSubmit} className="max-w-[560px] lg:max-w-none mx-auto space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input
+              required
+              type="text"
+              placeholder={lang === 'en' ? 'Name' : 'Nombre'}
+              value={form.name}
+              onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+              className="w-full bg-white/[0.03] border border-white/[0.08] focus:border-[#4ec9b0]/40 rounded-lg px-4 py-2.5 font-mono text-[12px] text-white/70 placeholder:text-white/20 outline-none transition-colors"
+            />
+            <input
+              required
+              type="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+              className="w-full bg-white/[0.03] border border-white/[0.08] focus:border-[#4ec9b0]/40 rounded-lg px-4 py-2.5 font-mono text-[12px] text-white/70 placeholder:text-white/20 outline-none transition-colors"
+            />
+          </div>
+          <textarea
+            required
+            rows={4}
+            placeholder={lang === 'en' ? 'Message...' : 'Mensaje...'}
+            value={form.message}
+            onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+            className="w-full bg-white/[0.03] border border-white/[0.08] focus:border-[#4ec9b0]/40 rounded-lg px-4 py-2.5 font-mono text-[12px] text-white/70 placeholder:text-white/20 outline-none transition-colors resize-none"
+          />
+          <div className="flex items-center justify-between">
+            {status === 'success' && (
+              <p className="font-mono text-[11px] text-[#4ec9b0]">
+                ✓ {lang === 'en' ? 'Message sent!' : '¡Mensaje enviado!'}
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="font-mono text-[11px] text-[#ff6b6b]">
+                {lang === 'en' ? 'Something went wrong. Try WhatsApp.' : 'Error al enviar. Intenta por WhatsApp.'}
+              </p>
+            )}
+            {status !== 'success' && status !== 'error' && <span />}
+            <button
+              type="submit"
+              disabled={status === 'loading' || status === 'success'}
+              className="font-mono text-[12px] px-5 py-2 rounded-lg bg-[#4ec9b0]/10 border border-[#4ec9b0]/25 text-[#4ec9b0]/80 hover:bg-[#4ec9b0]/20 hover:text-[#4ec9b0] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {status === 'loading'
+                ? (lang === 'en' ? 'sending...' : 'enviando...')
+                : (lang === 'en' ? 'send message' : 'enviar mensaje')}
+            </button>
+          </div>
+        </form>
 
         {/* Footer code */}
         <div className="text-center mt-8 space-y-1.5">
