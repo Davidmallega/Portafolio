@@ -6,7 +6,7 @@ import { certificates } from '../data/certificates'
 export default function StatsBanner() {
   const navigate = useNavigate()
   const ref = useReveal()
-  const { t } = useLang()
+  const { t, lang } = useLang()
 
   // Calcular el total de horas dinámicamente
   const totalHours = certificates.reduce((acc, cert) => {
@@ -50,7 +50,7 @@ export default function StatsBanner() {
             </div>
             <div className="hidden sm:block w-px h-8 bg-white/[0.07]" />
             <div>
-              <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">4 años</p>
+              <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">{lang === 'en' ? '4 years' : '4 años'}</p>
               <p className="font-mono text-[10px] lg:text-[12px] text-white/30">{t.hero.statYears}</p>
             </div>
           </div>

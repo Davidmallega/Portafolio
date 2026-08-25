@@ -107,6 +107,7 @@ export const RESPONSES = [
     responseEn:
       'Yes, I have a valid Class B driver\'s license. I don\'t own a vehicle, but the license is current if it\'s a requirement.',
     followUp: ['¿Estás disponible para trabajar?', '¿Dónde vives?'],
+    followUpEn: ['Are you available for work?', 'Where do you live?'],
   },
 
   // ── Ubicación ────────────────────────────────────────────────────────────
@@ -126,6 +127,7 @@ export const RESPONSES = [
     responseEn:
       'I live in Maipú, Santiago, Chile. I strongly prefer 100% remote — in-person would have to be close to home.',
     followUp: ['¿Estás disponible para trabajar?', '¿Dónde te ves en 5 años?'],
+    followUpEn: ['Are you available for work?', 'Where do you see yourself in 5 years?'],
   },
 
   // ── Metas y proyección ───────────────────────────────────────────────────
@@ -154,6 +156,7 @@ export const RESPONSES = [
     responseEn:
       'I\'m looking to settle into a company where I can contribute for years — at my last job I stayed 10 years, and that reflects how I approach work. Medium-term I\'m interested in growing toward software architecture or technical leadership. Stability matters a lot to me as a father.',
     followUp: ['¿Qué aprendiste últimamente?', '¿Cómo te mantienes al día?', '¿Cuáles son tus hobbies?'],
+    followUpEn: ['What have you learned lately?', 'How do you stay current?', 'What are your hobbies?'],
   },
 
   // ── Aprendizaje reciente ─────────────────────────────────────────────────
@@ -183,6 +186,7 @@ export const RESPONSES = [
     responseEn:
       'Lately I\'ve been completing the Google Data Analytics Professional Certificate on Coursera — I\'ve finished 3 of the 8 courses: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions" and "Prepare Data for Exploration". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
     followUp: ['¿Cómo te mantienes al día?', '¿Tienes proyectos personales?', '¿Dónde te ves en 5 años?'],
+    followUpEn: ['How do you stay current?', 'Do you have personal projects?', 'Where do you see yourself in 5 years?'],
   },
 
   // ── Cómo se mantiene al día ──────────────────────────────────────────────
@@ -207,6 +211,7 @@ export const RESPONSES = [
     responseEn:
       'Building and getting certified. I\'m currently working through the Google Data Analytics Professional Certificate on Coursera. I also follow official documentation and technical communities. Reading without touching the keyboard isn\'t enough for me.',
     followUp: ['¿Tienes proyectos personales?', '¿Cuál es tu stack?', '¿Qué aprendiste últimamente?'],
+    followUpEn: ['Do you have personal projects?', "What's your tech stack?", 'What have you learned lately?'],
   },
 
   // ── Hobbies ──────────────────────────────────────────────────────────────
@@ -235,6 +240,7 @@ export const RESPONSES = [
     responseEn:
       'I play electric guitar — I have an Ibanez JS240PS Joe Satriani signature and a home studio with KRK Rokit 5 monitors and an IK Multimedia AXE I/O interface. When I\'m not recording, I\'m gaming. I take both seriously.',
     followUp: ['¿Cómo desconectas del trabajo?', '¿Cuál es tu setup?', 'Setup musical'],
+    followUpEn: ['How do you unwind?', "What's your setup?", 'Music setup'],
   },
 
   // ── Desconexión / equilibrio ──────────────────────────────────────────────
@@ -256,6 +262,7 @@ export const RESPONSES = [
     responseEn:
       'Guitar or gaming. I have dedicated setups for each and I keep them separate from work time — with the responsibilities I have as a father, that\'s not optional, it\'s necessary. Resting well is what lets me stay focused when I work.',
     followUp: ['¿Cuáles son tus hobbies?', '¿Dónde te ves en 5 años?'],
+    followUpEn: ['What are your hobbies?', 'Where do you see yourself in 5 years?'],
   },
 
   // ── Proyectos personales / en desarrollo ─────────────────────────────────
@@ -283,6 +290,7 @@ export const RESPONSES = [
     responseEn:
       'Most portfolio projects I built for my own learning, though GastosApp and LogTrans MVP were for real clients. I currently have one unpublished project in development: a real estate management platform being built with two other developers.',
     followUp: ['¿Cuál es tu stack?', '¿Cómo te mantienes al día?', '¿Estás disponible para trabajar?'],
+    followUpEn: ["What's your tech stack?", 'How do you stay current?', 'Are you available for work?'],
   },
 
   // ── Setup: estación de desarrollo (va antes del genérico) ─────────────────
@@ -304,6 +312,7 @@ export const RESPONSES = [
     responseEn:
       'AMD Ryzen 5 3600, GTX 1050 Ti, 40 GB DDR4 RAM and 1 TB SSD. Triple monitor setup: Sony Bravia 40", Sony 29" and Samsung 17". Redragon keyboard and mouse. Windows primarily, with Kali Linux on the second machine.',
     followUp: ['Setup musical', '¿Para qué usas Kali Linux?', '¿Cuáles son tus hobbies?'],
+    followUpEn: ['Music setup', 'What do you use Kali Linux for?', 'What are your hobbies?'],
   },
 
   // ── Setup: home studio (va antes del genérico) ────────────────────────────
@@ -325,6 +334,7 @@ export const RESPONSES = [
     responseEn:
       'Ibanez JS240PS Joe Satriani signature, IK Multimedia AXE I/O interface, iRig Stomp I/O for pedals, and KRK Rokit 5 monitors. I can record, reamp and mix directly from the PC. It\'s a real home studio setup, not a weekend hobby.',
     followUp: ['¿Cuáles son tus hobbies?', 'Setup desarrollo', '¿Para qué usas Kali Linux?'],
+    followUpEn: ['What are your hobbies?', 'Dev setup', 'What do you use Kali Linux for?'],
   },
 
   // ── Setup: genérico (va después de los específicos) ──────────────────────
@@ -347,6 +357,7 @@ export const RESPONSES = [
     responseEn:
       'My dev setup and home studio are completely independent — each has its own space and purpose. I also have a separate mini PC dedicated to cybersecurity with Kali Linux. Which one would you like to know about?',
     followUp: ['Setup desarrollo', 'Setup musical', '¿Para qué usas Kali Linux?'],
+    followUpEn: ['Dev setup', 'Music setup', 'What do you use Kali Linux for?'],
   },
 
   // ── Ciberseguridad ───────────────────────────────────────────────────────
@@ -371,6 +382,7 @@ export const RESPONSES = [
     responseEn:
       'I have two Cisco Credly-verified certifications: Introduction to Cybersecurity and Ethical Hacker (August 2026) — the latter covers pentesting, scoping, vulnerability reporting and 34 hands-on activities with Kali Linux and WebSploit. I also have a dedicated Kali Linux machine for network lab work. I study it out of genuine interest — it helps me write more secure code. You can see the badges in the Certificates tab.',
     followUp: ['Setup desarrollo', 'Setup musical', '¿Tienes proyectos personales?'],
+    followUpEn: ['Dev setup', 'Music setup', 'Do you have personal projects?'],
   },
 
   // ── Contacto ahora / WhatsApp (va ANTES de availability) ─────────────────
@@ -396,6 +408,7 @@ export const RESPONSES = [
       'Sure, message me directly on WhatsApp and we can talk.',
     whatsapp: true,
     followUp: ['¿Estás disponible para trabajar?', '¿Dónde te ves en 5 años?'],
+    followUpEn: ['Are you available for work?', 'Where do you see yourself in 5 years?'],
   },
 
   // ── Disponibilidad laboral ────────────────────────────────────────────────
@@ -423,6 +436,7 @@ export const RESPONSES = [
     responseEn:
       'Yes, I\'m available. My preference is 100% remote — in-person isn\'t ideal unless it\'s close to home. I\'m looking for a stable long-term position, not a stepping stone. The best way to reach me is LinkedIn or david.mallega@gmail.com.',
     followUp: ['¿Dónde te ves en 5 años?', '¿Cuál es tu stack?'],
+    followUpEn: ['Where do you see yourself in 5 years?', "What's your tech stack?"],
   },
 
   // ── Stack técnico ─────────────────────────────────────────────────────────
@@ -471,6 +485,7 @@ export const RESPONSES = [
     responseEn:
       'My stack covers a lot of ground. Languages: JavaScript, TypeScript, Python, PHP, SQL. Frameworks: React, Node.js, Express, React Native, Electron. Cloud: GCP, Firebase, Docker. Databases: MySQL, PostgreSQL, Firestore. Also Tailwind, Vite, WordPress and design with Photoshop and Illustrator. Full breakdown in the Skills tab.',
     followUp: ['¿Tienes proyectos personales?', '¿Cómo te mantienes al día?', '¿Estás disponible para trabajar?'],
+    followUpEn: ['Do you have personal projects?', 'How do you stay current?', 'Are you available for work?'],
   },
 
   // ── Familia ───────────────────────────────────────────────────────────────
@@ -495,6 +510,7 @@ export const RESPONSES = [
     responseEn:
       'I have two kids, Rafaela and Lucas. They\'re my foundation — the reason behind every decision I make, including my search for stable work. I\'ve never been separated from them except when working, and that makes me take every professional opportunity very seriously.',
     followUp: ['¿Dónde te ves en 5 años?', '¿Estás disponible para trabajar?', '¿Cuáles son tus hobbies?'],
+    followUpEn: ['Where do you see yourself in 5 years?', 'Are you available for work?', 'What are your hobbies?'],
   },
 
   // ── GitHub ────────────────────────────────────────────────────────────────
@@ -517,6 +533,7 @@ export const RESPONSES = [
     responseEn:
       'My GitHub is github.com/Davidmallega — most portfolio projects are there with their source code. Some client projects are private.',
     followUp: ['¿Tienes proyectos personales?', '¿Cuál es tu stack?', '¿Estás disponible para trabajar?'],
+    followUpEn: ['Do you have personal projects?', "What's your tech stack?", 'Are you available for work?'],
   },
 
   // ── LinkedIn / Contacto ───────────────────────────────────────────────────
@@ -540,6 +557,7 @@ export const RESPONSES = [
     responseEn:
       'My LinkedIn is linkedin.com/in/david-mallega — you can see my full work history and contact me directly there. You can also email me at david.mallega@gmail.com.',
     followUp: ['¿Estás disponible para trabajar?', '¿Tienes proyectos personales?'],
+    followUpEn: ['Are you available for work?', 'Do you have personal projects?'],
   },
 
   // ── Título / formación ────────────────────────────────────────────────────
@@ -568,6 +586,7 @@ export const RESPONSES = [
     responseEn:
       'I hold a Higher Technical Degree in Computer Science from IACC, graduating in 2026 with Highest Distinction (+1,100h, 3 years). I also have three IACC diplomas in Web Development, Advanced Programming and Programming Fundamentals. You can see all certifications in the Certificates tab.',
     followUp: ['¿Tienes proyectos personales?', '¿Cuál es tu stack?', '¿Estás disponible para trabajar?'],
+    followUpEn: ['Do you have personal projects?', "What's your tech stack?", 'Are you available for work?'],
   },
 
   // ── Historial laboral completo ────────────────────────────────────────────
@@ -608,6 +627,7 @@ export const RESPONSES = [
     responseEn:
       'I\'ve held five positions. Currently I work as an IT Implementation Analyst (GeoVictoria) and as a Freelance developer building custom apps. Before that: a Fullstack internship (inventory system, React+MySQL+REST API), WordPress site management since 2020, and 10+ years as General Manager handling financial ops, HR and Excel reporting. The downloadable CV is in the Experience section.',
     followUp: ['¿Cuántos años de experiencia tienes?', '¿Cuál es tu stack?', '¿Estás disponible para trabajar?'],
+    followUpEn: ['How many years of experience?', "What's your tech stack?", 'Are you available for work?'],
   },
 
   // ── Años de experiencia ───────────────────────────────────────────────────
@@ -633,6 +653,7 @@ export const RESPONSES = [
     responseEn:
       'I\'ve been working for over 10 years — my last job lasted a decade managing full operations. In parallel I completed my Fullstack internship, freelance work with real clients and built all the portfolio projects to master the cloud stack. It\'s solid operational experience combined with active technical development.',
     followUp: ['¿Dónde has trabajado?', '¿Cuál es tu stack?', '¿Estás disponible para trabajar?'],
+    followUpEn: ['Where have you worked?', "What's your tech stack?", 'Are you available for work?'],
   },
 
   // ── Estabilidad / lealtad laboral ─────────────────────────────────────────
@@ -657,6 +678,7 @@ export const RESPONSES = [
     responseEn:
       'I stayed at my last job for 10 years. Work stability is valuable for both sides — for me it means financial security, and for the company it means accumulated knowledge that takes years to build. I\'m not looking for the next job, I\'m looking for the place to stay.',
     followUp: ['¿Dónde te ves en 5 años?', '¿Estás disponible para trabajar?'],
+    followUpEn: ['Where do you see yourself in 5 years?', 'Are you available for work?'],
   },
 ]
 
@@ -667,6 +689,14 @@ export const INITIAL_QUICK_REPLIES = [
   '¿Cuál es tu setup?',
   '¿Estás disponible para trabajar?',
   '¿Qué te interesa de la ciberseguridad?',
+]
+
+export const INITIAL_QUICK_REPLIES_EN = [
+  'Where do you see yourself in 5 years?',
+  'What are your hobbies?',
+  "What's your setup?",
+  'Are you available for work?',
+  'What interests you about cybersecurity?',
 ]
 
 // ─── Mensaje de bienvenida ──────────────────────────────────────────────────

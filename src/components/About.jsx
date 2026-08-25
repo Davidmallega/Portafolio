@@ -3,6 +3,7 @@ import { X } from 'lucide-react'
 import {
   RESPONSES,
   INITIAL_QUICK_REPLIES,
+  INITIAL_QUICK_REPLIES_EN,
   WELCOME_MESSAGE,
   FALLBACK_MESSAGE,
   FALLBACK_WHATSAPP,
@@ -166,16 +167,18 @@ export function ChatWindow({ onClose } = {}) {
     setQuickReplies([])
     inputRef.current?.focus()
 
+    const lang = detectLang(trimmed)
+    const initialReplies = lang === 'en' ? INITIAL_QUICK_REPLIES_EN : INITIAL_QUICK_REPLIES
     const local = resolveLocal(trimmed)
 
     if (local) {
-      const lang = detectLang(trimmed)
       const text = lang === 'en' && local.responseEn ? local.responseEn : local.response
+      const chips = lang === 'en' && local.followUpEn ? local.followUpEn : (local.followUp ?? [])
       setTyping('thinking')
       await delay(600 + Math.random() * 600)
       setTyping(null)
       setMessages(prev => [...prev, { id: Date.now(), role: 'david', text, source: 'local', whatsapp: !!local.whatsapp }])
-      setQuickReplies(local.followUp ?? [])
+      setQuickReplies(chips)
       return
     }
 
@@ -188,7 +191,7 @@ export function ChatWindow({ onClose } = {}) {
         setTyping(null)
         if (reply) {
           setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: reply, source: 'gemini', ms }])
-          setQuickReplies(INITIAL_QUICK_REPLIES)
+          setQuickReplies(initialReplies)
           return
         }
       } catch {
@@ -200,7 +203,7 @@ export function ChatWindow({ onClose } = {}) {
     await delay(500)
     setTyping(null)
     setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: FALLBACK_MESSAGE, source: 'local', fallback: true }])
-    setQuickReplies(INITIAL_QUICK_REPLIES)
+    setQuickReplies(initialReplies)
   }
 
   const handleKey = (e) => {

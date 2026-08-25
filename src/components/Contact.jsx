@@ -117,22 +117,18 @@ export default function Contact() {
                     davidmallega@gmail.com
                   </span>
                 </a>
-                {screenW >= 390 && (
-                  <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
-                    <FaLinkedin size={12} className="text-white/25 group-hover:text-[#0a66c2] shrink-0 transition-colors" />
-                    <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
-                      linkedin.com/in/david-mallega
-                    </span>
-                  </a>
-                )}
-                {screenW >= 390 && (
-                  <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
-                    <SiGithub size={12} className="text-white/25 group-hover:text-white shrink-0 transition-colors" />
-                    <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
-                      github.com/Davidmallega
-                    </span>
-                  </a>
-                )}
+                <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
+                  <FaLinkedin size={12} className="text-white/25 group-hover:text-[#0a66c2] shrink-0 transition-colors" />
+                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                    linkedin.com/in/david-mallega
+                  </span>
+                </a>
+                <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
+                  <SiGithub size={12} className="text-white/25 group-hover:text-white shrink-0 transition-colors" />
+                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                    github.com/Davidmallega
+                  </span>
+                </a>
                 <a href="https://wa.me/56996148763" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <FaWhatsapp size={12} className="text-white/25 group-hover:text-[#25d366] shrink-0 transition-colors" />
                   <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-[#25d366] transition-colors">
@@ -158,7 +154,7 @@ export default function Contact() {
             ~<span className="cursor" />
           </p>
           <p className="font-mono text-[10px] text-white/15">
-            © {new Date().getFullYear()} David Mallega — Diseñado y desarrollado por mí.
+            © {new Date().getFullYear()} David Mallega — {t.contact.footer}
           </p>
         </div>
       </div>

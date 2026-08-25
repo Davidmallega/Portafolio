@@ -251,6 +251,8 @@ export const skillGroups = [
       { label: 'WordPress', cls: '' },
       { label: 'Elementor', cls: '' },
       { label: 'Excel Avanzado', cls: '' },
+      { label: 'recharts', cls: '' },
+      { label: 'xlsx', cls: '' },
     ],
   },
   {

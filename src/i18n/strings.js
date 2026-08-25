@@ -23,6 +23,7 @@ export const strings = {
     },
     contact: {
       header: 'contacto',
+      footer: 'Diseñado y desarrollado por mí.',
     },
     certificates: {
       header: 'certificados',
@@ -41,7 +42,7 @@ export const strings = {
     },
     sdlc: {
       back: '← volver a proyectos',
-      subtitle: 'Ciclo de Desarrollo de Software · 25 mayo – 14 junio 2026',
+      subtitle: 'Ciclo de Desarrollo de Software · mayo – ago 2026',
       explorerPath: 'sdlc · 10 fases',
     },
   },
@@ -70,6 +71,7 @@ export const strings = {
     },
     contact: {
       header: 'contact',
+      footer: 'Designed and developed by me.',
     },
     certificates: {
       header: 'certificates',
@@ -88,7 +90,7 @@ export const strings = {
     },
     sdlc: {
       back: '← back to projects',
-      subtitle: 'Software Development Life Cycle · May 25 – Jun 14, 2026',
+      subtitle: 'Software Development Life Cycle · May – Aug 2026',
       explorerPath: 'sdlc · 10 phases',
     },
   },
