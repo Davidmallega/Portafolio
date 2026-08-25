@@ -5,6 +5,15 @@ import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import { projects } from '../data/projects'
 
+const STACK_FILTERS = [
+  { id: 'all',      es: 'todos',    en: 'all',      match: () => true },
+  { id: 'react',    es: 'React',    en: 'React',    match: p => /react/i.test(p.stack) },
+  { id: 'gcp',      es: 'GCP',      en: 'GCP',      match: p => /cloud run|bigquery|cloud storage|cloud scheduler|cloud vision|vertex ai|pub.sub/i.test(p.stack) },
+  { id: 'firebase', es: 'Firebase', en: 'Firebase', match: p => /firebase|firestore/i.test(p.stack) },
+  { id: 'node',     es: 'Node.js',  en: 'Node.js',  match: p => /node\.js/i.test(p.stack) },
+  { id: 'desktop',  es: 'Desktop',  en: 'Desktop',  match: p => /electron/i.test(p.stack) },
+]
+
 function PreviewModal({ project, lang, onClose }) {
   const images = project.previews ?? (project.preview ? [project.preview] : [])
   const mobileImages = project.previewMobile ? [project.previewMobile] : images
@@ -251,18 +260,45 @@ function ProjectCard({ project, onCompile, lang }) {
 export default function Projects({ onCompile }) {
   const ref = useReveal()
   const { lang, t } = useLang()
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(STACK_FILTERS.find(f => f.id === activeFilter).match)
 
   return (
     <section id="projects" className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-8 lg:px-16 xl:px-24 pb-20 lg:pb-28">
       <div className="h-px bg-white/[0.07] mb-12" />
 
       <div ref={ref} className="reveal">
-        <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-6 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
+        <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-4 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
           <span className="text-white/20 select-none">~/</span>{t.projects.header} <span className="text-white/30 normal-case">— <span className="sm:hidden">touch</span><span className="hidden sm:inline">hover</span> {t.projects.hint}</span>
         </p>
 
+        {/* Filtros por stack */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {STACK_FILTERS.map(f => (
+            <button
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              className={`font-mono text-[11px] px-2.5 py-1 rounded-full border transition-all ${
+                activeFilter === f.id
+                  ? 'border-[#4ec9b0]/60 bg-[#4ec9b0]/12 text-[#4ec9b0]'
+                  : 'border-white/10 bg-white/[0.03] text-white/35 hover:border-[#4ec9b0]/30 hover:text-[#4ec9b0]/70'
+              }`}
+            >
+              {lang === 'en' ? f.en : f.es}
+            </button>
+          ))}
+          {activeFilter !== 'all' && (
+            <span className="font-mono text-[10px] text-white/20 self-center ml-1">
+              {filteredProjects.length} {lang === 'en' ? 'projects' : 'proyectos'}
+            </span>
+          )}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-          {projects.map(p => (
+          {filteredProjects.map(p => (
             <ProjectCard key={p.id} project={p} onCompile={onCompile} lang={lang} />
           ))}
         </div>

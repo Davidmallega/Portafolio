@@ -72,9 +72,28 @@ export default function TopBar() {
         {/* Language toggle */}
         <button
           onClick={toggle}
-          className="ml-auto px-3 h-full font-mono text-[11px] text-white/30 hover:text-[#4ec9b0] transition-colors shrink-0 tracking-widest"
+          className="ml-auto px-3 h-full font-mono text-[12px] text-white/50 hover:text-[#4ec9b0] transition-colors shrink-0 flex items-center gap-1.5"
         >
-          {lang === 'es' ? 'EN' : 'ES'}
+          {lang === 'es' ? (
+            <>
+              <svg width="16" height="11" viewBox="0 0 16 11" className="rounded-[1px] shrink-0 opacity-75">
+                <rect width="16" height="11" fill="#B22234"/>
+                {[0,1,2,3,4,5].map(i => <rect key={i} y={i*1.54+0.77} width="16" height="0.77" fill="white"/>)}
+                <rect width="7" height="5.5" fill="#3C3B6E"/>
+              </svg>
+              <span className="tracking-widest">EN</span>
+            </>
+          ) : (
+            <>
+              <svg width="16" height="11" viewBox="0 0 16 11" className="rounded-[1px] shrink-0 opacity-75">
+                <rect width="16" height="5.5" fill="white"/>
+                <rect y="5.5" width="16" height="5.5" fill="#D52B1E"/>
+                <rect width="6" height="5.5" fill="#003DA5"/>
+                <text x="3" y="2.75" fontSize="5.5" fill="white" textAnchor="middle" dominantBaseline="middle">★</text>
+              </svg>
+              <span className="tracking-widest">ES</span>
+            </>
+          )}
         </button>
       </div>
     </header>

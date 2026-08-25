@@ -202,6 +202,15 @@ body {
   30%            { opacity: 1;   transform: translateY(-3px); }
 }
 
+/* Route transition */
+@keyframes routeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.route-enter {
+  animation: routeIn 0.3s ease;
+}
+
 /* Experience tree expand/collapse */
 .exp-body {
   display: grid;

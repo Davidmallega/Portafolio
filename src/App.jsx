@@ -59,12 +59,14 @@ function AppInner() {
       <ScrollToTop />
       <ParticlesBackground />
       <TopBar />
-      <Routes>
-        <Route path="/" element={<Home onCompile={handleCompile} />} />
-        <Route path="/certificates" element={<Certificates />} />
-        <Route path="/sdlc" element={<SDLCPage />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <div key={location.pathname} className="route-enter">
+        <Routes>
+          <Route path="/" element={<Home onCompile={handleCompile} />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/sdlc" element={<SDLCPage />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
       <StatusBar totalErrors={projects.length} doneCount={compiledIds.size} />
     </>
   )

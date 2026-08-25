@@ -8,7 +8,7 @@ import avatarImg from '../assets/avatar.jpeg'
 import { ChatWindow } from './About'
 
 export default function Hero() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const r2 = useReveal()
   const r3 = useReveal()
   const [chatOpen, setChatOpen] = useState(false)
@@ -60,7 +60,13 @@ export default function Hero() {
               <h1 className="font-sans text-[1.85rem] sm:text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-tight mb-1.5 lg:mb-3">
                 David Mallega
               </h1>
-              <p className="font-mono text-[13px] lg:text-[16px] text-[#4ec9b0] mb-1 lg:mb-2">Fullstack Developer</p>
+              <div className="flex flex-wrap items-center gap-2.5 mb-1 lg:mb-2">
+                <p className="font-mono text-[13px] lg:text-[16px] text-[#4ec9b0]">Fullstack Developer</p>
+                <span className="inline-flex items-center gap-1.5 font-mono text-[9px] lg:text-[10px] px-2 py-0.5 rounded-full bg-[#4ec9b0]/10 border border-[#4ec9b0]/30 text-[#4ec9b0]/80" style={{ boxShadow: '0 0 8px rgba(78,201,176,0.12)' }}>
+                  <span className="online-dot w-1.5 h-1.5 rounded-full bg-[#4ec9b0] shrink-0" />
+                  {lang === 'en' ? 'open to work' : 'disponible'}
+                </span>
+              </div>
               <p className="font-mono text-[13px] lg:text-[16px] text-white/30 mb-3">Santiago, Chile 🇨🇱</p>
               <div className="flex items-center gap-3">
                 <a href="mailto:davidmallega@gmail.com" className="text-white/30 hover:text-[#4ec9b0] transition-colors">
