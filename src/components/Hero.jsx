@@ -43,15 +43,14 @@ export default function Hero() {
                 <div className="w-full h-full rounded-full overflow-hidden border-2 border-[#4ec9b0]/30">
                   <img src={avatarImg} alt="David Mallega" className="w-full h-full object-cover" />
                 </div>
-                <span className="online-dot absolute bottom-1 right-1 lg:bottom-2.5 lg:right-2.5 w-3 h-3 lg:w-4 lg:h-4 rounded-full bg-[#4ec9b0] border-2 border-[#0d0d0f]" />
               </div>
 
               <button
                 onClick={() => setChatOpen(true)}
-                className="flex items-center gap-1 font-mono text-[9px] px-2.5 py-1 rounded-full border border-[#bc8cff]/50 bg-[#bc8cff]/10 text-[#bc8cff]/80 hover:border-[#bc8cff]/80 hover:text-[#bc8cff] hover:bg-[#bc8cff]/15 transition-all"
+                className="flex items-center gap-1.5 font-mono text-[9px] px-2.5 py-1 rounded-full border border-[#bc8cff]/50 bg-[#bc8cff]/10 text-[#bc8cff]/80 hover:border-[#bc8cff]/80 hover:text-[#bc8cff] hover:bg-[#bc8cff]/15 transition-all"
                 style={{ boxShadow: '0 0 8px rgba(188,140,255,0.2)' }}
               >
-                <MessageCircle size={9} />
+                <span className="online-dot w-2 h-2 rounded-full bg-[#4ec9b0] shrink-0" />
                 IA · chat
               </button>
             </div>
