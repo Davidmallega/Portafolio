@@ -307,4 +307,18 @@ export const certificates = [
     descriptionEn: 'Data preparation and extraction techniques, evaluating data integrity, using SQL for filtering and organizing data, and data storage best practices.',
     img: '/assets/certificates/Prepare_Data_for_Exploration.jpg',
   },
+  {
+    id: 23,
+    category: 'Certificación',
+    title: 'Analyze Data to Answer Questions',
+    institution: 'Google · Coursera',
+    year: 2026,
+    addedAt: '2026-09',
+    effort: '+25h',
+    bars: 3,
+    badge: 'Coursera verified',
+    description: 'Organización de datos con ordenamiento y filtros, consultas SQL para combinar datos de múltiples tablas, y conversión y formateo de datos.',
+    descriptionEn: 'Organizing data with sorts and filters, SQL queries to combine data from multiple tables, and converting and formatting data.',
+    img: '/assets/certificates/coursera-analyze-data.jpg',
+  },
 ]
