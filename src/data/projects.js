@@ -190,15 +190,22 @@ export const projects = [
   {
     id: 12,
     title: 'LogTrans MVP',
-    stack: 'React 18 · Vite · Tailwind · recharts · xlsx',
+    stack: 'React 18 · Vite · Tailwind · recharts · xlsx · jsPDF',
     error: 'DataError',
     errorMsg: "transportista.rut is undefined",
-    description: 'MVP de gestión logística para empresa de transporte. Importación de Excel multi-hoja, 77 transportistas y 241 viajes reales. Sin backend — localStorage. Demo funcional entregada a cliente.',
-    descriptionEn: 'Logistics management MVP for a transport company. Multi-sheet Excel import, 77 carriers and 241 real trips. No backend — localStorage. Functional demo delivered to client.',
+    description: 'SPA de programación de transporte de carga: rutas, vehículos, tarifas y facturación. 4 roles, dashboard financiero, exportación PDF/Excel. Sin backend — localStorage.',
+    descriptionEn: 'Cargo transport scheduling SPA: routes, vehicles, rates and invoicing. 4 roles, financial dashboard, PDF/Excel export. No backend — localStorage.',
     link: null,
     linkLabel: null,
-    previewDesc: 'Sistema de gestión logística para empresa de transporte. Importa Excel con múltiples hojas (CUARTA/QUINTA/SEPTIMA), normaliza campos de transportistas y viajes, muestra KPIs con recharts y permite buscar por patente, ruta, proveedor o dirección. Datos reales de 77 transportistas y 241 viajes de junio 2026.',
-    previewDescEn: 'Logistics management system for a transport company. Imports multi-sheet Excel files, normalizes carrier and trip fields, shows KPIs with recharts and supports search by plate, route, supplier or address. Real data: 77 carriers and 241 trips from June 2026.',
+    previewDesc: 'Aplicación web SPA para gestionar la programación de transporte de carga, desde la asignación de rutas y vehículos hasta la rendición y facturación. 4 roles (Jefe, Programador, Controlador, Facturador) con permisos diferenciados, panel de 13 pestañas por viaje, tarifas con modificadores automáticos (alza de combustible), dashboard con KPIs y margen por viaje, reporte D-1, vista sábana editable exportable a Excel, bases maestras de zonas/comunas/transportistas y exportación a PDF (jsPDF) y Excel de 4 pestañas (SheetJS). 100% cliente, persistencia en localStorage.',
+    previewDescEn: 'Web SPA to manage cargo transport scheduling, from route and vehicle assignment to reconciliation and invoicing. 4 roles (Manager, Scheduler, Controller, Biller) with differentiated permissions, 13-tab panel per trip, rates with automatic modifiers (fuel surcharge), dashboard with KPIs and margin per trip, previous-day report, editable consolidated view exportable to Excel, master data for zones/districts/carriers, and export to PDF (jsPDF) and 4-sheet Excel (SheetJS). 100% client-side, localStorage persistence.',
+    previews: [
+      '/assets/previews/Logtrans/programacion-rutas.png',
+      '/assets/previews/Logtrans/dashboard.png',
+      '/assets/previews/Logtrans/vista-sabana.png',
+      '/assets/previews/Logtrans/panel-identificacion.png',
+      '/assets/previews/Logtrans/panel-transporte.png',
+    ],
   },
 ]
 
