@@ -10,6 +10,7 @@ import StatsBanner from './components/StatsBanner'
 import Contact from './components/Contact'
 import Certificates from './components/Certificates'
 import SDLCPage from './components/SDLCPage'
+import SkillsTimeline from './components/SkillsTimeline'
 import About from './components/About'
 import ParticlesBackground from './components/ParticlesBackground'
 import StatusBar from './components/StatusBar'
@@ -63,6 +64,7 @@ function AppInner() {
         <Routes>
           <Route path="/" element={<Home onCompile={handleCompile} />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/timeline" element={<SkillsTimeline />} />
           <Route path="/sdlc" element={<SDLCPage />} />
           <Route path="/about" element={<About />} />
         </Routes>

@@ -7,11 +7,13 @@ const tabs = [
   { id: 'projects',     label: 'projects',      route: null,            showDot: false, color: '#ff6b6b' },
   { id: 'contact',      label: 'contact',       route: null,            showDot: false, color: '#4ec9b0' },
   { id: 'certificates', label: 'certificates',  route: '/certificates', showDot: false, color: '#e8d88a' },
+  { id: 'timeline',     label: 'timeline',       route: '/timeline',     showDot: false, color: '#bc8cff' },
 ]
 
 const ROUTE_ACTIVE = {
   '/':             'hero',
   '/certificates': 'certificates',
+  '/timeline':     'timeline',
   '/sdlc':         'projects',
 }
 
