@@ -228,7 +228,7 @@ function ProjectCard({ project, onCompile, lang }) {
             >
               → {project.linkLabel}
             </button>
-          ) : (
+          ) : project.link ? (
             <a
               href={project.link}
               target="_blank"
@@ -238,6 +238,10 @@ function ProjectCard({ project, onCompile, lang }) {
             >
               → {project.linkLabel}
             </a>
+          ) : (
+            <span className="font-mono text-[11px] text-[#58a6ff]">
+              → {lang === 'en' ? 'private repository' : 'repositorio privado'}
+            </span>
           )}
           {(project.preview || project.previews) && (
             <button
