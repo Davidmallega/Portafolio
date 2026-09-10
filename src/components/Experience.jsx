@@ -5,20 +5,41 @@ import { useLang } from '../context/LanguageContext'
 
 const JOBS = [
   {
-    id: 'logtrans',
-    filename: 'logtrans-mvp',
-    role: 'Desarrollador Freelance — MVP LogTrans SpA',
-    period: 'ago 2026',
-    dot: '#4ec9b0',
+    id: 'cartapp',
+    filename: 'cartapp',
+    role: 'Desarrollador Freelance — Cartapp',
+    period: 'jul 2026 – presente',
+    dot: '#ff8c42',
     items: [
-      'Desarrollé MVP de sistema de gestión logística para empresa de transporte usando React 18 + Vite + Tailwind.',
-      'Implementé importación de Excel multi-hoja, visualización de viajes con recharts y gestión de 77 transportistas con persistencia en localStorage.',
-      'Entregué demo funcional con datos reales del cliente para presentación comercial.',
+      'Desarrollé desde cero una SaaS de carta digital multi-restaurante (React + Vite + Tailwind + Firebase): panel de administración, theming por marca y herramientas comerciales masivas.',
+      'Rediseñé el modelo de negocio de licencia mensual a venta única, definiendo una arquitectura "un código, dos despliegues" para separar el producto SaaS de la copia del cliente.',
+      'Reemplacé Firebase por un backend propio (Node + Express + SQLite) para la copia del cliente, containerizado con Docker y desplegado self-hosted vía Coolify.',
+      'Implementé un pipeline de CI/CD (GitHub Actions + webhook) con 38 tests de integración y hardening de seguridad, y publiqué la app en producción sobre dominio propio y HTTPS.',
     ],
     itemsEn: [
-      'Built a logistics management MVP for a transport company using React 18 + Vite + Tailwind.',
-      'Implemented multi-sheet Excel import, trip visualization with recharts and 77 carrier records with localStorage persistence.',
-      'Delivered a functional demo with real client data for a commercial presentation.',
+      'Built a multi-restaurant digital menu SaaS from scratch (React + Vite + Tailwind + Firebase): admin panel, brand theming and bulk commercial tools.',
+      'Redesigned the business model from a monthly license to a one-time sale, defining a "one codebase, two deployments" architecture to separate the SaaS product from the client copy.',
+      'Replaced Firebase with a self-built backend (Node + Express + SQLite) for the client copy, containerized with Docker and deployed self-hosted via Coolify.',
+      'Implemented a CI/CD pipeline (GitHub Actions + webhook) with 38 integration tests and security hardening, and shipped the app to production on a custom domain over HTTPS.',
+    ],
+  },
+  {
+    id: 'logtrans',
+    filename: 'logtrans-mvp',
+    role: 'Desarrollador Freelance — LogTrans SpA',
+    period: 'jun – sep 2026',
+    dot: '#4ec9b0',
+    items: [
+      'Desarrollé el MVP de un sistema de gestión logística para una empresa de transporte (React 18 + Vite + Tailwind), con 4 perfiles de acceso y visibilidad diferenciada de datos financieros.',
+      'Diseñé el panel de programación de viajes (13 pestañas) y el motor de tarifas con modificadores automáticos, junto a un dashboard ejecutivo con KPIs y margen por viaje.',
+      'Lideré una auditoría de código pre-producción, hardening de seguridad y la primera suite de tests automatizados del proyecto (Vitest, 30 tests).',
+      'Entregué el MVP al cliente; en conversación para un posible contrato de continuidad hacia producción sobre Firebase.',
+    ],
+    itemsEn: [
+      'Built the MVP of a logistics management system for a transport company (React 18 + Vite + Tailwind), with 4 access profiles and differentiated visibility of financial data.',
+      'Designed the trip scheduling panel (13 tabs) and the rate engine with automatic modifiers, alongside an executive dashboard with KPIs and margin per trip.',
+      'Led a pre-production code audit, security hardening, and the project\'s first automated test suite (Vitest, 30 tests).',
+      'Delivered the MVP to the client; in discussion for a possible follow-up contract to continue into production on Firebase.',
     ],
   },
   {
