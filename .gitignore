@@ -34,3 +34,6 @@ Thumbs.db
 
 # docs internos
 SDLC.md
+
+# CV render intermediate
+cv/.cv-render.html

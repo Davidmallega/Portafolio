@@ -115,3 +115,8 @@ X"), not a criticism.
 Only touch `src/data/timeline.js`, and — only when the change genuinely
 requires it — `src/components/SkillsTimeline.jsx` or the i18n strings tied
 specifically to this section. Don't touch unrelated parts of the portfolio.
+
+A sibling agent, `portfolio-sync`, is responsible for propagating relevant
+changes from here into `src/data/projects.js` and
+`src/components/Experience.jsx` — you don't need to (and shouldn't) edit
+those yourself.
