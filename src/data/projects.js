@@ -207,6 +207,19 @@ export const projects = [
       '/assets/previews/Logtrans/panel-transporte.png',
     ],
   },
+  {
+    id: 13,
+    title: 'Cartapp',
+    stack: 'React · Vite · Tailwind · Firebase · Node.js · Docker',
+    error: 'ConfigError',
+    errorMsg: "FIREBASE_API_KEY is not defined",
+    description: 'SaaS de carta digital multi-restaurante. Panel admin, theming por marca, CI/CD y backend propio self-hosted para el cliente (Docker + Coolify).',
+    descriptionEn: 'Multi-restaurant digital menu SaaS. Admin panel, brand theming, CI/CD, and a self-hosted backend fork for the client (Docker + Coolify).',
+    link: null,
+    linkLabel: null,
+    previewDesc: 'SaaS de carta digital para restaurantes: panel de administración con CRUD de categorías, productos y combos, theming por marca, carrusel de promociones y herramientas comerciales masivas (descuentos programados, import/export Excel). El modelo de negocio pasó de licencia mensual a venta única, lo que derivó en una arquitectura "un código, dos despliegues": la base multi-tenant sobre Firebase sigue como producto propio, y la copia del cliente corre con un backend propio (Node + Express + SQLite) containerizado en Docker, self-hosted vía Coolify, con CI (GitHub Actions) y CD automático por webhook.',
+    previewDescEn: 'Restaurant digital menu SaaS: admin panel with CRUD for categories, products and combos, brand theming, promotions carousel, and bulk commercial tools (scheduled discounts, Excel import/export). The business model shifted from a monthly license to a one-time sale, leading to a "one codebase, two deployments" architecture: the multi-tenant Firebase base continues as its own product, while the client copy runs a self-built backend (Node + Express + SQLite) containerized in Docker, self-hosted via Coolify, with CI (GitHub Actions) and automatic webhook-based CD.',
+  },
 ]
 
 export const skillGroups = [
