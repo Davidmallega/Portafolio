@@ -15,14 +15,23 @@ export const timelineProjects = [
     fullName: 'Sistema de Gestión de Transporte y Logística',
     fullNameEn: 'Transport & Logistics Management System',
     color: '#4ec9b0',
-    status: 'active',
-    statusNote: 'MVP con auth simulada, migración a Firebase planificada',
-    statusNoteEn: 'MVP with simulated auth, Firebase migration planned',
+    status: 'shipped',
+    statusNote: 'MVP entregado al cliente; posible contrato de continuidad para la migración a producción en conversación, aún sin confirmar',
+    statusNoteEn: 'MVP delivered to the client; a possible follow-up contract for the production migration is under discussion, not yet confirmed',
     stack: 'React 18 · Vite · Tailwind',
     projectId: 12,
     summary: '~3 meses de desarrollo iterativo (48 commits), 2 releases mayores (v1.0, v2.0), 1 ERS completo para transición a producción, primera suite de tests automatizados (30 tests, motor financiero), flujo de trabajo asistido por 8 agentes de IA especializados construidos a medida (diseño, arquitectura, performance, refactorización, manejo de errores, revisión de código, componentes, migración a Firebase).',
     summaryEn: '~3 months of iterative development (48 commits), 2 major releases (v1.0, v2.0), 1 full SRS for the production transition, first automated test suite (30 tests, financial engine), workflow assisted by 8 custom-built specialized AI agents (design, architecture, performance, refactoring, error handling, code review, components, Firebase migration).',
     milestones: [
+      {
+        id: 'lt-015',
+        date: '2026-09-10',
+        type: 'client-request',
+        title: 'Entrega del MVP y conversación de continuidad',
+        titleEn: 'MVP delivery and continuity discussion',
+        detail: 'Entrega del MVP al cliente (empresa de transporte y logística). En paralelo, se abrió una conversación con el cliente sobre un posible contrato de continuidad para llevar el sistema a producción, siguiendo el stack y el plan ya definidos en el ERS (Firebase); a la espera de confirmación.',
+        detailEn: 'Delivered the MVP to the client (a transport and logistics company). In parallel, opened a conversation with the client about a possible follow-up contract to take the system into production, following the stack and plan already defined in the SRS (Firebase); pending confirmation.',
+      },
       {
         id: 'lt-014',
         date: '2026-09-08',
@@ -368,7 +377,7 @@ export const timelineProjects = [
     id: 'gastosapp',
     name: 'GastosApp',
     color: '#c792ea',
-    status: 'active',
+    status: 'shipped',
     projectId: 4,
     milestones: [
       {
