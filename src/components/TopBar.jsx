@@ -45,31 +45,34 @@ export default function TopBar() {
     <header className="sticky top-0 z-50 h-10 bg-[#0d0d0f]/95 backdrop-blur-md border-b border-white/[0.07]">
       <div className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-0 lg:px-16 xl:px-24 flex items-center h-full w-full">
         {/* Tabs */}
-        <nav className="flex h-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
-          {tabs.map(tab => {
-            const isActive = active === tab.id
-            return (
-              <button
-                key={tab.id}
-                onClick={() => handleTab(tab)}
-                style={isActive ? { borderTopColor: tab.color } : {}}
-                className={`
-                  flex items-center gap-[7px] px-3 sm:px-4 h-full text-[11px] sm:text-[12px] font-mono shrink-0
-                  border-r border-white/[0.07] transition-colors border-t border-t-transparent
-                  ${isActive ? 'text-[#e8e8e8]' : 'text-white/30 hover:text-white/60'}
-                `}
-              >
-                {tab.showDot && isActive && (
-                  <span className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: tab.color }} />
-                )}
-                {tab.id === 'certificates'
-                  ? <><span className="sm:hidden">certs</span><span className="hidden sm:inline">certificates</span></>
-                  : tab.label
-                }
-              </button>
-            )
-          })}
-        </nav>
+        <div className="relative min-w-0 flex-1 h-full">
+          <nav className="flex h-full w-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+            {tabs.map(tab => {
+              const isActive = active === tab.id
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTab(tab)}
+                  style={isActive ? { borderTopColor: tab.color } : {}}
+                  className={`
+                    flex items-center gap-[7px] px-3 sm:px-4 h-full text-[11px] sm:text-[12px] font-mono shrink-0
+                    border-r border-white/[0.07] transition-colors border-t border-t-transparent
+                    ${isActive ? 'text-[#e8e8e8]' : 'text-white/30 hover:text-white/60'}
+                  `}
+                >
+                  {tab.showDot && isActive && (
+                    <span className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: tab.color }} />
+                  )}
+                  {tab.id === 'certificates'
+                    ? <><span className="sm:hidden">certs</span><span className="hidden sm:inline">certificates</span></>
+                    : tab.label
+                  }
+                </button>
+              )
+            })}
+          </nav>
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-5 bg-gradient-to-l from-[#0d0d0f] to-transparent" />
+        </div>
 
         {/* Language toggle */}
         <button
