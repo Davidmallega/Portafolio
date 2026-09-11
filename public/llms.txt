@@ -1,0 +1,25 @@
+# David Mallega — Fullstack Developer
+
+> Portfolio de David Mallega, desarrollador fullstack en Santiago, Chile — React, Node.js, Google Cloud Platform, Firebase y arquitecturas self-hosted (Docker, CI/CD). Enfocado en resolver problemas de negocio reales con tecnología, no solo en escribir código.
+
+David construye software para clientes reales (LogTrans, Cartapp, GastosApp) y proyectos propios de aprendizaje (integraciones con Google Cloud, IA generativa, ciberseguridad). Técnico de Nivel Superior en Informática (IACC), con más de 10 años de experiencia previa liderando operaciones y equipos comerciales antes de dedicarse al desarrollo de software.
+
+## Páginas principales
+
+- [Inicio](https://davidmallega.vercel.app/): hero, experiencia laboral, proyectos, skills y contacto.
+- [Habilidades en Tiempo Real](https://davidmallega.vercel.app/timeline): registro público de hitos por proyecto, estilo git-log — qué se construyó, qué problema de negocio resolvió y qué decisión técnica se tomó, no solo el diff.
+- [Certificados](https://davidmallega.vercel.app/certificates): certificaciones y cursos completados (Google, Cisco, IBM, Udemy, SENCE, IACC).
+- [Proceso de desarrollo (SDLC)](https://davidmallega.vercel.app/sdlc): cómo se construyó este mismo portafolio, fase por fase.
+- [Sobre mí / Chat](https://davidmallega.vercel.app/about): chat interactivo para preguntar sobre la experiencia y el stack de David.
+
+## Proyectos destacados
+
+- LogTrans: sistema de gestión logística para una empresa de transporte (React 18 + Vite + Tailwind). MVP entregado, resolviendo un problema real de planillas Excel sin acceso concurrente.
+- Cartapp: SaaS de carta digital multi-restaurante (React + Firebase), con una copia self-hosted (Docker + Coolify + CI/CD) construida para un cliente real que migró desde WordPress/Elementor.
+- GastosApp: app de escritorio para control de gastos empresariales (React + Vite + Electron), entregada a un cliente del rubro gastronómico.
+
+## Contacto
+
+- Email: davidmallega@gmail.com
+- LinkedIn: https://linkedin.com/in/david-mallega
+- GitHub: https://github.com/Davidmallega

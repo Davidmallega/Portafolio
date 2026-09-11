@@ -12,6 +12,7 @@ import Certificates from './components/Certificates'
 import SDLCPage from './components/SDLCPage'
 import SkillsTimeline from './components/SkillsTimeline'
 import About from './components/About'
+import NotFound from './components/NotFound'
 import ParticlesBackground from './components/ParticlesBackground'
 import StatusBar from './components/StatusBar'
 import { projects } from './data/projects'
@@ -67,6 +68,7 @@ function AppInner() {
           <Route path="/timeline" element={<SkillsTimeline />} />
           <Route path="/sdlc" element={<SDLCPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <StatusBar totalErrors={projects.length} doneCount={compiledIds.size} />
