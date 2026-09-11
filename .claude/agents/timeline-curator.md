@@ -46,9 +46,22 @@ Match the existing shape in `src/data/timeline.js` exactly:
   type: 'feat' | 'fix' | 'migration' | 'refactor' | 'client-request' | 'learning',
   title: '...', titleEn: '...',     // short noun phrase, no period
   detail: '...', detailEn: '...',   // 2-5 sentences, ~60-180 words, matches sibling entries in length/register
+  // Optional — see below:
+  problem: '...', problemEn: '...',
+  solution: '...', solutionEn: '...',
 }
 ```
 
+- **`problem`/`problemEn` + `solution`/`solutionEn` are optional**, and apply to
+  **at most one milestone per project**: whichever milestone actually
+  addressed that project's one general/root business problem (typically the
+  initial MVP/release, not a later incremental feature). They render as a
+  distinct labeled callout, separate from the plain `detail` prose — don't
+  add them to routine fixes, UX tweaks, or every flagship milestone; one
+  project-defining problem/solution pair is the point, not a running log of
+  every problem ever solved. Write them with real technical substance (the
+  concrete mechanism, not just "we solved it with tech") in the same
+  professional tone as everything else.
 - **Array order is newest-first.** Id numbers ascend with recency (higher
   number = more recent), matching array position top-to-bottom. If a
   reported event happened chronologically *before* an already-logged entry,

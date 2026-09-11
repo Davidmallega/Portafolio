@@ -15,6 +15,8 @@ function MilestoneRow({ milestone, lang, isLast }) {
   const type = TIMELINE_TYPES[milestone.type]
   const title = lang === 'en' && milestone.titleEn ? milestone.titleEn : milestone.title
   const detail = lang === 'en' && milestone.detailEn ? milestone.detailEn : milestone.detail
+  const problem = lang === 'en' && milestone.problemEn ? milestone.problemEn : milestone.problem
+  const solution = lang === 'en' && milestone.solutionEn ? milestone.solutionEn : milestone.solution
 
   return (
     <div className="relative pl-6">
@@ -43,6 +45,30 @@ function MilestoneRow({ milestone, lang, isLast }) {
           <p className="font-mono text-[11px] lg:text-[12px] text-white/40 leading-relaxed">
             {detail}
           </p>
+        )}
+        {(problem || solution) && (
+          <div className="mt-2.5 rounded-lg border border-[#4ec9b0]/20 bg-[#4ec9b0]/[0.04] overflow-hidden">
+            {problem && (
+              <div className="px-3 pt-2.5 pb-2">
+                <p className="font-mono text-[9px] text-[#ff6b6b]/70 uppercase tracking-widest mb-1">
+                  {lang === 'en' ? 'problem' : 'problema'}
+                </p>
+                <p className="font-mono text-[11px] lg:text-[12px] text-white/55 leading-relaxed">
+                  {problem}
+                </p>
+              </div>
+            )}
+            {solution && (
+              <div className={`px-3 pb-2.5 ${problem ? 'pt-2 border-t border-white/[0.06]' : 'pt-2.5'}`}>
+                <p className="font-mono text-[9px] text-[#4ec9b0]/70 uppercase tracking-widest mb-1">
+                  {lang === 'en' ? 'solution' : 'solución'}
+                </p>
+                <p className="font-mono text-[11px] lg:text-[12px] text-white/55 leading-relaxed">
+                  {solution}
+                </p>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </div>
