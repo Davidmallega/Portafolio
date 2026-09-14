@@ -209,7 +209,7 @@ export default function SkillsTimeline() {
             key={p.id}
             project={p}
             lang={lang}
-            defaultOpen={i === 0}
+            defaultOpen={false}
             onViewProject={handleViewProject}
           />
         ))}
