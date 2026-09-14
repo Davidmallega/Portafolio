@@ -12,11 +12,13 @@ const STATUS = {
 }
 
 function MilestoneRow({ milestone, lang, isLast }) {
+  const [open, setOpen] = useState(false)
   const type = TIMELINE_TYPES[milestone.type]
   const title = lang === 'en' && milestone.titleEn ? milestone.titleEn : milestone.title
   const detail = lang === 'en' && milestone.detailEn ? milestone.detailEn : milestone.detail
   const problem = lang === 'en' && milestone.problemEn ? milestone.problemEn : milestone.problem
   const solution = lang === 'en' && milestone.solutionEn ? milestone.solutionEn : milestone.solution
+  const hasBody = Boolean(detail || problem || solution)
 
   return (
     <div className="relative pl-6">
@@ -29,45 +31,68 @@ function MilestoneRow({ milestone, lang, isLast }) {
       )}
 
       <div className="pb-4">
-        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-          <span
-            className="font-mono text-[10px] px-1.5 py-[1px] rounded border"
-            style={{ borderColor: `${type.color}40`, backgroundColor: `${type.color}15`, color: type.color }}
-          >
-            {type.label}
-          </span>
-          <span className="font-mono text-[10px] text-white/30 tabular-nums">{milestone.date}</span>
-        </div>
-        <p className="font-sans text-[13px] lg:text-[14px] text-white/85 leading-snug mb-1.5">
-          {title}
-        </p>
-        {detail && (
-          <p className="font-mono text-[11px] lg:text-[12px] text-white/40 leading-relaxed">
-            {detail}
+        <button
+          onClick={() => hasBody && setOpen(o => !o)}
+          disabled={!hasBody}
+          className={`w-full text-left group ${hasBody ? 'cursor-pointer' : 'cursor-default'}`}
+        >
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+            {hasBody && (
+              <ChevronRight
+                size={11}
+                className={`shrink-0 -ml-4 transition-transform duration-200
+                  ${open ? 'rotate-90 text-white/60' : 'text-white/25 group-hover:text-white/50'}`}
+              />
+            )}
+            <span
+              className="font-mono text-[10px] px-1.5 py-[1px] rounded border"
+              style={{ borderColor: `${type.color}40`, backgroundColor: `${type.color}15`, color: type.color }}
+            >
+              {type.label}
+            </span>
+            <span className="font-mono text-[10px] text-white/30 tabular-nums">{milestone.date}</span>
+          </div>
+          <p className={`font-sans text-[13px] lg:text-[14px] leading-snug transition-colors
+            ${open ? 'text-white' : 'text-white/85 group-hover:text-white'}`}>
+            {title}
           </p>
-        )}
-        {(problem || solution) && (
-          <div className="mt-2.5 rounded-lg border border-[#4ec9b0]/20 bg-[#4ec9b0]/[0.04] overflow-hidden">
-            {problem && (
-              <div className="px-3 pt-2.5 pb-2">
-                <p className="font-mono text-[9px] text-[#ff6b6b]/70 uppercase tracking-widest mb-1">
-                  {lang === 'en' ? 'problem' : 'problema'}
-                </p>
-                <p className="font-mono text-[11px] lg:text-[12px] text-white/55 leading-relaxed">
-                  {problem}
-                </p>
+        </button>
+
+        {hasBody && (
+          <div className={`exp-body ${open ? 'open' : ''}`}>
+            <div>
+              <div className="pt-1.5">
+                {detail && (
+                  <p className="font-mono text-[11px] lg:text-[12px] text-white/40 leading-relaxed">
+                    {detail}
+                  </p>
+                )}
+                {(problem || solution) && (
+                  <div className="mt-2.5 rounded-lg border border-[#4ec9b0]/20 bg-[#4ec9b0]/[0.04] overflow-hidden">
+                    {problem && (
+                      <div className="px-3 pt-2.5 pb-2">
+                        <p className="font-mono text-[9px] text-[#ff6b6b]/70 uppercase tracking-widest mb-1">
+                          {lang === 'en' ? 'problem' : 'problema'}
+                        </p>
+                        <p className="font-mono text-[11px] lg:text-[12px] text-white/55 leading-relaxed">
+                          {problem}
+                        </p>
+                      </div>
+                    )}
+                    {solution && (
+                      <div className={`px-3 pb-2.5 ${problem ? 'pt-2 border-t border-white/[0.06]' : 'pt-2.5'}`}>
+                        <p className="font-mono text-[9px] text-[#4ec9b0]/70 uppercase tracking-widest mb-1">
+                          {lang === 'en' ? 'solution' : 'solución'}
+                        </p>
+                        <p className="font-mono text-[11px] lg:text-[12px] text-white/55 leading-relaxed">
+                          {solution}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
-            )}
-            {solution && (
-              <div className={`px-3 pb-2.5 ${problem ? 'pt-2 border-t border-white/[0.06]' : 'pt-2.5'}`}>
-                <p className="font-mono text-[9px] text-[#4ec9b0]/70 uppercase tracking-widest mb-1">
-                  {lang === 'en' ? 'solution' : 'solución'}
-                </p>
-                <p className="font-mono text-[11px] lg:text-[12px] text-white/55 leading-relaxed">
-                  {solution}
-                </p>
-              </div>
-            )}
+            </div>
           </div>
         )}
       </div>
