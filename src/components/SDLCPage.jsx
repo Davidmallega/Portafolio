@@ -20,9 +20,13 @@ const PHASES = [
       'RF-07: Badges Credly verificados con modal de certificado local (ver certificado).',
       'RF-08: Filtro de institución por iconos sobre grilla de certificados.',
       'RF-09: Portfolio bilingüe ES/EN — mismo componente, textos externalizados a i18n.',
+      'RF-10: Sección "Habilidades en Tiempo Real" (/timeline) — hitos públicos por proyecto, con narrativa opcional de problema/solución.',
+      'RF-11: CV con fuente única en Markdown y generación automática a PDF, forzado a una sola página.',
+      'RF-12: Barra de stats en home — horas y certificados calculados en runtime desde certificates.js, con heatmap mensual estilo GitHub.',
       'RNF-01: Estética VS Code — fondo #0d0d0f, acento teal #4ec9b0, fuente mono.',
       'RNF-02: Animaciones CSS nativo + React state, sin librerías de animación.',
       'RNF-03: Sin backend propio — Gemini API como único servicio externo opcional.',
+      'RNF-04: Consistencia entre timeline, proyectos, experiencia y CV mantenida por agentes de Claude Code dedicados, no a mano.',
     ],
     labelEn: 'SRS — Software Requirements Specification',
     itemsEn: [
@@ -35,9 +39,13 @@ const PHASES = [
       'RF-07: Verified Credly badges with local certificate modal (ver certificado).',
       'RF-08: Institution icon filter above the certificates grid.',
       'RF-09: Bilingual portfolio ES/EN — same components, texts in i18n object.',
+      'RF-10: "Real-Time Skills" section (/timeline) — public per-project milestones, with an optional problem/solution narrative.',
+      'RF-11: CV with a single Markdown source and automatic PDF generation, hard-capped at one page.',
+      'RF-12: Home stats banner — hours and certificate counts computed at runtime from certificates.js, with a GitHub-style monthly heatmap.',
       'RNF-01: VS Code aesthetic — bg #0d0d0f, teal accent #4ec9b0, mono font.',
       'RNF-02: Native CSS animations + React state, no animation libraries.',
       'RNF-03: No own backend — Gemini API as the only optional external service.',
+      'RNF-04: Consistency across timeline, projects, experience and CV kept by dedicated Claude Code agents, not by hand.',
     ],
   },
   {
@@ -53,8 +61,8 @@ const PHASES = [
       'HU-04: Como visitante mobile, que todo funcione perfecto en celular.',
       'HU-05: Como reclutador internacional, poder leer el portfolio en inglés.',
       'HU-06: Como visitante, preguntar sobre David a través de un chat IA.',
-      'Dominio: 6 secciones — hero, experience, projects, certificates, about (chat), contact.',
-      'Datos estáticos en /src/data/ → projects.js, certificates.js, badges.js, chatbot.js.',
+      'Dominio: 7 secciones/rutas — hero, experience, projects, certificates, timeline, about (chat), contact.',
+      'Datos estáticos en /src/data/ → projects.js, certificates.js, badges.js, chatbot.js, timeline.js.',
       'Custom hook useReveal para IntersectionObserver en animaciones de scroll.',
       'LanguageContext + strings.js para i18n ES/EN sin librerías.',
     ],
@@ -66,8 +74,8 @@ const PHASES = [
       'US-04: As a mobile visitor, everything works perfectly on phone.',
       'US-05: As an international recruiter, read the portfolio in English.',
       'US-06: As a visitor, ask questions about David through an AI chat.',
-      'Domain: 6 sections — hero, experience, projects, certificates, about (chat), contact.',
-      'Static data in /src/data/ → projects.js, certificates.js, badges.js, chatbot.js.',
+      'Domain: 7 sections/routes — hero, experience, projects, certificates, timeline, about (chat), contact.',
+      'Static data in /src/data/ → projects.js, certificates.js, badges.js, chatbot.js, timeline.js.',
       'Custom hook useReveal for IntersectionObserver scroll animations.',
       'LanguageContext + strings.js for ES/EN i18n without libraries.',
     ],
@@ -79,7 +87,7 @@ const PHASES = [
     label: 'Diseño del Sistema',
     dot: '#bc8cff',
     items: [
-      'Arquitectura: App → TopBar, Home (Hero/Experience/Projects/Contact), /certificates, /about (ChatWindow), /sdlc.',
+      'Arquitectura: App → TopBar, Home (Hero/Experience/Projects/Contact), /certificates, /timeline, /about (ChatWindow), /sdlc, ruta 404.',
       'ChatWindow: componente reutilizable — usado en Hero (modal) y /about (página completa).',
       'i18n: LanguageContext + strings.js — mismo JSX, idioma como estado global.',
       'Paleta: bg #0d0d0f · teal #4ec9b0 · yellow #e8d88a · red #ff6b6b · orange #f0a070.',
@@ -87,10 +95,11 @@ const PHASES = [
       'grid-template-rows: 0fr → 1fr para expand/collapse suave sin calcular alturas.',
       'StatusBar inferior fija: errores activos, rama git, ubicación — igual que VS Code.',
       'createPortal en PreviewModal para renderizar sobre el DOM raíz.',
+      'Agentes de Claude Code (.claude/agents/) como capa de mantenimiento, cada uno con scope propio sin superponerse: timeline-curator (tono y schema de /timeline), portfolio-sync (consistencia entre timeline, proyectos y experiencia), cv-curator (CV en una sola página).',
     ],
     labelEn: 'System Design',
     itemsEn: [
-      'Architecture: App → TopBar, Home (Hero/Experience/Projects/Contact), /certificates, /about (ChatWindow), /sdlc.',
+      'Architecture: App → TopBar, Home (Hero/Experience/Projects/Contact), /certificates, /timeline, /about (ChatWindow), /sdlc, 404 route.',
       'ChatWindow: reusable component — used in Hero (modal) and /about (full page).',
       'i18n: LanguageContext + strings.js — same JSX, language as global state.',
       'Palette: bg #0d0d0f · teal #4ec9b0 · yellow #e8d88a · red #ff6b6b · orange #f0a070.',
@@ -98,6 +107,7 @@ const PHASES = [
       'grid-template-rows: 0fr → 1fr for smooth expand/collapse without calculating heights.',
       'Fixed bottom StatusBar: active errors, git branch, location — just like VS Code.',
       'createPortal in PreviewModal to render above the root DOM.',
+      'Claude Code agents (.claude/agents/) as a maintenance layer, each with its own scope and no overlap: timeline-curator (tone and schema for /timeline), portfolio-sync (consistency across timeline, projects and experience), cv-curator (one-page CV).',
     ],
   },
   {
@@ -114,7 +124,9 @@ const PHASES = [
       'Sem 4–6 (15 jun – 5 jul): i18n ES/EN · LanguageContext · strings.js · Chat IA con Gemini.',
       'Sem 7–9 (6–26 jul): Badges "ver certificado" · nuevos certs Google/Coursera · Ethical Hacker.',
       'Sem 10–12 (27 jul – 19 ago): Python Essentials 1&2 · JS Moderno · filtro institución · LogTrans MVP · chatbot bilingüe · bug fixes críticos.',
-      'Stack: React 19 · Vite 8 · Tailwind CSS v3 · React Router DOM v7 · react-icons · lucide-react.',
+      'Sem 13–15 (20 ago – 9 sep): nueva sección "Habilidades en Tiempo Real" (/timeline) — hitos estilo git-log por proyecto, con bloque opcional de problema/solución.',
+      'Sem 16 (10–13 sep): CV en Markdown con pipeline propio a PDF · 3 agentes de Claude Code (timeline-curator, portfolio-sync, cv-curator) · página 404 · SEO (canonical, robots.txt, sitemap.xml, llms.txt) · optimización de imágenes y fix de navegación mobile.',
+      'Stack: React 19 · Vite 8 · Tailwind CSS v3 · React Router DOM v7 · react-icons · lucide-react · Playwright (pipeline de CV + QA visual).',
     ],
     labelEn: 'Planning',
     itemsEn: [
@@ -125,7 +137,9 @@ const PHASES = [
       'Week 4–6 (Jun 15 – Jul 5): i18n ES/EN · LanguageContext · strings.js · AI chat with Gemini.',
       'Week 7–9 (Jul 6–26): Badges "ver certificado" · new Google/Coursera certs · Ethical Hacker.',
       'Week 10–12 (Jul 27 – Aug 19): Python Essentials 1&2 · JS Moderno · institution filter · LogTrans MVP · bilingual chatbot · critical bug fixes.',
-      'Stack: React 19 · Vite 8 · Tailwind CSS v3 · React Router DOM v7 · react-icons · lucide-react.',
+      'Week 13–15 (Aug 20 – Sep 9): new "Real-Time Skills" section (/timeline) — git-log-style milestones per project, with an optional problem/solution block.',
+      'Week 16 (Sep 10–13): Markdown CV with its own PDF pipeline · 3 Claude Code agents (timeline-curator, portfolio-sync, cv-curator) · 404 page · SEO (canonical, robots.txt, sitemap.xml, llms.txt) · image optimization and mobile nav fix.',
+      'Stack: React 19 · Vite 8 · Tailwind CSS v3 · React Router DOM v7 · react-icons · lucide-react · Playwright (CV pipeline + visual QA).',
     ],
   },
   {
@@ -147,6 +161,11 @@ const PHASES = [
       'Bug fix: scroll perdido al cerrar chat modal → useRef guarda scrollY antes de bloquear.',
       'Bug fix: iOS Safari zoom al enfocar input → font-size text-[16px] en mobile.',
       'Bug fix: Gemini fetch sin try/catch → typing indicator quedaba bloqueado en error de red.',
+      'Timeline: campos opcionales problem/solution — máximo uno por proyecto, en el hito que resolvió el problema de negocio raíz, separados del detail técnico.',
+      'CV como fuente en Markdown (cv/CV-David-Mallega.md) → scripts/render-cv.mjs renderiza a PDF con Chromium headless, forzado a una sola página.',
+      'Bug fix: <nav> de tabs sin min-width:0 → el scroll interno nunca se activaba y tapaba el último tab en mobile.',
+      'StatsBanner: parseHours() por regex sobre el campo effort de cada certificado — sin totales hardcodeados, sube solo al agregar uno nuevo.',
+      'Heatmap mensual (jun 2024 – hoy) agrupando certificates.js por addedAt — mismo patrón visual que el gráfico de contribuciones de GitHub.',
     ],
     labelEn: 'Implementation / Development',
     itemsEn: [
@@ -162,6 +181,11 @@ const PHASES = [
       'Bug fix: scroll position lost when closing chat modal → useRef saves scrollY before locking.',
       'Bug fix: iOS Safari zoom on input focus → font-size text-[16px] on mobile.',
       'Bug fix: Gemini fetch without try/catch → typing indicator stuck on network error.',
+      'Timeline: optional problem/solution fields — at most one per project, on the milestone that solved the root business problem, kept separate from the technical detail.',
+      'CV as a Markdown source (cv/CV-David-Mallega.md) → scripts/render-cv.mjs renders it to PDF with headless Chromium, hard-capped at one page.',
+      'Bug fix: tabs <nav> missing min-width:0 → internal scroll never kicked in, cutting off the last tab on mobile.',
+      'StatsBanner: parseHours() via regex on each certificate\'s effort field — no hardcoded totals, goes up on its own when a new one is added.',
+      'Monthly heatmap (Jun 2024 – today) grouping certificates.js by addedAt — same visual pattern as GitHub\'s contribution graph.',
     ],
   },
   {
@@ -177,7 +201,8 @@ const PHASES = [
       '✓ Android Chrome — npm run dev --host sobre WiFi local.',
       '✓ Navegación entre rutas sin romper scroll ni acumular estado.',
       '✓ Resize breakpoints: 320px / 375px / 768px / 1280px / 1920px.',
-      'Deuda técnica: tests unitarios Vitest + E2E Playwright pendientes.',
+      'Playwright sumado como devDependency — se usa para el pipeline del CV y para QA visual puntual (screenshots), no como suite de tests del sitio.',
+      'Deuda técnica: tests unitarios Vitest + E2E Playwright del propio sitio pendientes.',
     ],
     labelEn: 'Testing',
     itemsEn: [
@@ -187,7 +212,8 @@ const PHASES = [
       '✓ Android Chrome — npm run dev --host over local WiFi.',
       '✓ Cross-route navigation without breaking scroll or accumulating state.',
       '✓ Resize breakpoints: 320px / 375px / 768px / 1280px / 1920px.',
-      'Tech debt: Vitest unit tests + Playwright E2E pending.',
+      'Playwright added as a devDependency — used for the CV pipeline and ad hoc visual QA (screenshots), not as a site test suite.',
+      'Tech debt: Vitest unit tests + Playwright E2E for the site itself still pending.',
     ],
   },
   {
@@ -224,6 +250,7 @@ const PHASES = [
       'vercel.json con rewrite /* → /index.html para SPA routing (React Router DOM).',
       'Build output: dist/ — JS tree-shaken · CSS purged · imágenes optimizadas.',
       'Decisión Vercel vs Firebase Hosting: Vercel integra GitHub de forma nativa sin configuración extra.',
+      'En evaluación: dominio propio .cl (davidstack.cl / davidev.cl) para reemplazar la URL de Vercel — aún sin comprar ni confirmar.',
     ],
     labelEn: 'Deploy',
     itemsEn: [
@@ -232,6 +259,7 @@ const PHASES = [
       'vercel.json with /* → /index.html rewrite for SPA routing (React Router DOM).',
       'Build output: dist/ — tree-shaken JS · purged CSS · optimized images.',
       'Decision Vercel vs Firebase Hosting: Vercel integrates GitHub natively with no extra config.',
+      'Under evaluation: a custom .cl domain (davidstack.cl / davidev.cl) to replace the Vercel URL — not yet purchased or confirmed.',
     ],
   },
   {
@@ -265,10 +293,14 @@ const PHASES = [
       'Implementado: versión EN completa — LanguageContext, strings.js, responseEn en chatbot.',
       'Implementado: Chat IA bilingüe — 18 respuestas hardcodeadas + fallback Gemini 2.5 Flash.',
       'Implementado: filtro de institución con iconos (Google, Cisco, IBM, Udemy, IACC, etc.).',
-      'Implementado: LogTrans MVP en proyectos y experiencia (cliente real, ago 2026).',
+      'Implementado: heatmap mensual estilo GitHub en la barra de stats, con horas y certificados calculados automáticamente.',
+      'Implementado: sección "Habilidades en Tiempo Real" (/timeline) — hitos por proyecto estilo git-log, con bloque opcional de problema/solución.',
+      'Implementado: CV en Markdown con generación automática a PDF, página 404 a medida, SEO (canonical, robots.txt, sitemap.xml, llms.txt) y avatar optimizado (2.89MB → 47KB).',
+      'Implementado: 3 agentes de Claude Code (timeline-curator, portfolio-sync, cv-curator) para mantener consistencia entre timeline, proyectos, experiencia y CV.',
       'Decisión técnica: position:fixed vs overflow:hidden para scroll lock → evita scroll-jump.',
       'Decisión técnica: Set de IDs vs contador para builds — inmune a eventos duplicados.',
       'Decisión técnica: Gemini API como fallback opcional — chatbot funciona sin API key.',
+      'Decisión técnica: problem/solution como campos opcionales, no siempre presentes — evita forzar una narrativa de negocio en fixes menores.',
     ],
     labelEn: 'Maintenance & Evolution',
     itemsEn: [
@@ -276,10 +308,14 @@ const PHASES = [
       'Implemented: full EN version — LanguageContext, strings.js, responseEn in chatbot.',
       'Implemented: bilingual AI chat — 18 hardcoded responses + Gemini 2.5 Flash fallback.',
       'Implemented: institution filter with icons (Google, Cisco, IBM, Udemy, IACC, etc.).',
-      'Implemented: LogTrans MVP in projects and experience (real client, Aug 2026).',
+      'Implemented: GitHub-style monthly heatmap on the stats banner, with hours and certificates computed automatically.',
+      'Implemented: "Real-Time Skills" section (/timeline) — git-log-style milestones per project, with an optional problem/solution block.',
+      'Implemented: Markdown CV with automatic PDF generation, a custom 404 page, SEO (canonical, robots.txt, sitemap.xml, llms.txt) and an optimized avatar (2.89MB → 47KB).',
+      'Implemented: 3 Claude Code agents (timeline-curator, portfolio-sync, cv-curator) to keep the timeline, projects, experience and CV consistent.',
       'Tech decision: position:fixed vs overflow:hidden for scroll lock → prevents scroll-jump.',
       'Tech decision: Set of IDs vs counter for builds — immune to duplicate events.',
       'Tech decision: Gemini API as optional fallback — chatbot works without API key.',
+      'Tech decision: problem/solution as optional fields, not always-present — avoids forcing a business narrative onto minor fixes.',
     ],
   },
 ]
@@ -376,7 +412,7 @@ export default function SDLCPage() {
 
       {/* Meta badges */}
       <div className="flex flex-wrap gap-2 mb-10">
-        {['React 19', 'Vite 8', 'Tailwind CSS v3', 'React Router v7', lang === 'en' ? '~3 weeks' : '~3 semanas', 'solo dev'].map(b => (
+        {['React 19', 'Vite 8', 'Tailwind CSS v3', 'React Router v7', lang === 'en' ? '~4 months' : '~4 meses', 'solo dev'].map(b => (
           <span key={b} className="font-mono text-[10px] px-2 py-[2px] rounded bg-white/[0.05] border border-white/[0.09] text-white/40">
             {b}
           </span>

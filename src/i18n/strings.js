@@ -42,7 +42,7 @@ export const strings = {
     },
     sdlc: {
       back: '← volver a proyectos',
-      subtitle: 'Ciclo de Desarrollo de Software · mayo – ago 2026',
+      subtitle: 'Ciclo de Desarrollo de Software · mayo – sep 2026',
       explorerPath: 'sdlc · 10 fases',
     },
   },
@@ -90,7 +90,7 @@ export const strings = {
     },
     sdlc: {
       back: '← back to projects',
-      subtitle: 'Software Development Life Cycle · May – Aug 2026',
+      subtitle: 'Software Development Life Cycle · May – Sep 2026',
       explorerPath: 'sdlc · 10 phases',
     },
   },
