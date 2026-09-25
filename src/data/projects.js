@@ -220,6 +220,19 @@ export const projects = [
     previewDesc: 'SaaS de carta digital para restaurantes: panel de administración con CRUD de categorías, productos y combos, theming por marca, carrusel de promociones y herramientas comerciales masivas (descuentos programados, import/export Excel). El modelo de negocio pasó de licencia mensual a venta única, lo que derivó en una arquitectura "un código, dos despliegues": la base multi-tenant sobre Firebase sigue como producto propio, y la copia del cliente corre con un backend propio (Node + Express + SQLite) containerizado en Docker, self-hosted vía Coolify, con CI (GitHub Actions) y CD automático por webhook.',
     previewDescEn: 'Restaurant digital menu SaaS: admin panel with CRUD for categories, products and combos, brand theming, promotions carousel, and bulk commercial tools (scheduled discounts, Excel import/export). The business model shifted from a monthly license to a one-time sale, leading to a "one codebase, two deployments" architecture: the multi-tenant Firebase base continues as its own product, while the client copy runs a self-built backend (Node + Express + SQLite) containerized in Docker, self-hosted via Coolify, with CI (GitHub Actions) and automatic webhook-based CD.',
   },
+  {
+    id: 14,
+    title: 'RAG Local — Ollama',
+    stack: 'Node.js · Express · Ollama · Qwen2.5 · nomic-embed-text',
+    error: 'RetrievalError',
+    errorMsg: "cosineSimilarity(query, chunks) returned []",
+    description: 'RAG sobre documentos propios corriendo 100% en hardware personal — sin LLM en la nube. Ollama + Qwen2.5, streaming de respuestas, búsqueda por similitud coseno en memoria.',
+    descriptionEn: 'RAG over personal documents running entirely on personal hardware — no cloud LLM. Ollama + Qwen2.5, response streaming, in-memory cosine similarity search.',
+    link: null,
+    linkLabel: null,
+    previewDesc: 'RAG (retrieval-augmented generation) construido desde cero sobre Node.js y Express, corriendo 100% en hardware personal con Ollama — sin depender de ningún LLM en la nube. La GTX 1050 Ti (4GB VRAM) es una restricción de diseño desde el día uno: los modelos cuantizados Q4 se compararon en benchmarks reales (3B vs 7B), y el de 3B ganó por rendimiento — entra completo en VRAM y responde ~3.6x más rápido con calidad equivalente. Los documentos fuente se dividen en chunks y se indexan con embeddings (nomic-embed-text) en un array en memoria, sin base de datos vectorial externa; cada respuesta solo se genera si hay contexto real recuperado por similitud coseno, evitando respuestas sin grounding. La Fase 2, en curso, ya entregó streaming de respuestas token a token vía un protocolo NDJSON propio sobre POST /api/chat; la interfaz de chat visual y la memoria conversacional siguen pendientes.',
+    previewDescEn: 'RAG (retrieval-augmented generation) built from scratch on Node.js and Express, running entirely on personal hardware with Ollama — no cloud LLM involved. The GTX 1050 Ti (4GB VRAM) has been a design constraint from day one: quantized Q4 models were benchmarked head-to-head (3B vs 7B), and the 3B model won on performance — it fits entirely in VRAM and answers ~3.6x faster with equivalent quality. Source documents are chunked and indexed with embeddings (nomic-embed-text) in an in-memory array, no external vector database; every answer is only generated when real context is retrieved via cosine similarity, avoiding ungrounded responses. Phase 2, in progress, has already delivered token-by-token response streaming via a custom NDJSON protocol over POST /api/chat; the visual chat UI and conversational memory are still pending.',
+  },
 ]
 
 export const skillGroups = [
