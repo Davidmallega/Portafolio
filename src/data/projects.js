@@ -233,6 +233,19 @@ export const projects = [
     previewDesc: 'RAG (retrieval-augmented generation) construido desde cero sobre Node.js y Express, corriendo 100% en hardware personal con Ollama — sin depender de ningún LLM en la nube. La GTX 1050 Ti (4GB VRAM) es una restricción de diseño desde el día uno: los modelos cuantizados Q4 se compararon en benchmarks reales (3B vs 7B), y el de 3B ganó por rendimiento — entra completo en VRAM y responde ~3.6x más rápido con calidad equivalente. Los documentos fuente se dividen en chunks y se indexan con embeddings (nomic-embed-text) en un array en memoria, sin base de datos vectorial externa; cada respuesta solo se genera si hay contexto real recuperado por similitud coseno, evitando respuestas sin grounding. La Fase 2, en curso, ya entregó streaming de respuestas token a token vía un protocolo NDJSON propio sobre POST /api/chat; la interfaz de chat visual y la memoria conversacional siguen pendientes.',
     previewDescEn: 'RAG (retrieval-augmented generation) built from scratch on Node.js and Express, running entirely on personal hardware with Ollama — no cloud LLM involved. The GTX 1050 Ti (4GB VRAM) has been a design constraint from day one: quantized Q4 models were benchmarked head-to-head (3B vs 7B), and the 3B model won on performance — it fits entirely in VRAM and answers ~3.6x faster with equivalent quality. Source documents are chunked and indexed with embeddings (nomic-embed-text) in an in-memory array, no external vector database; every answer is only generated when real context is retrieved via cosine similarity, avoiding ungrounded responses. Phase 2, in progress, has already delivered token-by-token response streaming via a custom NDJSON protocol over POST /api/chat; the visual chat UI and conversational memory are still pending.',
   },
+  {
+    id: 15,
+    title: 'Artenhilo',
+    stack: 'Electron · React · Vite · Express · MySQL',
+    error: 'MigrationError',
+    errorMsg: "Table 'artenhilo.talleres' doesn't exist",
+    description: 'Sistema de escritorio para un taller de bisutería y manualidades: inventario, ventas, catálogo en PDF y un módulo completo de taller (alumnos, cursos, certificados). Instalador de Windows con actualizaciones automáticas, repositorio privado del cliente.',
+    descriptionEn: 'Desktop system for a jewelry/handicraft workshop: inventory, sales, a PDF catalog and a full workshop module (students, courses, certificates). Windows installer with automatic updates, private client repository.',
+    link: null,
+    linkLabel: null,
+    previewDesc: 'Sistema de escritorio (Electron + React/Vite + Express/MySQL) que unifica dos operaciones de un taller de bisutería y manualidades que antes funcionaban por separado y sin base de datos común: venta al detalle (piezas, materiales, clientes, ventas, catálogo en PDF) y programa educativo (alumnos, cursos, niveles, progreso, certificados, pagos y asistencia). Acceso protegido por contraseña, migraciones de esquema versionadas y respaldo manual y automático. Empaquetado como instalador de Windows con actualizaciones automáticas vía electron-updater contra un repositorio de GitHub privado. En producción con un cliente real desde v1.0.0, con una suite de más de 1300 tests de backend y 1000 de frontend.',
+    previewDescEn: 'Desktop system (Electron + React/Vite + Express/MySQL) unifying two operations of a jewelry/handicraft workshop that used to run separately with no shared data layer: retail sales (pieces, materials, clients, sales, PDF catalog) and an education program (students, courses, levels, progress, certificates, payments and attendance). Password-protected access, versioned schema migrations, and manual and automated backups. Packaged as a Windows installer with automatic updates via electron-updater against a private GitHub repository. In production with a real client since v1.0.0, with a suite of 1300+ backend and 1000+ frontend tests.',
+  },
 ]
 
 export const skillGroups = [
