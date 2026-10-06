@@ -17,6 +17,7 @@ const FILTERS = [
   { id: 'santander', label: 'Open Academy', icon: null,     color: '#ec4040', match: c => /open academy/i.test(c.institution) },
   { id: 'sence',     label: 'SENCE',        icon: null,     color: '#9ca3af', match: c => /sence|movistar/i.test(c.institution) },
   { id: 'holamundo', label: 'Hola Mundo',   icon: null,     color: '#f472b6', match: c => /hola mundo/i.test(c.institution) },
+  { id: 'mouredev',  label: 'mouredev',     icon: null,     color: '#22d3ee', match: c => /mouredev|big school/i.test(c.institution) },
 ]
 
 function CertCard({ cert, onClick, lang, t }) {

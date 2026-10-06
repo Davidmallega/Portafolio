@@ -349,4 +349,18 @@ export const certificates = [
     descriptionEn: 'Terminal multiplexer for managing sessions, background processes and multiple AI agents (Claude Code, OpenCode, Codex) from one place. Shortcuts, plugins, Fuzzy Finder and remote SSH sessions.',
     img: '/assets/certificates/herdr-terminal-agentes.jpg',
   },
+  {
+    id: 26,
+    category: 'Curso',
+    title: 'Iniciación al Desarrollo con IA',
+    institution: 'BIG school · mouredev',
+    year: 2026,
+    addedAt: '2026-10',
+    effort: '+4h',
+    bars: 1,
+    badge: null,
+    description: 'Curso de asistencia "Desarrollo con IA Gratis — El Nuevo Programador": primeros pasos programando con asistentes de IA.',
+    descriptionEn: 'Attendance course "Free AI Development — The New Programmer": first steps building software with AI assistants.',
+    img: '/assets/certificates/ia-desarrollo-mouredev-bigschool.jpg',
+  },
 ]
