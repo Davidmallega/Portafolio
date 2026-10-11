@@ -363,4 +363,18 @@ export const certificates = [
     descriptionEn: 'Attendance course "Free AI Development — The New Programmer": first steps building software with AI assistants.',
     img: '/assets/certificates/ia-desarrollo-mouredev-bigschool.jpg',
   },
+  {
+    id: 27,
+    category: 'Certificación',
+    title: 'Share Data Through the Art of Visualization',
+    institution: 'Google · Coursera',
+    year: 2026,
+    addedAt: '2026-10',
+    effort: '+18h',
+    bars: 2,
+    badge: 'Coursera verified',
+    description: 'Visualización de datos y data storytelling: Tableau, principios de diseño, presentaciones efectivas y accesibilidad de contenido web. Calificación 93.09%.',
+    descriptionEn: 'Data visualization and data storytelling: Tableau, design principles, effective presentations and web content accessibility. Score 93.09%.',
+    img: '/assets/certificates/coursera-share-data.jpg',
+  },
 ]
