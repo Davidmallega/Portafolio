@@ -84,12 +84,9 @@ function CertCard({ cert, onClick, lang, t }) {
     setFilledBars(0)
   }
 
-  const now = new Date()
-  const isNew = cert.addedAt === `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
-
   return (
     <div
-      className={`ccard p-5 ${phase === 'done' ? 'ccard-done' : ''} ${isNew ? 'ccard-new' : ''}`}
+      className={`ccard p-5 ${phase === 'done' ? 'ccard-done' : ''}`}
       onClick={() => phase === 'idle' ? handleEnter() : null}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
@@ -100,15 +97,11 @@ function CertCard({ cert, onClick, lang, t }) {
         </h3>
 
         <div className="ml-2 shrink-0 flex items-center justify-end min-w-[90px]">
-          {phase === 'idle' && (isNew ? (
-            <span className="font-mono text-[10px] font-semibold px-2 py-[2px] rounded bg-[#e8d88a]/20 border border-[#e8d88a]/60 text-[#e8d88a] whitespace-nowrap">
-              ● new
-            </span>
-          ) : (
+          {phase === 'idle' && (
             <span className="font-mono text-[10px] px-2 py-[2px] rounded bg-[#e8d88a]/10 border border-[#e8d88a]/20 text-[#e8d88a] whitespace-nowrap">
               ~ modified
             </span>
-          ))}
+          )}
           {phase === 'pushing' && (
             <span className="font-mono text-[10px] text-[#4ec9b0] whitespace-nowrap flex items-center gap-1">
               <span style={{ opacity: arrowOn ? 1 : 0, transition: 'opacity 0.15s' }}>↑</span>
@@ -122,14 +115,7 @@ function CertCard({ cert, onClick, lang, t }) {
             </span>
           )}
           {phase === 'done' && (
-            <span className="flex items-center gap-2">
-              {isNew && (
-                <span className="font-mono text-[10px] font-semibold px-2 py-[2px] rounded bg-[#e8d88a]/20 border border-[#e8d88a]/60 text-[#e8d88a] whitespace-nowrap">
-                  ● new
-                </span>
-              )}
-              <span className="compile-check font-mono text-[14px] text-[#4ec9b0]">✓</span>
-            </span>
+            <span className="compile-check font-mono text-[14px] text-[#4ec9b0]">✓</span>
           )}
         </div>
       </div>
