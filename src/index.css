@@ -177,6 +177,14 @@ body {
   border-color: rgba(78,201,176,0.3);
   border-left-color: rgba(78,201,176,0.7);
 }
+/* Certificado agregado este mes: se queda amarillo también en hover/done */
+.ccard-new,
+.ccard-new:hover,
+.ccard-new.ccard-done {
+  border-color: rgba(232,216,138,0.45);
+  border-left-color: #e8d88a;
+  box-shadow: 0 0 0 1px rgba(232,216,138,0.08), 0 0 18px rgba(232,216,138,0.08);
+}
 
 /* Credly badge cards */
 .badge-card {
