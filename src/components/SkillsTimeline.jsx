@@ -229,7 +229,7 @@ export default function SkillsTimeline() {
       </div>
 
       <div ref={r2} className="reveal space-y-3">
-        {timelineProjects.map((p, i) => (
+        {timelineProjects.map(p => (
           <ProjectTimeline
             key={p.id}
             project={p}

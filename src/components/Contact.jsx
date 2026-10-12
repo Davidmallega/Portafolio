@@ -14,7 +14,7 @@ export default function Contact() {
   const [pos, setPos]         = useState({ x: 50, y: 50 })
   const [hovered, setHovered] = useState(false)
   const [screenW, setScreenW] = useState(() => window.innerWidth)
-  const [form, setForm]       = useState({ name: '', email: '', message: '' })
+  const [form, setForm]       = useState({ name: '', email: '', message: '', _gotcha: '' })
   const [status, setStatus]   = useState('idle')
 
   useEffect(() => {
@@ -25,6 +25,8 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    // Honeypot: un humano nunca ve este campo; si viene relleno es un bot.
+    if (form._gotcha) { setStatus('success'); return }
     setStatus('loading')
     try {
       const res = await fetch(FORMSPREE, {
@@ -223,6 +225,16 @@ export default function Contact() {
                 : (lang === 'en' ? 'send message' : 'enviar mensaje')}
             </button>
           </div>
+          <input
+            type="text"
+            name="_gotcha"
+            value={form._gotcha}
+            onChange={e => setForm(f => ({ ...f, _gotcha: e.target.value }))}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+          />
         </form>
 
         {/* Footer code */}
