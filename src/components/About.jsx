@@ -7,32 +7,22 @@ import {
   WELCOME_MESSAGE,
   FALLBACK_MESSAGE,
   FALLBACK_WHATSAPP,
-  SYSTEM_PROMPT,
   DAVID_INFO,
 } from '../data/chatbot'
 
-// ─── Gemini API (fallback para preguntas sin match) ─────────────────────────
-const GEMINI_KEY  = import.meta.env.VITE_GEMINI_KEY ?? ''
+// ─── Gemini (fallback para preguntas sin match) ─────────────────────────────
+// La clave vive en el servidor: el navegador solo habla con /api/chat.
 const GEMINI_MODEL = 'gemini-2.5-flash'
-const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_KEY}`
 
 async function askGemini(userMessage) {
-  if (!GEMINI_KEY) return null
-  const res = await fetch(GEMINI_URL, {
+  const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-      contents: [{ role: 'user', parts: [{ text: userMessage }] }],
-      generationConfig: { maxOutputTokens: 150, temperature: 0.7 },
-    }),
+    body: JSON.stringify({ message: userMessage }),
   })
+  if (!res.ok) return null
   const data = await res.json()
-  if (!res.ok) {
-    console.error('[Gemini error]', JSON.stringify(data))
-    return null
-  }
-  return data?.candidates?.[0]?.content?.parts?.[0]?.text ?? null
+  return typeof data?.reply === 'string' ? data.reply : null
 }
 
 // ─── Normaliza texto: minúsculas + sin tildes ────────────────────────────────
@@ -182,21 +172,19 @@ export function ChatWindow({ onClose } = {}) {
       return
     }
 
-    if (GEMINI_KEY) {
-      setTyping(`> ${GEMINI_MODEL}...`)
-      try {
-        const t0 = Date.now()
-        const reply = await askGemini(trimmed)
-        const ms = Date.now() - t0
-        setTyping(null)
-        if (reply) {
-          setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: reply, source: 'gemini', ms }])
-          setQuickReplies(initialReplies)
-          return
-        }
-      } catch {
-        setTyping(null)
+    setTyping(`> ${GEMINI_MODEL}...`)
+    try {
+      const t0 = Date.now()
+      const reply = await askGemini(trimmed)
+      const ms = Date.now() - t0
+      setTyping(null)
+      if (reply) {
+        setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: reply, source: 'gemini', ms }])
+        setQuickReplies(initialReplies)
+        return
       }
+    } catch {
+      setTyping(null)
     }
 
     setTyping('thinking')
@@ -225,9 +213,7 @@ export function ChatWindow({ onClose } = {}) {
           </span>
         </div>
         <div className="flex items-center gap-3">
-          {GEMINI_KEY && (
-            <span className="font-mono text-[9px] text-[#4ec9b0]/40">{GEMINI_MODEL} ✓</span>
-          )}
+          <span className="font-mono text-[9px] text-[#4ec9b0]/40">IA · Gemini</span>
           {onClose && (
             <button
               onClick={onClose}
@@ -289,11 +275,6 @@ export default function About() {
         <ChatWindow />
       </div>
 
-      {import.meta.env.DEV && !GEMINI_KEY && (
-        <p className="font-mono text-[10px] text-white/20 mt-3">
-          ⚠ VITE_GEMINI_KEY no configurada — modo solo respuestas locales
-        </p>
-      )}
     </section>
   )
 }
