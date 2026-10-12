@@ -46,18 +46,19 @@ export default function TopBar() {
       <div className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-0 lg:px-16 xl:px-24 flex items-center h-full w-full">
         {/* Tabs */}
         <div className="relative min-w-0 flex-1 h-full">
-          <nav className="flex h-full w-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+          <nav aria-label="Secciones" className="flex h-full w-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
             {tabs.map(tab => {
               const isActive = active === tab.id
               return (
                 <button
                   key={tab.id}
                   onClick={() => handleTab(tab)}
+                  aria-current={isActive ? 'page' : undefined}
                   style={isActive ? { borderTopColor: tab.color } : {}}
                   className={`
                     flex items-center gap-[7px] px-3 sm:px-4 h-full text-[11px] sm:text-[12px] font-mono shrink-0
                     border-r border-white/[0.07] transition-colors border-t border-t-transparent
-                    ${isActive ? 'text-[#e8e8e8]' : 'text-white/30 hover:text-white/60'}
+                    ${isActive ? 'text-[#e8e8e8]' : 'text-white/50 hover:text-white/60'}
                   `}
                 >
                   {tab.showDot && isActive && (
@@ -77,11 +78,12 @@ export default function TopBar() {
         {/* Language toggle */}
         <button
           onClick={toggle}
+          aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a español'}
           className="ml-auto px-3 h-full font-mono text-[12px] text-white/50 hover:text-[#4ec9b0] transition-colors shrink-0 flex items-center gap-1.5"
         >
           {lang === 'es' ? (
             <>
-              <svg width="16" height="11" viewBox="0 0 16 11" className="rounded-[1px] shrink-0 opacity-75">
+              <svg aria-hidden="true" width="16" height="11" viewBox="0 0 16 11" className="rounded-[1px] shrink-0 opacity-75">
                 <rect width="16" height="11" fill="#B22234"/>
                 {[0,1,2,3,4,5].map(i => <rect key={i} y={i*1.54+0.77} width="16" height="0.77" fill="white"/>)}
                 <rect width="7" height="5.5" fill="#3C3B6E"/>
@@ -90,7 +92,7 @@ export default function TopBar() {
             </>
           ) : (
             <>
-              <svg width="16" height="11" viewBox="0 0 16 11" className="rounded-[1px] shrink-0 opacity-75">
+              <svg aria-hidden="true" width="16" height="11" viewBox="0 0 16 11" className="rounded-[1px] shrink-0 opacity-75">
                 <rect width="16" height="5.5" fill="white"/>
                 <rect y="5.5" width="16" height="5.5" fill="#D52B1E"/>
                 <rect width="6" height="5.5" fill="#003DA5"/>

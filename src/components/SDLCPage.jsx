@@ -397,7 +397,7 @@ export default function SDLCPage() {
       <div className="mb-10">
         <button
           onClick={() => navigate('/', { state: { scrollTo: 'projects' } })}
-          className="font-mono text-[11px] text-white/30 hover:text-white/60 transition-colors mb-6 flex items-center gap-1"
+          className="font-mono text-[11px] text-white/50 hover:text-white/60 transition-colors mb-6 flex items-center gap-1"
         >
           {t.sdlc.back}
         </button>
@@ -422,7 +422,7 @@ export default function SDLCPage() {
       {/* Explorer */}
       <div className="bg-white/[0.04] border border-white/[0.09] rounded-xl overflow-hidden">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.08] bg-white/[0.03] select-none">
-          <span className="font-mono text-[10px] text-white/35 uppercase tracking-widest">EXPLORER</span>
+          <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest">EXPLORER</span>
           <span className="font-mono text-[10px] text-white/20">›</span>
           <span className="font-mono text-[10px] text-[#4ec9b0]/60">portfolio</span>
           <span className="font-mono text-[10px] text-white/20">/</span>

@@ -5,8 +5,37 @@ import { Mail, MessageCircle } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import avatarImg from '../assets/avatar.jpeg'
+import { useModalA11y } from '../hooks/useModalA11y'
 
 const ChatWindow = lazy(() => import('./About').then(m => ({ default: m.ChatWindow })))
+
+function ChatModal({ onClose }) {
+  const dialogRef = useModalA11y(onClose)
+  return (
+    <div
+      ref={dialogRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Chat con David"
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 pt-4 sm:pt-6 outline-none"
+      onClick={onClose}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/88 backdrop-blur-sm" />
+
+      {/* Contenedor del chat */}
+      <div
+        className="relative z-10 w-full sm:max-w-md"
+        onClick={e => e.stopPropagation()}
+      >
+        <Suspense fallback={null}>
+          <ChatWindow onClose={onClose} />
+        </Suspense>
+      </div>
+    </div>
+  )
+}
 
 export default function Hero() {
   const { t, lang } = useLang()
@@ -68,18 +97,18 @@ export default function Hero() {
                   {lang === 'en' ? 'open to work' : 'disponible'}
                 </span>
               </div>
-              <p className="font-mono text-[13px] lg:text-[16px] text-white/30 mb-3">Santiago, Chile 🇨🇱</p>
+              <p className="font-mono text-[13px] lg:text-[16px] text-white/50 mb-3">Santiago, Chile 🇨🇱</p>
               <div className="flex items-center gap-3">
-                <a href="mailto:david.mallega@gmail.com" className="text-white/30 hover:text-[#4ec9b0] transition-colors">
+                <a href="mailto:david.mallega@gmail.com" aria-label="Enviar correo a David Mallega" className="text-white/50 hover:text-[#4ec9b0] transition-colors">
                   <Mail size={20} />
                 </a>
-                <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
+                <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" aria-label="GitHub de David Mallega" className="text-white/50 hover:text-white transition-colors">
                   <SiGithub size={20} />
                 </a>
-                <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#0a66c2] transition-colors">
+                <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de David Mallega" className="text-white/50 hover:text-[#0a66c2] transition-colors">
                   <FaLinkedin size={20} />
                 </a>
-                <a href="https://wa.me/56996148763" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25d366] transition-colors">
+                <a href="https://wa.me/56996148763" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de David Mallega" className="text-white/50 hover:text-[#25d366] transition-colors">
                   <FaWhatsapp size={20} />
                 </a>
               </div>
@@ -88,7 +117,7 @@ export default function Hero() {
 
           {/* Bio */}
           <div ref={r3} className="reveal mb-10 lg:mb-14">
-            <p className="font-sans text-[13px] lg:text-[14px] text-white/35 leading-relaxed">
+            <p className="font-sans text-[13px] lg:text-[14px] text-white/50 leading-relaxed">
               {t.hero.bio1}{' '}
               <br className="hidden sm:block" />
               {t.hero.bio2}{' '}
@@ -101,25 +130,7 @@ export default function Hero() {
       </div>
 
       {/* Modal del chat */}
-      {chatOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 pt-4 sm:pt-6"
-          onClick={() => setChatOpen(false)}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/88 backdrop-blur-sm" />
-
-          {/* Contenedor del chat */}
-          <div
-            className="relative z-10 w-full sm:max-w-md"
-            onClick={e => e.stopPropagation()}
-          >
-            <Suspense fallback={null}>
-              <ChatWindow onClose={() => setChatOpen(false)} />
-            </Suspense>
-          </div>
-        </div>
-      )}
+      {chatOpen && <ChatModal onClose={() => setChatOpen(false)} />}
     </>
   )
 }

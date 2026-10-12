@@ -208,7 +208,7 @@ export function ChatWindow({ onClose } = {}) {
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#4ec9b0]/20 bg-[#0c0c10]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#4ec9b0] animate-pulse" />
-          <span className="font-mono text-[11px] text-white/30">
+          <span className="font-mono text-[11px] text-white/50">
             chat · {DAVID_INFO.name.toLowerCase().replace(' ', '-')}
           </span>
         </div>
@@ -217,6 +217,7 @@ export function ChatWindow({ onClose } = {}) {
           {onClose && (
             <button
               onClick={onClose}
+              aria-label="Cerrar chat"
               className="flex items-center gap-1 font-mono text-[13px] text-white/70 hover:text-[#4ec9b0] transition-colors"
             >
               cerrar <X size={14} />
@@ -236,14 +237,14 @@ export function ChatWindow({ onClose } = {}) {
       <QuickReplies replies={quickReplies} onSelect={sendMessage} />
 
       {/* Input */}
-      <div className="border-t border-white/[0.06] flex items-center gap-2 px-3 py-2.5">
+      <div className="border-t border-white/[0.06] focus-within:border-[#4ec9b0]/50 transition-colors flex items-center gap-2 px-3 py-2.5">
         <input
           ref={inputRef}
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKey}
           placeholder="Escríbeme algo..."
-          className="flex-1 bg-transparent font-mono text-[16px] sm:text-[12px] text-white/70 placeholder:text-white/20 outline-none"
+          className="flex-1 bg-transparent font-mono text-[16px] sm:text-[12px] text-white/70 placeholder:text-white/50 outline-none"
         />
         <button
           onClick={() => sendMessage(input)}
@@ -266,7 +267,7 @@ export default function About() {
       <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-6 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
         <span className="text-white/20 select-none">~/</span>
         about
-        <span className="text-white/30 normal-case text-[12px]">
+        <span className="text-white/50 normal-case text-[12px]">
           — {DAVID_INFO.role} · {DAVID_INFO.location}
         </span>
       </p>

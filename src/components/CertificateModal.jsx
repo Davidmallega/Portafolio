@@ -1,11 +1,8 @@
 import { useEffect } from 'react'
+import { useModalA11y } from '../hooks/useModalA11y'
 
 export default function CertificateModal({ cert, onClose }) {
-  useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [onClose])
+  const dialogRef = useModalA11y(onClose)
 
   useEffect(() => {
     const y = window.scrollY
@@ -24,7 +21,12 @@ export default function CertificateModal({ cert, onClose }) {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl mx-4 bg-[#1a1a1f] border border-white/[0.08] rounded-xl overflow-hidden flex flex-col"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={cert.title}
+        tabIndex={-1}
+        className="relative w-full max-w-3xl mx-4 bg-[#1a1a1f] border border-white/[0.08] rounded-xl overflow-hidden flex flex-col outline-none"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
@@ -38,7 +40,8 @@ export default function CertificateModal({ cert, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="font-mono text-[12px] text-white/30 hover:text-white/70 transition-colors ml-4"
+            aria-label="Cerrar certificado"
+            className="font-mono text-[12px] text-white/50 hover:text-white/70 transition-colors ml-4"
           >
             × cerrar
           </button>

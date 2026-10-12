@@ -15,19 +15,19 @@ export default function StatusBar({ totalErrors, doneCount = 0 }) {
           <span className="sm:hidden">{isOk ? t.statusBar.okShort : t.statusBar.errorsShort(errors)}</span>
         </div>
 
-        <div className="hidden sm:flex items-center px-4 h-full border-r border-white/[0.07] text-white/30">
+        <div className="hidden sm:flex items-center px-4 h-full border-r border-white/[0.07] text-white/50">
           portfolio.js
         </div>
 
-        <div className="hidden sm:flex items-center px-4 h-full border-r border-white/[0.07] text-white/30">
+        <div className="hidden sm:flex items-center px-4 h-full border-r border-white/[0.07] text-white/50">
           JavaScript
         </div>
 
-        <div className="hidden sm:flex items-center px-4 h-full border-r border-white/[0.07] text-white/30">
+        <div className="hidden sm:flex items-center px-4 h-full border-r border-white/[0.07] text-white/50">
           UTF-8
         </div>
 
-        <div className="flex items-center pl-4 h-full ml-auto border-l border-white/[0.07] text-white/30">
+        <div className="flex items-center pl-4 h-full ml-auto border-l border-white/[0.07] text-white/50">
           <span className="hidden sm:inline">Santiago, Chile</span>
           <span className="sm:hidden">Santiago</span>
         </div>

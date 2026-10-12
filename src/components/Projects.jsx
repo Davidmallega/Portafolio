@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import { projects } from '../data/projects'
+import { useModalA11y } from '../hooks/useModalA11y'
 
 const STACK_FILTERS = [
   { id: 'all',      es: 'todos',    en: 'all',      match: () => true },
@@ -21,6 +22,7 @@ function PreviewModal({ project, lang, onClose }) {
   const total = images.length
   const touchX    = useRef(null)
   const swipeRef  = useRef(null)
+  const dialogRef = useModalA11y(onClose)
 
   // Bloquea scroll mientras el modal está abierto (position:fixed evita el scroll-jump que dispara mouseenter)
   useEffect(() => {
@@ -58,14 +60,19 @@ function PreviewModal({ project, lang, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-md flex items-center justify-center lg:p-6"
+      ref={dialogRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${project.title} — preview`}
+      tabIndex={-1}
+      className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-md flex items-center justify-center lg:p-6 outline-none"
       onClick={onClose}
     >
       {/* Mobile */}
       <div className="md:hidden flex flex-col w-full" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between px-3 pb-2">
           <span className="font-mono text-[11px] text-[#4ec9b0]/70">{project.title} — preview</span>
-          {total > 1 && <span className="font-mono text-[10px] text-white/30">{idx + 1} / {total}</span>}
+          {total > 1 && <span className="font-mono text-[10px] text-white/50">{idx + 1} / {total}</span>}
         </div>
         <div ref={swipeRef} className="relative w-full" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <div className="w-full rounded-xl border border-white/10 bg-white/[0.03] p-1">
@@ -73,25 +80,25 @@ function PreviewModal({ project, lang, onClose }) {
           </div>
           {total > 1 && (
             <>
-              <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[14px]">‹</button>
-              <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[14px]">›</button>
+              <button onClick={prev} aria-label={lang === 'en' ? 'Previous image' : 'Imagen anterior'} className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[14px]">‹</button>
+              <button onClick={next} aria-label={lang === 'en' ? 'Next image' : 'Imagen siguiente'} className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[14px]">›</button>
             </>
           )}
         </div>
         {total > 1 && (
           <div className="flex justify-center gap-1.5 pt-2">
             {images.map((_, i) => (
-              <button key={i} onClick={e => { e.stopPropagation(); setIdx(i) }}
+              <button key={i} onClick={e => { e.stopPropagation(); setIdx(i) }} aria-label={`${lang === 'en' ? 'Image' : 'Imagen'} ${i + 1}`}
                 className={`w-1.5 h-1.5 rounded-full transition-colors ${i === idx ? 'bg-[#bc8cff]' : 'bg-white/20'}`} />
             ))}
           </div>
         )}
         {(project.previewDesc || project.previewDescEn) && (
-          <p className="font-sans text-[11px] text-white/35 leading-relaxed px-3 pt-2">
+          <p className="font-sans text-[11px] text-white/50 leading-relaxed px-3 pt-2">
             {lang === 'en' && project.previewDescEn ? project.previewDescEn : project.previewDesc}
           </p>
         )}
-        <button onClick={onClose} className="font-mono text-[15px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors px-3 pt-2 pb-1 text-right">
+        <button onClick={onClose} aria-label={lang === 'en' ? 'Close preview' : 'Cerrar preview'} className="font-mono text-[15px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors px-3 pt-2 pb-1 text-right">
           × cerrar
         </button>
       </div>
@@ -100,9 +107,9 @@ function PreviewModal({ project, lang, onClose }) {
       <div className="hidden md:flex flex-col relative w-full max-w-[820px] max-h-[88vh]" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between mb-3 shrink-0">
           <span className="font-mono text-[11px] text-[#4ec9b0]/70">
-            {project.title} — preview {total > 1 && <span className="text-white/30">{idx + 1} / {total}</span>}
+            {project.title} — preview {total > 1 && <span className="text-white/50">{idx + 1} / {total}</span>}
           </span>
-          <button onClick={onClose} className="font-mono text-[13px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors">
+          <button onClick={onClose} aria-label={lang === 'en' ? 'Close preview' : 'Cerrar preview'} className="font-mono text-[13px] text-[#bc8cff] hover:text-[#bc8cff]/70 transition-colors">
             × cerrar
           </button>
         </div>
@@ -111,21 +118,21 @@ function PreviewModal({ project, lang, onClose }) {
           <img src={images[idx]} alt={`Preview ${project.title}`} loading="lazy" decoding="async" className="w-full rounded-xl" />
           {total > 1 && (
             <>
-              <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">‹</button>
-              <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">›</button>
+              <button onClick={prev} aria-label={lang === 'en' ? 'Previous image' : 'Imagen anterior'} className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">‹</button>
+              <button onClick={next} aria-label={lang === 'en' ? 'Next image' : 'Imagen siguiente'} className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">›</button>
             </>
           )}
         </div>
         {total > 1 && (
           <div className="flex justify-center gap-2 pt-3">
             {images.map((_, i) => (
-              <button key={i} onClick={e => { e.stopPropagation(); setIdx(i) }}
+              <button key={i} onClick={e => { e.stopPropagation(); setIdx(i) }} aria-label={`${lang === 'en' ? 'Image' : 'Imagen'} ${i + 1}`}
                 className={`w-1.5 h-1.5 rounded-full transition-colors ${i === idx ? 'bg-[#bc8cff]' : 'bg-white/20'}`} />
             ))}
           </div>
         )}
         {(project.previewDesc || project.previewDescEn) && (
-          <p className="font-sans text-[12px] text-white/35 leading-relaxed mt-4 border-t border-white/[0.06] pt-3">
+          <p className="font-sans text-[12px] text-white/50 leading-relaxed mt-4 border-t border-white/[0.06] pt-3">
             {lang === 'en' && project.previewDescEn ? project.previewDescEn : project.previewDesc}
           </p>
         )}
@@ -183,8 +190,19 @@ function ProjectCard({ project, onCompile, lang }) {
   return (
     <div
       className="pcard p-5"
+      role="group"
+      aria-label={project.title}
+      tabIndex={0}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
+      onFocus={handleEnter}
+      onBlur={e => { if (!e.currentTarget.contains(e.relatedTarget)) handleLeave() }}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) {
+          e.preventDefault()
+          handleEnter()
+        }
+      }}
     >
       {/* Top row */}
       <div className="flex items-start justify-between mb-3">
@@ -203,7 +221,7 @@ function ProjectCard({ project, onCompile, lang }) {
       </div>
 
       {/* Stack */}
-      <p className="font-mono text-[11px] text-white/30 mb-3 leading-relaxed">
+      <p className="font-mono text-[11px] text-white/50 mb-3 leading-relaxed">
         {project.stack}
       </p>
 
@@ -276,7 +294,7 @@ export default function Projects({ onCompile }) {
 
       <div ref={ref} className="reveal">
         <p className="font-mono text-[13px] lg:text-[15px] text-[#4ec9b0] uppercase tracking-widest mb-4 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-white/[0.07]">
-          <span className="text-white/20 select-none">~/</span>{t.projects.header} <span className="text-white/30 normal-case">— <span className="sm:hidden">touch</span><span className="hidden sm:inline">hover</span> {t.projects.hint}</span>
+          <span className="text-white/20 select-none">~/</span>{t.projects.header} <span className="text-white/50 normal-case">— <span className="sm:hidden">touch</span><span className="hidden sm:inline">hover</span> {t.projects.hint}</span>
         </p>
 
         {/* Filtros por stack */}
@@ -288,7 +306,7 @@ export default function Projects({ onCompile }) {
               className={`font-mono text-[11px] px-2.5 py-1 rounded-full border transition-all ${
                 activeFilter === f.id
                   ? 'border-[#4ec9b0]/60 bg-[#4ec9b0]/12 text-[#4ec9b0]'
-                  : 'border-white/10 bg-white/[0.03] text-white/35 hover:border-[#4ec9b0]/30 hover:text-[#4ec9b0]/70'
+                  : 'border-white/10 bg-white/[0.03] text-white/50 hover:border-[#4ec9b0]/30 hover:text-[#4ec9b0]/70'
               }`}
             >
               {lang === 'en' ? f.en : f.es}
