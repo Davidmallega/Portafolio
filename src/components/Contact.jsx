@@ -130,10 +130,10 @@ export default function Contact() {
 
               {/* Links de contacto */}
               <div className="space-y-2.5">
-                <a href="mailto:davidmallega@gmail.com" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
+                <a href="mailto:david.mallega@gmail.com" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <Mail size={12} className="text-white/25 shrink-0" />
                   <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
-                    davidmallega@gmail.com
+                    david.mallega@gmail.com
                   </span>
                 </a>
                 <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>

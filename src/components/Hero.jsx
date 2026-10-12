@@ -69,7 +69,7 @@ export default function Hero() {
               </div>
               <p className="font-mono text-[13px] lg:text-[16px] text-white/30 mb-3">Santiago, Chile 🇨🇱</p>
               <div className="flex items-center gap-3">
-                <a href="mailto:davidmallega@gmail.com" className="text-white/30 hover:text-[#4ec9b0] transition-colors">
+                <a href="mailto:david.mallega@gmail.com" className="text-white/30 hover:text-[#4ec9b0] transition-colors">
                   <Mail size={20} />
                 </a>
                 <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">

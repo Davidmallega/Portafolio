@@ -1,6 +1,6 @@
 # David Alejandro Mallega Acevedo
 
-Santiago, Chile • davidmallega@gmail.com • +56 9 9614 8763 • [linkedin.com/in/david-mallega](https://linkedin.com/in/david-mallega) • [github.com/Davidmallega](https://github.com/Davidmallega) • [davidmallega.vercel.app](https://davidmallega.vercel.app)
+Santiago, Chile • david.mallega@gmail.com • +56 9 9614 8763 • [linkedin.com/in/david-mallega](https://linkedin.com/in/david-mallega) • [github.com/Davidmallega](https://github.com/Davidmallega) • [davidmallega.vercel.app](https://davidmallega.vercel.app)
 
 Desarrollador Fullstack (Full Stack Developer) con base en React, Node.js, Google Cloud Platform y Docker/CI-CD. Construyo aplicaciones cloud-native en producción, desde MVPs freelance hasta arquitecturas self-hosted.
 
