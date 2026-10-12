@@ -41,4 +41,4 @@ npm run dev -- --host
 
 ## Live
 
-🔗 Próximamente en Vercel
+🔗 [davidmallega.vercel.app](https://davidmallega.vercel.app)
