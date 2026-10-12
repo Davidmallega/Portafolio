@@ -69,7 +69,7 @@ function PreviewModal({ project, lang, onClose }) {
         </div>
         <div ref={swipeRef} className="relative w-full" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <div className="w-full rounded-xl border border-white/10 bg-white/[0.03] p-1">
-            <img src={mobileImages[idx]} alt={`Preview ${project.title}`} className="w-full rounded-lg" />
+            <img src={mobileImages[idx]} alt={`Preview ${project.title}`} loading="lazy" decoding="async" className="w-full rounded-lg" />
           </div>
           {total > 1 && (
             <>
@@ -108,7 +108,7 @@ function PreviewModal({ project, lang, onClose }) {
         </div>
         <div className="overflow-y-auto">
         <div className="relative w-full rounded-2xl border border-white/10 bg-white/[0.03] p-3">
-          <img src={images[idx]} alt={`Preview ${project.title}`} className="w-full rounded-xl" />
+          <img src={images[idx]} alt={`Preview ${project.title}`} loading="lazy" decoding="async" className="w-full rounded-xl" />
           {total > 1 && (
             <>
               <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white/70 hover:text-white font-mono text-[20px]">‹</button>

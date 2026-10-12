@@ -169,6 +169,8 @@ function BadgeCard({ badge, t, onViewCert }) {
       <img
         src={badge.img}
         alt={badge.name}
+        loading="lazy"
+        decoding="async"
         className="w-24 h-24 lg:w-28 lg:h-28 object-contain mb-4 transition-transform duration-300 group-hover:scale-110"
       />
       <p className="font-sans text-[13px] lg:text-[14px] font-medium text-white leading-snug mb-1">
@@ -350,7 +352,7 @@ export default function Certificates() {
                 × cerrar
               </button>
             </div>
-            <img src={certImg.img} alt={certImg.name} className="w-full rounded-xl border border-white/10" />
+            <img src={certImg.img} alt={certImg.name} loading="lazy" decoding="async" className="w-full rounded-xl border border-white/10" />
           </div>
         </div>
       )}

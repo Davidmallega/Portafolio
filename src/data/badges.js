@@ -6,7 +6,7 @@ export const credlyBadges = [
     date: 'Mayo 2026',
     img: 'https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png',
     url: 'https://www.credly.com/badges/f19124b0-92c5-4f65-a1bc-855dd2347179/public_url',
-    cert: '/assets/certificates/ciberseguridad-cisco-i.jpg',
+    cert: '/assets/certificates/ciberseguridad-cisco-i.webp',
   },
   {
     id: '61441c4d-c522-468a-b210-51b82a85e516',
@@ -15,7 +15,7 @@ export const credlyBadges = [
     date: 'Abril 2026',
     img: 'https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png',
     url: 'https://www.credly.com/badges/61441c4d-c522-468a-b210-51b82a85e516/public_url',
-    cert: '/assets/certificates/ai-fundamentals-cisco-ibm.jpg',
+    cert: '/assets/certificates/ai-fundamentals-cisco-ibm.webp',
   },
   {
     id: '3a19b482-62cb-4eec-ae3d-25676eeeada8',
@@ -24,7 +24,7 @@ export const credlyBadges = [
     date: 'Abril 2026',
     img: 'https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png',
     url: 'https://www.credly.com/badges/3a19b482-62cb-4eec-ae3d-25676eeeada8/public_url',
-    cert: '/assets/certificates/ai-fundamentals-ibm-skillsbuild.jpg',
+    cert: '/assets/certificates/ai-fundamentals-ibm-skillsbuild.webp',
   },
   {
     id: 'e73fc65b-9f27-49e4-85f2-4e7c1f6b4ab6',
@@ -33,7 +33,7 @@ export const credlyBadges = [
     date: 'Agosto 2026',
     img: 'https://images.credly.com/size/340x340/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png',
     url: 'https://www.credly.com/badges/e73fc65b-9f27-49e4-85f2-4e7c1f6b4ab6/public_url',
-    cert: '/assets/certificates/ethical-hacker-cisco_n.jpg',
+    cert: '/assets/certificates/ethical-hacker-cisco_n.webp',
   },
   {
     id: '51f53aa3-bf6f-44de-bf9a-b7815954200b',
@@ -42,7 +42,7 @@ export const credlyBadges = [
     date: 'Agosto 2026',
     img: 'https://images.credly.com/size/340x340/images/68c0b94d-f6ac-40b1-a0e0-921439eb092e/image.png',
     url: 'https://www.credly.com/badges/51f53aa3-bf6f-44de-bf9a-b7815954200b/public_url',
-    cert: '/assets/certificates/python-essentials-1-cisco.jpg',
+    cert: '/assets/certificates/python-essentials-1-cisco.webp',
   },
   {
     id: 'e279d450-55d0-4e75-8651-9253de677413',
@@ -51,6 +51,6 @@ export const credlyBadges = [
     date: 'Agosto 2026',
     img: 'https://images.credly.com/size/340x340/images/3f802526-7274-4230-91ab-f6d1a35340e6/image.png',
     url: 'https://www.credly.com/badges/e279d450-55d0-4e75-8651-9253de677413/public_url',
-    cert: '/assets/certificates/python-essentials-2-cisco.jpg',
+    cert: '/assets/certificates/python-essentials-2-cisco.webp',
   },
 ]

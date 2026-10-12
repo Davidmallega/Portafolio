@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import { SiGithub } from 'react-icons/si'
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import { Mail, MessageCircle } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
 import avatarImg from '../assets/avatar.jpeg'
-import { ChatWindow } from './About'
+
+const ChatWindow = lazy(() => import('./About').then(m => ({ default: m.ChatWindow })))
 
 export default function Hero() {
   const { t, lang } = useLang()
@@ -113,7 +114,9 @@ export default function Hero() {
             className="relative z-10 w-full sm:max-w-md"
             onClick={e => e.stopPropagation()}
           >
-            <ChatWindow onClose={() => setChatOpen(false)} />
+            <Suspense fallback={null}>
+              <ChatWindow onClose={() => setChatOpen(false)} />
+            </Suspense>
           </div>
         </div>
       )}

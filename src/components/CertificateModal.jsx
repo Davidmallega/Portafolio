@@ -49,6 +49,8 @@ export default function CertificateModal({ cert, onClose }) {
           <img
             src={cert.img}
             alt={cert.title}
+            loading="lazy"
+            decoding="async"
             className="w-full object-contain max-h-[75vh]"
           />
         ) : (
