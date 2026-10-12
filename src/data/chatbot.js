@@ -41,7 +41,7 @@ IMPORTANTE: Detecta el idioma del visitante y responde SIEMPRE en ese mismo idio
 - Fundamentos: Datos, datos por todas partes — Google/Coursera 2026 (curso 1 del certificado profesional de Analista de Datos de Google)
 - Ask Questions to Make Data-Driven Decisions — Google/Coursera 2026 (curso 2)
 - Prepare Data for Exploration — Google/Coursera 2026 (curso 3)
-Actualmente cursando el Certificado Profesional de Analista de Datos de Google en Coursera (serie de 8 cursos). Ya completó 3 de los 8 cursos.
+Actualmente cursando el Certificado Profesional de Analista de Datos de Google en Coursera (serie de 8 cursos). Ya completó 6 de los 8 cursos.
 Cuando pregunten por certificados, sugiere ver la pestaña de certificados del portfolio.
 
 === PROYECTOS DEL PORTFOLIO ===
@@ -182,9 +182,9 @@ export const RESPONSES = [
       'been studying', 'are you studying', 'new skills', 'new certification',
     ],
     response:
-      'Últimamente estoy completando el Certificado Profesional de Analista de Datos de Google en Coursera — llevo 3 de los 8 cursos terminados: "Fundamentos: Datos, datos por todas partes", "Ask Questions to Make Data-Driven Decisions" y "Prepare Data for Exploration". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
+      'Últimamente estoy completando el Certificado Profesional de Analista de Datos de Google en Coursera — llevo 6 de los 8 cursos terminados: "Fundamentos: Datos, datos por todas partes", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" y "Share Data Through the Art of Visualization". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
     responseEn:
-      'Lately I\'ve been completing the Google Data Analytics Professional Certificate on Coursera — I\'ve finished 3 of the 8 courses: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions" and "Prepare Data for Exploration". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
+      'Lately I\'ve been completing the Google Data Analytics Professional Certificate on Coursera — I\'ve finished 6 of the 8 courses: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" and "Share Data Through the Art of Visualization". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
     followUp: ['¿Cómo te mantienes al día?', '¿Tienes proyectos personales?', '¿Dónde te ves en 5 años?'],
     followUpEn: ['How do you stay current?', 'Do you have personal projects?', 'Where do you see yourself in 5 years?'],
   },

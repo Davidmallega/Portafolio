@@ -318,4 +318,16 @@ export const skillGroups = [
       { label: 'Trello', cls: '' },
     ],
   },
+  {
+    label: 'ai & workflow',
+    color: '#98c379',
+    items: [
+      { label: 'Claude Code', cls: '' },
+      { label: 'Cursor', cls: '' },
+      { label: 'Ollama', cls: '' },
+      { label: 'Obsidian', cls: '' },
+      { label: 'Herdr', cls: '' },
+      { label: 'Markdown', cls: '' },
+    ],
+  },
 ]

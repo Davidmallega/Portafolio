@@ -7,15 +7,15 @@ Desarrollador Fullstack (Full Stack Developer) con base en React, Node.js, Googl
 ## EDUCACIÓN
 
 **Instituto Profesional IACC — Santiago, Chile** :: Mayo 2026
-*En curso: Google Data Analytics Professional Certificate (Coursera) — 5/8 cursos completados.*
+*En curso: Google Data Analytics Professional Certificate (Coursera) — 6/8 cursos completados.*
 
 ## HABILIDADES TÉCNICAS
 
 **Lenguajes y Frameworks:** JavaScript (React, Node.js, Express), Python, PHP, SQL, HTML/CSS, Tailwind CSS, REST APIs.
 **Cloud y DevOps:** Google Cloud Platform (Cloud Run, BigQuery, Pub/Sub, Cloud Storage, Secret Manager, Cloud Scheduler, Vertex AI), Firebase (Firestore, Auth, Hosting), Docker, CI/CD (GitHub Actions), Coolify (self-hosted deploy), Git.
+**IA y Workflow:** Claude Code, Cursor (con Python), Ollama (RAG local), Obsidian, Herdr, Markdown (docs-as-code).
 **Bases de Datos:** MySQL, Firestore (NoSQL), BigQuery, SQLite.
-**Herramientas:** WordPress, Elementor, GeoVictoria, Vite, Electron, React Native, Excel avanzado.
-**Metodologías:** Scrum, Kanban, Trello.
+**Herramientas y Metodologías:** WordPress, Vite, Electron, React Native, Excel avanzado, GeoVictoria; Scrum, Kanban.
 
 ## EXPERIENCIA
 
@@ -24,7 +24,7 @@ Desarrollador Fullstack (Full Stack Developer) con base en React, Node.js, Googl
 **Desarrollador Fullstack — Proyectos Independientes** :: Marzo 2026 – Presente
 - LogTrans (React 18 + Vite + Tailwind): MVP de gestión logística con 4 roles y permisos diferenciados, motor de tarifas, dashboard financiero y suite de tests (Vitest). Entregado; en conversación para continuidad a producción.
 - Cartapp (React + Firebase): pivoteé el modelo de negocio a "un código, dos despliegues" y reemplacé Firebase por un backend propio (Node + Express + SQLite) self-hosted en Docker vía Coolify, con CI/CD y 38 tests de integración.
-- Artenhilo (Electron + React/Vite + Express + MySQL) para un taller de bisutería: sistema de escritorio con inventario, ventas, catálogo PDF y módulo académico (cursos, certificados, pagos, asistencia). Instalador Windows con auto-actualización, en producción (v1.0.0–v1.1.1) con 1.300+ tests de backend y 1.000+ de frontend.
+- Artenhilo (Electron + React/Vite + Express + MySQL) para un taller de bisutería: sistema de escritorio con inventario, ventas, catálogo PDF y módulo académico (cursos, certificados, pagos, asistencia). Instalador Windows con auto-actualización, en producción (v1.1.1) con 2.300+ tests.
 - GastosApp (React + Vite + Electron) para empresa gastronómica: empaquetada como ejecutable (.exe) e instalada en los equipos del cliente. Entregada.
 
 ### Comercial Contreras y Saavedra — Santiago, Chile
@@ -51,9 +51,9 @@ Monitoreo event-driven: Cloud Scheduler dispara health-checks cada 15 min en par
 - Ethical Hacker — Cisco Networking Academy (70 h) · 2026
 - Python Essentials 1 y 2 — Cisco Networking Academy (70 h) · 2026
 - AI Fundamentals with IBM SkillsBuild — Cisco + IBM (40 h) · 2026
-- Programación con JavaScript — SENCE / Fundación Telefónica Movistar — 100/100 (40 h) · 2025
+- Iniciación al Desarrollo con IA — BIG school · mouredev (4 h) · 2026
 
-*+20 certificaciones adicionales en el portafolio*
+*+21 certificaciones adicionales en el portafolio*
 
 ## HABILIDADES E INTERESES
 

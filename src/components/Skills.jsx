@@ -3,6 +3,7 @@ import {
   SiJavascript, SiReact, SiNodedotjs, SiExpress, SiPython, SiPhp,
   SiHtml5, SiTailwindcss, SiGooglecloud, SiFirebase, SiDocker, SiGit, SiGithub,
   SiMysql, SiElectron, SiVite, SiWordpress, SiTrello, SiTypescript, SiPostgresql, SiPostman,
+  SiClaude, SiOllama, SiObsidian, SiMarkdown,
 } from 'react-icons/si'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
@@ -32,6 +33,10 @@ const SKILL_ICONS = {
   'Vite':              SiVite,
   'WordPress':         SiWordpress,
   'Trello':            SiTrello,
+  'Claude Code':       SiClaude,
+  'Ollama':            SiOllama,
+  'Obsidian':          SiObsidian,
+  'Markdown':          SiMarkdown,
 }
 
 function SkillGroup({ group }) {
