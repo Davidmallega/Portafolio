@@ -339,7 +339,7 @@ function PhaseNode({ phase, isLast, lang }) {
         <ChevronRight
           size={13}
           className={`shrink-0 transition-transform duration-200
-            ${open ? 'rotate-90 text-white/70' : 'text-white/40 group-hover:text-white/70'}`}
+            ${open ? 'rotate-90 text-white/70' : 'text-white/50 group-hover:text-white/70'}`}
         />
 
         <span
@@ -355,7 +355,7 @@ function PhaseNode({ phase, isLast, lang }) {
           {phase.filename}
         </span>
 
-        <span className="font-mono text-[10px] lg:text-[11px] shrink-0 ml-2 tabular-nums text-white/40 group-hover:text-white/60 transition-colors">
+        <span className="font-mono text-[10px] lg:text-[11px] shrink-0 ml-2 tabular-nums text-white/50 group-hover:text-white/60 transition-colors">
           {phase.num}
         </span>
 
@@ -413,7 +413,7 @@ export default function SDLCPage() {
       {/* Meta badges */}
       <div className="flex flex-wrap gap-2 mb-10">
         {['React 19', 'Vite 8', 'Tailwind CSS v3', 'React Router v7', lang === 'en' ? '~4 months' : '~4 meses', 'solo dev'].map(b => (
-          <span key={b} className="font-mono text-[10px] px-2 py-[2px] rounded bg-white/[0.05] border border-white/[0.09] text-white/40">
+          <span key={b} className="font-mono text-[10px] px-2 py-[2px] rounded bg-white/[0.05] border border-white/[0.09] text-white/50">
             {b}
           </span>
         ))}
@@ -426,7 +426,7 @@ export default function SDLCPage() {
           <span className="font-mono text-[10px] text-white/20">›</span>
           <span className="font-mono text-[10px] text-[#4ec9b0]/60">portfolio</span>
           <span className="font-mono text-[10px] text-white/20">/</span>
-          <span className="font-mono text-[10px] text-white/40">{t.sdlc.explorerPath}</span>
+          <span className="font-mono text-[10px] text-white/50">{t.sdlc.explorerPath}</span>
         </div>
 
         <div className="p-2">

@@ -228,7 +228,7 @@ function ProjectCard({ project, onCompile, lang }) {
 
       {/* texto: persiste durante compiling y done sin re-render */}
       {(phase === 'compiling' || phase === 'done') && (
-        <p className="font-sans text-[12px] text-white/40 leading-relaxed mb-3">
+        <p className="font-sans text-[12px] text-white/50 leading-relaxed mb-3">
           {typed}
           {phase === 'compiling' && (
             <span className="inline-block w-[2px] h-[13px] bg-[#4ec9b0] ml-[1px] align-middle animate-pulse" />

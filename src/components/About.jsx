@@ -122,7 +122,7 @@ function QuickReplies({ replies, onSelect }) {
         <button
           key={r}
           onClick={() => onSelect(r)}
-          className="font-mono text-[11px] px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] text-white/40 hover:border-[#bc8cff]/40 hover:text-[#bc8cff]/80 hover:bg-[#bc8cff]/05 transition-all shrink-0"
+          className="font-mono text-[11px] px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] text-white/50 hover:border-[#bc8cff]/40 hover:text-[#bc8cff]/80 hover:bg-[#bc8cff]/05 transition-all shrink-0"
         >
           {r}
         </button>

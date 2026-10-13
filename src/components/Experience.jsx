@@ -151,7 +151,7 @@ function JobNode({ job, isLast, lang }) {
         <ChevronRight
           size={13}
           className={`shrink-0 transition-transform duration-200
-            ${open ? 'rotate-90 text-white/70' : 'text-white/40 group-hover:text-white/70'}`}
+            ${open ? 'rotate-90 text-white/70' : 'text-white/50 group-hover:text-white/70'}`}
         />
 
         <span
@@ -168,7 +168,7 @@ function JobNode({ job, isLast, lang }) {
           {job.filename}
         </span>
 
-        <span className="font-mono text-[10px] lg:text-[11px] shrink-0 ml-2 tabular-nums text-white/40 group-hover:text-white/60 transition-colors">
+        <span className="font-mono text-[10px] lg:text-[11px] shrink-0 ml-2 tabular-nums text-white/50 group-hover:text-white/60 transition-colors">
           {job.period}
         </span>
       </button>
@@ -227,7 +227,7 @@ export default function Experience() {
           <span className="font-mono text-[10px] text-white/20">›</span>
           <span className="font-mono text-[10px] text-[#4ec9b0]/60">{t.experience.explorerLabel}</span>
           <span className="font-mono text-[10px] text-white/20">/</span>
-          <span className="font-mono text-[10px] text-white/40">{t.experience.explorerPath}</span>
+          <span className="font-mono text-[10px] text-white/50">{t.experience.explorerPath}</span>
         </div>
 
         <div className="p-2">
