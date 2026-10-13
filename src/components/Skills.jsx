@@ -53,7 +53,7 @@ function SkillGroup({ group }) {
     >
       <span
         className="absolute -top-[9px] left-1/2 -translate-x-1/2 font-mono text-[9px] uppercase tracking-widest bg-[#0d0d0f] px-2 whitespace-nowrap transition-colors duration-300"
-        style={{ color: hovered ? group.color : 'rgba(255,255,255,0.3)' }}
+        style={{ color: hovered ? group.color : 'rgba(255,255,255,0.5)' }}
       >
         {group.label}
       </span>

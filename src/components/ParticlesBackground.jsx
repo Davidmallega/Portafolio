@@ -9,8 +9,11 @@ export default function ParticlesBackground() {
   const canvasRef = useRef(null)
   const stateRef  = useRef(null)
   const animRef   = useRef(null)
+  const reduceMotion = typeof window !== 'undefined'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   useEffect(() => {
+    if (reduceMotion) return
     const canvas = canvasRef.current
     const ctx    = canvas.getContext('2d')
     let W, H
@@ -92,7 +95,9 @@ export default function ParticlesBackground() {
       window.removeEventListener('resize', resize)
       cancelAnimationFrame(animRef.current)
     }
-  }, [])
+  }, [reduceMotion])
+
+  if (reduceMotion) return null
 
   return (
     <canvas

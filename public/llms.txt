@@ -20,6 +20,6 @@ David construye software para clientes reales (LogTrans, Cartapp, GastosApp) y p
 
 ## Contacto
 
-- Email: davidmallega@gmail.com
+- Email: david.mallega@gmail.com
 - LinkedIn: https://linkedin.com/in/david-mallega
 - GitHub: https://github.com/Davidmallega

@@ -203,7 +203,7 @@ export default function StatsBanner() {
 
             <div>
               <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">{fmtHours}</p>
-              <p className="font-mono text-[10px] lg:text-[12px] text-white/30">{t.hero.statHours}</p>
+              <p className="font-mono text-[10px] lg:text-[12px] text-white/50">{t.hero.statHours}</p>
               {hoursMonth > 0 ? <Delta n={hoursMonth} suffix="h" label={labelMonth} /> : <Delta n={hoursYear} suffix="h" label={labelYear} />}
             </div>
 
@@ -211,7 +211,7 @@ export default function StatsBanner() {
 
             <div>
               <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">{dispCerts}</p>
-              <p className="font-mono text-[10px] lg:text-[12px] text-white/30">{t.hero.statCerts}</p>
+              <p className="font-mono text-[10px] lg:text-[12px] text-white/50">{t.hero.statCerts}</p>
               {certsMonth > 0 ? <Delta n={certsMonth} label={labelMonth} /> : <Delta n={certsYear} label={labelYear} />}
             </div>
 
@@ -219,7 +219,7 @@ export default function StatsBanner() {
 
             <div>
               <p className="font-sans text-[18px] sm:text-2xl lg:text-3xl font-semibold text-white leading-none mb-1">{dispYears} {lang === 'en' ? 'years' : 'años'}</p>
-              <p className="font-mono text-[10px] lg:text-[12px] text-white/30">{t.hero.statYears}</p>
+              <p className="font-mono text-[10px] lg:text-[12px] text-white/50">{t.hero.statYears}</p>
             </div>
 
           </div>

@@ -37,3 +37,6 @@ SDLC.md
 
 # CV render intermediate
 cv/.cv-render.html
+
+# originals of optimized images (see scripts/optimize-images.mjs)
+assets-originals/

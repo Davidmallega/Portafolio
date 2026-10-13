@@ -14,7 +14,7 @@ export default function Contact() {
   const [pos, setPos]         = useState({ x: 50, y: 50 })
   const [hovered, setHovered] = useState(false)
   const [screenW, setScreenW] = useState(() => window.innerWidth)
-  const [form, setForm]       = useState({ name: '', email: '', message: '' })
+  const [form, setForm]       = useState({ name: '', email: '', message: '', _gotcha: '' })
   const [status, setStatus]   = useState('idle')
 
   useEffect(() => {
@@ -25,6 +25,8 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    // Honeypot: un humano nunca ve este campo; si viene relleno es un bot.
+    if (form._gotcha) { setStatus('success'); return }
     setStatus('loading')
     try {
       const res = await fetch(FORMSPREE, {
@@ -130,10 +132,10 @@ export default function Contact() {
 
               {/* Links de contacto */}
               <div className="space-y-2.5">
-                <a href="mailto:davidmallega@gmail.com" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
+                <a href="mailto:david.mallega@gmail.com" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <Mail size={12} className="text-white/25 shrink-0" />
                   <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
-                    davidmallega@gmail.com
+                    david.mallega@gmail.com
                   </span>
                 </a>
                 <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
@@ -223,6 +225,16 @@ export default function Contact() {
                 : (lang === 'en' ? 'send message' : 'enviar mensaje')}
             </button>
           </div>
+          <input
+            type="text"
+            name="_gotcha"
+            value={form._gotcha}
+            onChange={e => setForm(f => ({ ...f, _gotcha: e.target.value }))}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+          />
         </form>
 
         {/* Footer code */}

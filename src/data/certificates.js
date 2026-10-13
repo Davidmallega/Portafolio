@@ -11,7 +11,7 @@ export const certificates = [
     badge: 'Distinción Máxima',
     description: 'Carrera completa: programación, redes, BD, sistemas operativos y desarrollo de software.',
     descriptionEn: 'Full degree: programming, networking, databases, operating systems and software development.',
-    img: '/assets/certificates/titulo-iacc.jpg',
+    img: '/assets/certificates/titulo-iacc.webp',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const certificates = [
     badge: null,
     description: 'HTML, CSS, JavaScript, React, Node.js y bases de datos. Stack completo frontend + backend.',
     descriptionEn: 'HTML, CSS, JavaScript, React, Node.js and databases. Full frontend + backend stack.',
-    img: '/assets/certificates/diplomado-web-iacc.jpg',
+    img: '/assets/certificates/diplomado-web-iacc.webp',
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ export const certificates = [
     badge: null,
     description: 'Patrones de diseño, arquitectura de software, estructuras de datos y algoritmos.',
     descriptionEn: 'Design patterns, software architecture, data structures and algorithms.',
-    img: '/assets/certificates/diplomado-prog-avz-iacc.jpg',
+    img: '/assets/certificates/diplomado-prog-avz-iacc.webp',
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ export const certificates = [
     badge: null,
     description: 'Lógica de programación, SQL, modelado de datos y fundamentos de desarrollo.',
     descriptionEn: 'Programming logic, SQL, data modeling and development fundamentals.',
-    img: '/assets/certificates/diplomado-fundamentos-iacc.jpg',
+    img: '/assets/certificates/diplomado-fundamentos-iacc.webp',
   },
   {
     id: 5,
@@ -67,7 +67,7 @@ export const certificates = [
     badge: null,
     description: 'Machine learning, deep learning, IA ética y herramientas IBM Watson.',
     descriptionEn: 'Machine learning, deep learning, ethical AI and IBM Watson tools.',
-    img: '/assets/certificates/ai-fundamentals-cisco-ibm-n.jpg',
+    img: '/assets/certificates/ai-fundamentals-cisco-ibm-n.webp',
   },
   {
     id: 6,
@@ -81,7 +81,7 @@ export const certificates = [
     badge: null,
     description: 'Fundamentos de seguridad, tipos de amenazas, firewalls y buenas prácticas en redes.',
     descriptionEn: 'Security fundamentals, threat types, firewalls and network best practices.',
-    img: '/assets/certificates/ciberseguridad-cisco.jpg',
+    img: '/assets/certificates/ciberseguridad-cisco.webp',
   },
   {
     id: 7,
@@ -95,7 +95,7 @@ export const certificates = [
     badge: null,
     description: 'Metodologías ágiles, Scrum, Kanban y gestión de equipos de desarrollo.',
     descriptionEn: 'Agile methodologies, Scrum, Kanban and development team management.',
-    img: '/assets/certificates/gestion-proyectos-agile.jpg',
+    img: '/assets/certificates/gestion-proyectos-agile.webp',
   },
   {
     id: 8,
@@ -109,7 +109,7 @@ export const certificates = [
     badge: null,
     description: 'Análisis de datos, estadística básica y visualización con herramientas modernas.',
     descriptionEn: 'Data analysis, basic statistics and visualization with modern tools.',
-    img: '/assets/certificates/ciencia-datos-open-academy.jpg',
+    img: '/assets/certificates/ciencia-datos-open-academy.webp',
   },
   {
     id: 9,
@@ -123,7 +123,7 @@ export const certificates = [
     badge: 'score: 100/100',
     description: 'Programación funcional, ES6+, DOM, asincronía y buenas prácticas. Puntaje perfecto.',
     descriptionEn: 'Functional programming, ES6+, DOM, async patterns and best practices. Perfect score.',
-    img: '/assets/certificates/javascript-sence-movistar.jpg',
+    img: '/assets/certificates/javascript-sence-movistar.webp',
   },
   {
     id: 10,
@@ -137,7 +137,7 @@ export const certificates = [
     badge: null,
     description: 'Desarrollo asistido por IA usando Cursor IDE con Python integrado.',
     descriptionEn: 'AI-assisted development using Cursor IDE with integrated Python.',
-    img: '/assets/certificates/cursor-python-ia.jpg',
+    img: '/assets/certificates/cursor-python-ia.webp',
   },
   {
     id: 11,
@@ -151,7 +151,7 @@ export const certificates = [
     badge: null,
     description: 'JavaScript moderno ES9, HTML5, CSS3 y Node.js desde cero hasta nivel profesional.',
     descriptionEn: 'Modern JavaScript ES9, HTML5, CSS3 and Node.js from zero to professional level.',
-    img: '/assets/certificates/javascript-es9-nodejs-udemy.jpg',
+    img: '/assets/certificates/javascript-es9-nodejs-udemy.webp',
   },
   {
     id: 12,
@@ -165,7 +165,7 @@ export const certificates = [
     badge: null,
     description: 'Primeros pasos en programación: lógica, variables, funciones y estructuras de control.',
     descriptionEn: 'First steps in programming: logic, variables, functions and control structures.',
-    img: '/assets/certificates/programacion-principiantes-udemy.jpg',
+    img: '/assets/certificates/programacion-principiantes-udemy.webp',
   },
   {
     id: 13,
@@ -179,7 +179,7 @@ export const certificates = [
     badge: null,
     description: 'Apps nativas para iOS y Android con React Native CLI, hooks, navegación y consumo de APIs.',
     descriptionEn: 'Native apps for iOS and Android with React Native CLI, hooks, navigation and API consumption.',
-    img: '/assets/certificates/react-native-cli-udemy.jpg',
+    img: '/assets/certificates/react-native-cli-udemy.webp',
   },
   {
     id: 14,
@@ -193,7 +193,7 @@ export const certificates = [
     badge: null,
     description: 'Control de versiones con Git: ramas, merges, resolución de conflictos, flujos de trabajo y GitHub.',
     descriptionEn: 'Version control with Git: branches, merges, conflict resolution, workflows and GitHub.',
-    img: '/assets/certificates/git-github-udemy.jpg',
+    img: '/assets/certificates/git-github-udemy.webp',
   },
   {
     id: 15,
@@ -207,7 +207,7 @@ export const certificates = [
     badge: null,
     description: 'Análisis de datos, ecosistemas de datos, pensamiento analítico, hojas de cálculo, SQL y herramientas de visualización.',
     descriptionEn: 'Data analysis, data ecosystems, analytical thinking, spreadsheets, SQL and visualization tools.',
-    img: '/assets/certificates/coursera-data-fundamentals.jpg',
+    img: '/assets/certificates/coursera-data-fundamentals.webp',
   },
   {
     id: 16,
@@ -221,7 +221,7 @@ export const certificates = [
     badge: null,
     description: 'Formulación de preguntas efectivas para decisiones basadas en datos. Hojas de cálculo, SQL y pensamiento estructurado.',
     descriptionEn: 'Effective question formulation for data-driven decisions. Spreadsheets, SQL and structured thinking.',
-    img: '/assets/certificates/coursera-ask-questions.jpg',
+    img: '/assets/certificates/coursera-ask-questions.webp',
   },
   {
     id: 17,
@@ -235,7 +235,7 @@ export const certificates = [
     badge: 'Credly verified',
     description: 'Ethical hacking, pentesting, scoping y reporte de vulnerabilidades. 34 actividades prácticas con Kali Linux, WebSploit y otras herramientas.',
     descriptionEn: 'Ethical hacking, penetration testing, scoping and vulnerability reporting. 34 hands-on activities with Kali Linux, WebSploit and other tools.',
-    img: '/assets/certificates/ethical-hacker-cisco.jpg',
+    img: '/assets/certificates/ethical-hacker-cisco.webp',
   },
   {
     id: 18,
@@ -249,7 +249,7 @@ export const certificates = [
     badge: 'Credly verified',
     description: 'Fundamentos de programación en Python, sintaxis y lógica de código. Resolución de problemas e implementación práctica usando la librería estándar de Python.',
     descriptionEn: 'Python programming fundamentals, syntax, and coding logic. Problem-solving and practical implementation using the Python Standard Library.',
-    img: '/assets/certificates/Python_Essentials.jpg',
+    img: '/assets/certificates/Python_Essentials.webp',
   },
   {
     id: 19,
@@ -263,7 +263,7 @@ export const certificates = [
     badge: 'Credly verified',
     description: 'Conceptos intermedios de Python, incluyendo módulos, paquetes, manejo de excepciones, procesamiento de archivos y programación orientada a objetos (POO).',
     descriptionEn: 'Intermediate Python concepts, including modules, packages, exception handling, file processing, and object-oriented programming (OOP).',
-    img: '/assets/certificates/Python_Essentials_2.jpg',
+    img: '/assets/certificates/Python_Essentials_2.webp',
   },
   {
     id: 20,
@@ -277,7 +277,7 @@ export const certificates = [
     badge: 'Udemy Certificate',
     description: 'Dominio de JavaScript moderno (ES6+), fundamentos del lenguaje, programación orientada a objetos, código asíncrono (Promesas y Async/Await) y patrones de diseño.',
     descriptionEn: 'Mastery of modern JavaScript (ES6+), core language fundamentals, object-oriented programming, asynchronous JavaScript (Promises and Async/Await), and design patterns.',
-    img: '/assets/certificates/JavaScript_Moderno.jpg',
+    img: '/assets/certificates/JavaScript_Moderno.webp',
   },
   {
     id: 22,
@@ -291,7 +291,7 @@ export const certificates = [
     badge: 'Coursera verified',
     description: 'Limpieza y transformación de datos, integridad de datos, SQL para limpiar y validar datos, verificación y reporte de resultados.',
     descriptionEn: 'Data cleaning and transformation, data integrity, SQL for cleaning and validating data, result verification and reporting.',
-    img: '/assets/certificates/coursera-process-data.jpg',
+    img: '/assets/certificates/coursera-process-data.webp',
   },
   {
     id: 21,
@@ -305,7 +305,7 @@ export const certificates = [
     badge: 'Coursera verified',
     description: 'Técnicas de preparación y extracción de datos, evaluación de la integridad de los datos, uso de SQL para filtrado y organización, y mejores prácticas de almacenamiento de datos.',
     descriptionEn: 'Data preparation and extraction techniques, evaluating data integrity, using SQL for filtering and organizing data, and data storage best practices.',
-    img: '/assets/certificates/Prepare_Data_for_Exploration.jpg',
+    img: '/assets/certificates/Prepare_Data_for_Exploration.webp',
   },
   {
     id: 23,
@@ -319,7 +319,7 @@ export const certificates = [
     badge: 'Coursera verified',
     description: 'Organización de datos con ordenamiento y filtros, consultas SQL para combinar datos de múltiples tablas, y conversión y formateo de datos.',
     descriptionEn: 'Organizing data with sorts and filters, SQL queries to combine data from multiple tables, and converting and formatting data.',
-    img: '/assets/certificates/coursera-analyze-data.jpg',
+    img: '/assets/certificates/coursera-analyze-data.webp',
   },
   {
     id: 24,
@@ -333,7 +333,7 @@ export const certificates = [
     badge: null,
     description: 'Gestión de conocimiento personal con Obsidian: Vaults, Markdown, enlaces internos y backlinks para construir un Second Brain. Integración del Vault con agentes de IA (Claude Code, Codex, OpenCode) como wiki consultable.',
     descriptionEn: 'Personal knowledge management with Obsidian: Vaults, Markdown, internal links and backlinks to build a Second Brain. Integrating the Vault with AI agents (Claude Code, Codex, OpenCode) as a queryable wiki.',
-    img: '/assets/certificates/obsidian-segundo-cerebro-hola-mundo.jpg',
+    img: '/assets/certificates/obsidian-segundo-cerebro-hola-mundo.webp',
   },
   {
     id: 25,
@@ -347,7 +347,7 @@ export const certificates = [
     badge: null,
     description: 'Terminal multiplexer para gestionar sesiones, procesos en segundo plano y múltiples agentes de IA (Claude Code, OpenCode, Codex) desde un mismo lugar. Atajos, plugins, Fuzzy Finder y sesiones remotas por SSH.',
     descriptionEn: 'Terminal multiplexer for managing sessions, background processes and multiple AI agents (Claude Code, OpenCode, Codex) from one place. Shortcuts, plugins, Fuzzy Finder and remote SSH sessions.',
-    img: '/assets/certificates/herdr-terminal-agentes.jpg',
+    img: '/assets/certificates/herdr-terminal-agentes.webp',
   },
   {
     id: 26,
@@ -361,7 +361,7 @@ export const certificates = [
     badge: null,
     description: 'Curso de asistencia "Desarrollo con IA Gratis — El Nuevo Programador": primeros pasos programando con asistentes de IA.',
     descriptionEn: 'Attendance course "Free AI Development — The New Programmer": first steps building software with AI assistants.',
-    img: '/assets/certificates/ia-desarrollo-mouredev-bigschool.jpg',
+    img: '/assets/certificates/ia-desarrollo-mouredev-bigschool.webp',
   },
   {
     id: 27,
@@ -375,6 +375,6 @@ export const certificates = [
     badge: 'Coursera verified',
     description: 'Visualización de datos y data storytelling: Tableau, principios de diseño, presentaciones efectivas y accesibilidad de contenido web. Calificación 93.09%.',
     descriptionEn: 'Data visualization and data storytelling: Tableau, design principles, effective presentations and web content accessibility. Score 93.09%.',
-    img: '/assets/certificates/coursera-share-data.jpg',
+    img: '/assets/certificates/coursera-share-data.webp',
   },
 ]

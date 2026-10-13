@@ -6,6 +6,7 @@ import { useLang } from '../context/LanguageContext'
 import { certificates } from '../data/certificates'
 import { credlyBadges } from '../data/badges'
 import CertificateModal from './CertificateModal'
+import { useModalA11y } from '../hooks/useModalA11y'
 
 const FILTERS = [
   { id: 'all',       label: 'Todos',        icon: null,     color: '#4ec9b0', match: () => true },
@@ -87,9 +88,20 @@ function CertCard({ cert, onClick, lang, t }) {
   return (
     <div
       className={`ccard p-5 ${phase === 'done' ? 'ccard-done' : ''}`}
+      role="group"
+      aria-label={cert.title}
+      tabIndex={0}
       onClick={() => phase === 'idle' ? handleEnter() : null}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
+      onFocus={() => { if (phase === 'idle') handleEnter() }}
+      onBlur={e => { if (!e.currentTarget.contains(e.relatedTarget)) handleLeave() }}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) {
+          e.preventDefault()
+          handleEnter()
+        }
+      }}
     >
       <div className="flex items-start justify-between mb-3">
         <h3 className="font-sans text-[14px] lg:text-[16px] font-medium text-white leading-snug pr-2">
@@ -120,7 +132,7 @@ function CertCard({ cert, onClick, lang, t }) {
         </div>
       </div>
 
-      <p className={`font-mono text-[11px] lg:text-[12px] text-white/30 leading-relaxed ${phase !== 'idle' ? 'mb-3' : ''}`}>
+      <p className={`font-mono text-[11px] lg:text-[12px] text-white/50 leading-relaxed ${phase !== 'idle' ? 'mb-3' : ''}`}>
         {cert.institution} · {cert.category} · {cert.year}
       </p>
 
@@ -169,12 +181,14 @@ function BadgeCard({ badge, t, onViewCert }) {
       <img
         src={badge.img}
         alt={badge.name}
+        loading="lazy"
+        decoding="async"
         className="w-24 h-24 lg:w-28 lg:h-28 object-contain mb-4 transition-transform duration-300 group-hover:scale-110"
       />
       <p className="font-sans text-[13px] lg:text-[14px] font-medium text-white leading-snug mb-1">
         {badge.name}
       </p>
-      <p className="font-mono text-[10px] lg:text-[11px] text-white/30 mb-3">
+      <p className="font-mono text-[10px] lg:text-[11px] text-white/50 mb-3">
         {badge.issuer} · {badge.date}
       </p>
       <div className="flex flex-col items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -194,6 +208,35 @@ function BadgeCard({ badge, t, onViewCert }) {
             ver certificado
           </button>
         )}
+      </div>
+    </div>
+  )
+}
+
+function CertImageModal({ certImg, onClose }) {
+  const dialogRef = useModalA11y(onClose)
+  return (
+    <div
+      ref={dialogRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${certImg.name} — certificado`}
+      tabIndex={-1}
+      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10 outline-none"
+      onClick={onClose}
+    >
+      <div className="relative w-full max-w-3xl" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-mono text-[11px] text-[#bc8cff]/70">{certImg.name} — certificado</span>
+          <button
+            onClick={onClose}
+            aria-label="Cerrar certificado"
+            className="font-mono text-[13px] text-white/50 hover:text-white transition-colors"
+          >
+            × cerrar
+          </button>
+        </div>
+        <img src={certImg.img} alt={certImg.name} loading="lazy" decoding="async" className="w-full rounded-xl border border-white/10" />
       </div>
     </div>
   )
@@ -260,7 +303,7 @@ export default function Certificates() {
                 } : {
                   borderColor: 'rgba(255,255,255,0.08)',
                   backgroundColor: 'rgba(255,255,255,0.02)',
-                  color: 'rgba(255,255,255,0.35)',
+                  color: 'rgba(255,255,255,0.5)',
                 }}
               >
                 {Icon && <Icon size={12} />}
@@ -336,23 +379,7 @@ export default function Certificates() {
       )}
 
       {certImg && (
-        <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10"
-          onClick={() => setCertImg(null)}
-        >
-          <div className="relative w-full max-w-3xl" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-[11px] text-[#bc8cff]/70">{certImg.name} — certificado</span>
-              <button
-                onClick={() => setCertImg(null)}
-                className="font-mono text-[13px] text-white/50 hover:text-white transition-colors"
-              >
-                × cerrar
-              </button>
-            </div>
-            <img src={certImg.img} alt={certImg.name} className="w-full rounded-xl border border-white/10" />
-          </div>
-        </div>
+        <CertImageModal certImg={certImg} onClose={() => setCertImg(null)} />
       )}
     </section>
   )

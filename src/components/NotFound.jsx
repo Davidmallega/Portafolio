@@ -24,7 +24,7 @@ export default function NotFound() {
         </p>
 
         <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4 mb-8 overflow-x-auto">
-          <p className="font-mono text-[11px] text-white/30 leading-relaxed whitespace-pre">
+          <p className="font-mono text-[11px] text-white/50 leading-relaxed whitespace-pre">
 {`  at Router.resolve (react-router-dom.js:1:1)
   at <Routes /> (App.jsx:64:9)
   at <BrowserRouter /> (App.jsx:82:5)`}

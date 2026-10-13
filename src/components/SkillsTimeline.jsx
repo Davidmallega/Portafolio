@@ -50,7 +50,7 @@ function MilestoneRow({ milestone, lang, isLast }) {
             >
               {type.label}
             </span>
-            <span className="font-mono text-[10px] text-white/30 tabular-nums">{milestone.date}</span>
+            <span className="font-mono text-[10px] text-white/50 tabular-nums">{milestone.date}</span>
           </div>
           <p className={`font-sans text-[13px] lg:text-[14px] leading-snug transition-colors
             ${open ? 'text-white' : 'text-white/85 group-hover:text-white'}`}>
@@ -139,7 +139,7 @@ function ProjectTimeline({ project, lang, defaultOpen, onViewProject }) {
           {status[lang]}
         </span>
 
-        <span className="font-mono text-[10px] lg:text-[11px] shrink-0 text-white/30 tabular-nums">
+        <span className="font-mono text-[10px] lg:text-[11px] shrink-0 text-white/50 tabular-nums">
           {project.milestones.length}
         </span>
       </button>
@@ -185,7 +185,7 @@ function ProjectTimeline({ project, lang, defaultOpen, onViewProject }) {
             {project.projectId != null && (
               <button
                 onClick={() => onViewProject(project.projectId)}
-                className="font-mono text-[10px] text-white/30 hover:text-[#4ec9b0] transition-colors mb-2"
+                className="font-mono text-[10px] text-white/50 hover:text-[#4ec9b0] transition-colors mb-2"
               >
                 {lang === 'en' ? '→ view project' : '→ ver proyecto'}
               </button>
@@ -229,7 +229,7 @@ export default function SkillsTimeline() {
       </div>
 
       <div ref={r2} className="reveal space-y-3">
-        {timelineProjects.map((p, i) => (
+        {timelineProjects.map(p => (
           <ProjectTimeline
             key={p.id}
             project={p}

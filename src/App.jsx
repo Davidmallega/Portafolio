@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext'
 import TopBar from './components/TopBar'
@@ -8,14 +8,15 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import StatsBanner from './components/StatsBanner'
 import Contact from './components/Contact'
-import Certificates from './components/Certificates'
-import SDLCPage from './components/SDLCPage'
-import SkillsTimeline from './components/SkillsTimeline'
-import About from './components/About'
 import NotFound from './components/NotFound'
 import ParticlesBackground from './components/ParticlesBackground'
 import StatusBar from './components/StatusBar'
 import { projects } from './data/projects'
+
+const Certificates   = lazy(() => import('./components/Certificates'))
+const SDLCPage       = lazy(() => import('./components/SDLCPage'))
+const SkillsTimeline = lazy(() => import('./components/SkillsTimeline'))
+const About          = lazy(() => import('./components/About'))
 
 function Home({ onCompile }) {
   return (
@@ -62,6 +63,7 @@ function AppInner() {
       <ParticlesBackground />
       <TopBar />
       <div key={location.pathname} className="route-enter">
+        <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home onCompile={handleCompile} />} />
           <Route path="/certificates" element={<Certificates />} />
@@ -70,6 +72,7 @@ function AppInner() {
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </div>
       <StatusBar totalErrors={projects.length} doneCount={compiledIds.size} />
     </>

@@ -223,7 +223,7 @@ export default function Experience() {
 
       <div ref={ref} className="reveal bg-white/[0.04] border border-white/[0.09] rounded-xl overflow-hidden">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.08] bg-white/[0.03] select-none">
-          <span className="font-mono text-[10px] text-white/35 uppercase tracking-widest">EXPLORER</span>
+          <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest">EXPLORER</span>
           <span className="font-mono text-[10px] text-white/20">›</span>
           <span className="font-mono text-[10px] text-[#4ec9b0]/60">{t.experience.explorerLabel}</span>
           <span className="font-mono text-[10px] text-white/20">/</span>
