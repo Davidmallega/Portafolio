@@ -63,7 +63,7 @@ function MilestoneRow({ milestone, lang, isLast }) {
             <div>
               <div className="pt-1.5">
                 {detail && (
-                  <p className="font-mono text-[11px] lg:text-[12px] text-white/40 leading-relaxed">
+                  <p className="font-mono text-[11px] lg:text-[12px] text-white/50 leading-relaxed">
                     {detail}
                   </p>
                 )}
@@ -114,7 +114,7 @@ function ProjectTimeline({ project, lang, defaultOpen, onViewProject }) {
         <ChevronRight
           size={13}
           className={`shrink-0 transition-transform duration-200
-            ${open ? 'rotate-90 text-white/70' : 'text-white/40 group-hover:text-white/70'}`}
+            ${open ? 'rotate-90 text-white/70' : 'text-white/50 group-hover:text-white/70'}`}
         />
 
         <span

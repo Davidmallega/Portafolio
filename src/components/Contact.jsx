@@ -134,25 +134,25 @@ export default function Contact() {
               <div className="space-y-2.5">
                 <a href="mailto:david.mallega@gmail.com" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <Mail size={12} className="text-white/25 shrink-0" />
-                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                  <span className="font-mono text-[11px] lg:text-[13px] text-white/50 group-hover:text-white/80 transition-colors">
                     david.mallega@gmail.com
                   </span>
                 </a>
                 <a href="https://www.linkedin.com/in/david-mallega/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <FaLinkedin size={12} className="text-white/25 group-hover:text-[#0a66c2] shrink-0 transition-colors" />
-                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                  <span className="font-mono text-[11px] lg:text-[13px] text-white/50 group-hover:text-white/80 transition-colors">
                     linkedin.com/in/david-mallega
                   </span>
                 </a>
                 <a href="https://github.com/Davidmallega" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <SiGithub size={12} className="text-white/25 group-hover:text-white shrink-0 transition-colors" />
-                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-white/80 transition-colors">
+                  <span className="font-mono text-[11px] lg:text-[13px] text-white/50 group-hover:text-white/80 transition-colors">
                     github.com/Davidmallega
                   </span>
                 </a>
                 <a href="https://wa.me/56996148763" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group" onClick={e => e.stopPropagation()}>
                   <FaWhatsapp size={12} className="text-white/25 group-hover:text-[#25d366] shrink-0 transition-colors" />
-                  <span className="font-mono text-[11px] lg:text-[13px] text-white/40 group-hover:text-[#25d366] transition-colors">
+                  <span className="font-mono text-[11px] lg:text-[13px] text-white/50 group-hover:text-[#25d366] transition-colors">
                     +56 9 9614 8763
                   </span>
                 </a>
