@@ -11,9 +11,7 @@ import {
 } from '../data/chatbot'
 
 // ─── Gemini (fallback para preguntas sin match) ─────────────────────────────
-// La clave vive en el servidor: el navegador solo habla con /api/chat.
-const GEMINI_MODEL = 'gemini-2.5-flash'
-
+// La clave y el modelo viven en el servidor: el navegador solo habla con /api/chat.
 async function askGemini(userMessage) {
   const res = await fetch('/api/chat', {
     method: 'POST',
@@ -22,7 +20,7 @@ async function askGemini(userMessage) {
   })
   if (!res.ok) return null
   const data = await res.json()
-  return typeof data?.reply === 'string' ? data.reply : null
+  return typeof data?.reply === 'string' ? { reply: data.reply, model: data.model } : null
 }
 
 // ─── Normaliza texto: minúsculas + sin tildes ────────────────────────────────
@@ -80,7 +78,7 @@ function Bubble({ msg }) {
         )}
         {msg.source === 'gemini' && (
           <span className="block mt-1 font-mono text-[9px] text-[#4ec9b0]/40">
-            via {GEMINI_MODEL} · {msg.ms}ms
+            via {msg.model} · {msg.ms}ms
           </span>
         )}
       </div>
@@ -172,14 +170,14 @@ export function ChatWindow({ onClose } = {}) {
       return
     }
 
-    setTyping(`> ${GEMINI_MODEL}...`)
+    setTyping('> gemini...')
     try {
       const t0 = Date.now()
-      const reply = await askGemini(trimmed)
+      const answer = await askGemini(trimmed)
       const ms = Date.now() - t0
       setTyping(null)
-      if (reply) {
-        setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: reply, source: 'gemini', ms }])
+      if (answer) {
+        setMessages(prev => [...prev, { id: Date.now(), role: 'david', text: answer.reply, source: 'gemini', model: answer.model, ms }])
         setQuickReplies(initialReplies)
         return
       }

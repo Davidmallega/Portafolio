@@ -2,7 +2,9 @@
 // La clave vive solo en el servidor (GEMINI_API_KEY), nunca llega al bundle del navegador.
 import { SYSTEM_PROMPT } from '../src/data/chatbot.js'
 
-const GEMINI_MODEL = 'gemini-2.5-flash'
+// Google retira modelos con frecuencia: se puede cambiar con la variable GEMINI_MODEL
+// en Vercel sin tocar el código. Ver https://ai.google.dev/gemini-api/docs/deprecations
+const DEFAULT_MODEL = 'gemini-3.5-flash'
 const MAX_MESSAGE_LENGTH = 500
 
 // Rate limit simple por IP (en memoria, por instancia).
@@ -39,6 +41,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY
+  const model = process.env.GEMINI_MODEL || DEFAULT_MODEL
   if (!apiKey) {
     return res.status(503).json({ error: 'Chat no disponible' })
   }
@@ -58,20 +61,20 @@ export default async function handler(req, res) {
 
   try {
     const upstream = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
         body: JSON.stringify({
           system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
           contents: [{ role: 'user', parts: [{ text: message.trim() }] }],
-          generationConfig: { maxOutputTokens: 150, temperature: 0.7 },
+          generationConfig: { maxOutputTokens: 512, temperature: 0.7 },
         }),
       },
     )
 
     if (!upstream.ok) {
-      console.error('[chat] Gemini error', upstream.status)
+      console.error('[chat] Gemini error', upstream.status, 'model:', model)
       return res.status(502).json({ error: 'Error del modelo' })
     }
 
@@ -79,7 +82,7 @@ export default async function handler(req, res) {
     const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text
     if (!reply) return res.status(502).json({ error: 'Respuesta vacía' })
 
-    return res.status(200).json({ reply, model: GEMINI_MODEL })
+    return res.status(200).json({ reply, model })
   } catch (err) {
     console.error('[chat] fetch failed', err)
     return res.status(502).json({ error: 'Error del modelo' })
