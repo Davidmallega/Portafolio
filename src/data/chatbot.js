@@ -39,13 +39,15 @@ IMPORTANTE: Detecta el idioma del visitante y responde SIEMPRE en ese mismo idio
 - JavaScript Moderno: Guía para dominar el lenguaje — Udemy 2026 (+21h): ES6+, POO, Promesas, Async/Await, patrones de diseño
 - React Native CLI — Udemy 2026 (+33h)
 - Git + GitHub — Udemy 2026
-- Fundamentos: Datos, datos por todas partes — Google/Coursera 2026 (curso 1 del certificado profesional de Analista de Datos de Google)
+- Foundations: Data, Data, Everywhere — Google/Coursera 2026 (curso 1 del certificado profesional de Analista de Datos de Google)
 - Ask Questions to Make Data-Driven Decisions — Google/Coursera 2026 (curso 2)
 - Prepare Data for Exploration — Google/Coursera 2026 (curso 3)
 - Process Data from Dirty to Clean — Google/Coursera 2026 (curso 4)
 - Analyze Data to Answer Questions — Google/Coursera 2026 (curso 5)
 - Share Data Through the Art of Visualization — Google/Coursera 2026 (curso 6)
-Actualmente cursando el Certificado Profesional de Analista de Datos de Google en Coursera (serie de 8 cursos). Ya completó 6 de los 8 cursos.
+- Introduction to Data Analysis Using Python — Google/Coursera 2026 (curso 7, +27h): Python, NumPy, Pandas, estructuras de datos
+- Google Data Analytics Capstone: Complete a Case Study — Google/Coursera 2026 (curso 8, +10h)
+Cursando el Certificado Profesional de Analista de Datos de Google en Coursera (serie de 9 cursos). Ya completó 8 de los 9; le falta el último, "Accelerate Your Job Search with AI".
 Cuando pregunten por certificados, sugiere ver la pestaña de certificados del portfolio.
 
 === PROYECTOS DEL PORTFOLIO ===
@@ -190,9 +192,9 @@ export const RESPONSES = [
       'been studying', 'are you studying', 'new skills', 'new certification',
     ],
     response:
-      'Últimamente estoy completando el Certificado Profesional de Analista de Datos de Google en Coursera — llevo 6 de los 8 cursos terminados: "Fundamentos: Datos, datos por todas partes", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" y "Share Data Through the Art of Visualization". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
+      'Estoy terminando el Certificado Profesional de Analista de Datos de Google en Coursera — llevo 8 de los 9 cursos de la serie, entre ellos: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" y el "Capstone: Complete a Case Study". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
     responseEn:
-      'Lately I\'ve been completing the Google Data Analytics Professional Certificate on Coursera — I\'ve finished 6 of the 8 courses: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" and "Share Data Through the Art of Visualization". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
+      'I\'m wrapping up the Google Data Analytics Professional Certificate on Coursera — I\'ve finished 8 of the 9 courses in the series, including: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" and the "Capstone: Complete a Case Study". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
     followUp: ['¿Cómo te mantienes al día?', '¿Tienes proyectos personales?', '¿Dónde te ves en 5 años?'],
     followUpEn: ['How do you stay current?', 'Do you have personal projects?', 'Where do you see yourself in 5 years?'],
   },

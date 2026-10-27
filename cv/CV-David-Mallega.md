@@ -7,11 +7,11 @@ Desarrollador Fullstack (Full Stack Developer) con base en React, Node.js, Googl
 ## EDUCACIÓN
 
 **Instituto Profesional IACC — Santiago, Chile** :: Mayo 2026
-*En curso: Google Data Analytics Professional Certificate (Coursera) — 6/8 cursos completados.*
+*Google Data Analytics Professional Certificate (Coursera) — 8/9 cursos completados.*
 
 ## HABILIDADES TÉCNICAS
 
-**Lenguajes y Frameworks:** JavaScript (React, Node.js, Express), Python, PHP, SQL, HTML/CSS, Tailwind CSS, REST APIs.
+**Lenguajes y Frameworks:** JavaScript (React, Node.js, Express), Python (NumPy, Pandas), PHP, SQL, HTML/CSS, Tailwind, REST APIs.
 **Cloud y DevOps:** Google Cloud Platform (Cloud Run, BigQuery, Pub/Sub, Cloud Storage, Secret Manager, Cloud Scheduler, Vertex AI), Firebase (Firestore, Auth, Hosting), Docker, CI/CD (GitHub Actions), Coolify (self-hosted deploy), Git.
 **IA y Workflow:** Claude Code, Cursor (con Python), Ollama (RAG local), Obsidian, Herdr, Markdown (docs-as-code).
 **Bases de Datos:** MySQL, Firestore (NoSQL), BigQuery, SQLite.
@@ -53,7 +53,7 @@ Monitoreo event-driven: Cloud Scheduler dispara health-checks cada 15 min en par
 - AI Fundamentals with IBM SkillsBuild — Cisco + IBM (40 h) · 2026
 - Iniciación al Desarrollo con IA — BIG school · mouredev (4 h) · 2026
 
-*+21 certificaciones adicionales en el portafolio*
+*+23 certificaciones adicionales en el portafolio*
 
 ## HABILIDADES E INTERESES
 
