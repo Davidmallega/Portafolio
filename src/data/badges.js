@@ -53,4 +53,13 @@ export const credlyBadges = [
     url: 'https://www.credly.com/badges/e279d450-55d0-4e75-8651-9253de677413/public_url',
     cert: '/assets/certificates/python-essentials-2-cisco.webp',
   },
+  {
+    id: 'e31b262c-dd42-4ffd-91fa-64e005430161',
+    name: 'Google Data Analytics Professional Certificate',
+    issuer: 'Google · Coursera',
+    date: 'Octubre 2026',
+    img: 'https://images.credly.com/images/7f02e32a-a1d9-4948-8be5-d05902fbdb3b/blob',
+    url: 'https://www.credly.com/badges/e31b262c-dd42-4ffd-91fa-64e005430161/public_url',
+    cert: '/assets/certificates/google-data-analytics-credly.webp',
+  },
 ]

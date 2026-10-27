@@ -47,7 +47,8 @@ IMPORTANTE: Detecta el idioma del visitante y responde SIEMPRE en ese mismo idio
 - Share Data Through the Art of Visualization — Google/Coursera 2026 (curso 6)
 - Introduction to Data Analysis Using Python — Google/Coursera 2026 (curso 7, +27h): Python, NumPy, Pandas, estructuras de datos
 - Google Data Analytics Capstone: Complete a Case Study — Google/Coursera 2026 (curso 8, +10h)
-Cursando el Certificado Profesional de Analista de Datos de Google en Coursera (serie de 9 cursos). Ya completó 8 de los 9; le falta el último, "Accelerate Your Job Search with AI".
+- Accelerate Your Job Search with AI — Google/Coursera 2026 (curso 9)
+Obtuvo el Certificado Profesional Google Data Analytics (Coursera, 9 cursos, octubre 2026): verificable en Coursera y con badge Credly, es la credencial más fuerte de su perfil de datos.
 Cuando pregunten por certificados, sugiere ver la pestaña de certificados del portfolio.
 
 === PROYECTOS DEL PORTFOLIO ===
@@ -192,9 +193,9 @@ export const RESPONSES = [
       'been studying', 'are you studying', 'new skills', 'new certification',
     ],
     response:
-      'Estoy terminando el Certificado Profesional de Analista de Datos de Google en Coursera — llevo 8 de los 9 cursos de la serie, entre ellos: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" y el "Capstone: Complete a Case Study". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
+      'Obtuve el Certificado Profesional Google Data Analytics en Coursera (9 cursos, octubre 2026), que incluye: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" el "Capstone: Complete a Case Study" y "Accelerate Your Job Search with AI". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
     responseEn:
-      'I\'m wrapping up the Google Data Analytics Professional Certificate on Coursera — I\'ve finished 8 of the 9 courses in the series, including: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" and the "Capstone: Complete a Case Study". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
+      'I earned the Google Data Analytics Professional Certificate on Coursera (9 courses, October 2026), which includes: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" the "Capstone: Complete a Case Study" and "Accelerate Your Job Search with AI". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
     followUp: ['¿Cómo te mantienes al día?', '¿Tienes proyectos personales?', '¿Dónde te ves en 5 años?'],
     followUpEn: ['How do you stay current?', 'Do you have personal projects?', 'Where do you see yourself in 5 years?'],
   },

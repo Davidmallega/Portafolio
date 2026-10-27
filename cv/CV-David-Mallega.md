@@ -7,7 +7,7 @@ Desarrollador Fullstack (Full Stack Developer) con base en React, Node.js, Googl
 ## EDUCACIÓN
 
 **Instituto Profesional IACC — Santiago, Chile** :: Mayo 2026
-*Google Data Analytics Professional Certificate (Coursera) — 8/9 cursos completados.*
+*Google Data Analytics Professional Certificate (Coursera, 9 cursos) — obtenido en octubre 2026.*
 
 ## HABILIDADES TÉCNICAS
 
@@ -53,7 +53,7 @@ Monitoreo event-driven: Cloud Scheduler dispara health-checks cada 15 min en par
 - AI Fundamentals with IBM SkillsBuild — Cisco + IBM (40 h) · 2026
 - Iniciación al Desarrollo con IA — BIG school · mouredev (4 h) · 2026
 
-*+23 certificaciones adicionales en el portafolio*
+*+24 certificaciones adicionales en el portafolio*
 
 ## HABILIDADES E INTERESES
 

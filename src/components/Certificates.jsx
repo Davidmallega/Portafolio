@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { RefreshCw } from 'lucide-react'
+import { RefreshCw, Trophy } from 'lucide-react'
 import { SiGoogle, SiCisco, SiUdemy } from 'react-icons/si'
 import { useReveal } from '../hooks/useReveal'
 import { useLang } from '../context/LanguageContext'
@@ -242,6 +242,86 @@ function CertImageModal({ certImg, onClose }) {
   )
 }
 
+function FeaturedCert({ cert, onClick, lang, t }) {
+  const desc = lang === 'en' && cert.descriptionEn ? cert.descriptionEn : cert.description
+  const label = lang === 'en' ? 'Professional Certificate' : 'Certificado Profesional'
+  return (
+    <div
+      className="relative mb-4 lg:mb-6 rounded-2xl border border-[#e8d88a]/40 overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, rgba(232,216,138,0.08), rgba(255,255,255,0.02) 55%, transparent)',
+        boxShadow: '0 0 40px rgba(232,216,138,0.08)',
+      }}
+    >
+      <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 p-5 lg:p-8">
+        {/* El diploma como trofeo */}
+        <button
+          onClick={() => onClick(cert)}
+          aria-label={`${cert.title} — ${t.certificates.viewBtn}`}
+          className="group relative shrink-0 lg:w-[44%] lg:self-start rounded-xl overflow-hidden border border-[#e8d88a]/30 bg-white"
+          style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.45)' }}
+        >
+          <img
+            src={cert.img}
+            alt={cert.title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </button>
+
+        <div className="flex flex-col justify-center min-w-0">
+          <span className="inline-flex items-center gap-2 self-start font-mono text-[11px] px-2.5 py-1 rounded-full border border-[#e8d88a]/40 bg-[#e8d88a]/10 text-[#e8d88a] mb-3">
+            <Trophy size={13} aria-hidden="true" />
+            {label}
+          </span>
+
+          <h3 className="font-sans text-xl lg:text-3xl font-semibold text-white leading-tight mb-2">
+            {cert.title}
+          </h3>
+          <p className="font-mono text-[11px] lg:text-[12px] text-white/50 mb-4">
+            {cert.institution} · {cert.year} · {cert.effort}
+          </p>
+
+          <p className="font-sans text-[13px] lg:text-[14px] text-white/70 leading-relaxed mb-4">
+            {desc}
+          </p>
+
+          <ol className="flex flex-wrap gap-1.5 mb-5" aria-label={lang === 'en' ? 'Included courses' : 'Cursos incluidos'}>
+            {cert.courses.map((c, i) => (
+              <li
+                key={c}
+                className="font-mono text-[10px] px-2 py-[2px] rounded bg-white/[0.04] border border-white/[0.08] text-white/60"
+              >
+                <span className="text-[#e8d88a]/70">{i + 1}.</span> {c}
+              </li>
+            ))}
+          </ol>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => onClick(cert)}
+              className="font-mono text-[11px] px-3 py-1.5 rounded-lg border border-[#e8d88a]/40 bg-[#e8d88a]/10 text-[#e8d88a] hover:bg-[#e8d88a]/20 transition-colors"
+            >
+              {t.certificates.viewBtn}
+            </button>
+            {cert.verifyUrl && (
+              <a
+                href={cert.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[11px] px-3 py-1.5 rounded-lg border border-[#4ec9b0]/30 bg-[#4ec9b0]/10 text-[#4ec9b0] hover:bg-[#4ec9b0]/20 transition-colors"
+              >
+                {t.certificates.verifyBtn}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const INFLUENCERS = [
   { name: 'Héctor de León', handle: 'hdeleon.net',        url: 'https://hdeleon.net/' },
   { name: 'midudev',        handle: 'midu.dev',           url: 'https://midu.dev/' },
@@ -263,6 +343,8 @@ export default function Certificates() {
   const filteredCerts = activeFilter === 'all'
     ? certificates
     : certificates.filter(FILTERS.find(f => f.id === activeFilter)?.match ?? (() => true))
+  const featuredCert = filteredCerts.find(c => c.featured)
+  const gridCerts    = filteredCerts.filter(c => !c.featured)
 
   return (
     <section
@@ -318,8 +400,12 @@ export default function Certificates() {
           })}
         </div>
 
+        {featuredCert && (
+          <FeaturedCert cert={featuredCert} onClick={setSelected} lang={lang} t={t} />
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-          {filteredCerts.map(c => (
+          {gridCerts.map(c => (
             <CertCard key={c.id} cert={c} onClick={setSelected} lang={lang} t={t} />
           ))}
         </div>
