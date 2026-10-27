@@ -27,36 +27,48 @@ IMPORTANTE: Detecta el idioma del visitante y responde SIEMPRE en ese mismo idio
 - Diplomado Programación Avanzada — IACC 2024 (+300h): patrones de diseño, arquitectura, algoritmos
 - Diplomado Fundamentos de Programación y BD — IACC 2024 (+400h): lógica, SQL, modelado
 
-=== CERTIFICACIONES VERIFICADAS (badges Credly) ===
-- Introduction to Cybersecurity — Cisco 2026 (+40h)
+=== CERTIFICACIONES Y CURSOS (30 en el portfolio, ~2.740 horas en total; 7 con badge Credly) ===
+Badges Credly (7): Introduction to Cybersecurity (Cisco), AI Fundamentals with IBM SkillsBuild (Cisco), Artificial Intelligence Fundamentals (IBM SkillsBuild), Ethical Hacker (Cisco), Python Essentials 1 (Cisco), Python Essentials 2 (Cisco) y Google Data Analytics Professional Certificate (Google · Coursera, octubre 2026).
+- Introduction to Cybersecurity — Cisco 2026 (+40h, badge Credly)
 - Ethical Hacker — Cisco Networking Academy 2026 (+70h, badge verificado Credly): ethical hacking, pentesting, Kali Linux, WebSploit, scoping y reporte de vulnerabilidades
 - Python Essentials 1 — Cisco 2026 (badge Credly): fundamentos de Python, sintaxis, lógica, librería estándar
 - Python Essentials 2 — Cisco 2026 (badge Credly): módulos, paquetes, manejo de excepciones, archivos, POO
-- AI Fundamentals with IBM SkillsBuild — Cisco + IBM 2026 (+40h)
-- Artificial Intelligence Fundamentals — IBM SkillsBuild 2026
-- Gestión de Proyectos y Agile — Open Academy 2025
+- AI Fundamentals with IBM SkillsBuild — Cisco + IBM 2026 (+40h, badge Credly)
+- Artificial Intelligence Fundamentals — IBM SkillsBuild 2026 (badge Credly)
+- Gestión de Proyectos y Agile — Open Academy 2025 (+8h)
+- Introducción a Ciencia de Datos — Open Academy 2025 (+6h)
 - JavaScript — SENCE/Movistar 2025 (+40h, score 100/100)
+- Cursor con Python + IA — Open Academy 2025 (+8h)
+- Aprende Javascript ES9, HTML, CSS3 y NodeJS desde cero — Udemy 2026 (+19h)
+- Programación para Principiantes — Primeros Pasos — Udemy 2026 (+8h)
 - JavaScript Moderno: Guía para dominar el lenguaje — Udemy 2026 (+21h): ES6+, POO, Promesas, Async/Await, patrones de diseño
 - React Native CLI — Udemy 2026 (+33h)
-- Git + GitHub — Udemy 2026
-- Foundations: Data, Data, Everywhere — Google/Coursera 2026 (curso 1 del certificado profesional de Analista de Datos de Google)
-- Ask Questions to Make Data-Driven Decisions — Google/Coursera 2026 (curso 2)
-- Prepare Data for Exploration — Google/Coursera 2026 (curso 3)
-- Process Data from Dirty to Clean — Google/Coursera 2026 (curso 4)
-- Analyze Data to Answer Questions — Google/Coursera 2026 (curso 5)
-- Share Data Through the Art of Visualization — Google/Coursera 2026 (curso 6)
-- Introduction to Data Analysis Using Python — Google/Coursera 2026 (curso 7, +27h): Python, NumPy, Pandas, estructuras de datos
-- Google Data Analytics Capstone: Complete a Case Study — Google/Coursera 2026 (curso 8, +10h)
-- Accelerate Your Job Search with AI — Google/Coursera 2026 (curso 9)
-Obtuvo el Certificado Profesional Google Data Analytics (Coursera, 9 cursos, octubre 2026): verificable en Coursera y con badge Credly, es la credencial más fuerte de su perfil de datos.
-Cuando pregunten por certificados, sugiere ver la pestaña de certificados del portfolio.
+- Git + GitHub — Udemy 2026 (+11h)
+- Obsidian: Tu Segundo Cerebro con IA — Hola Mundo 2026 (+1h)
+- Herdr: domina la terminal y tus agentes — Hola Mundo 2026 (+1h)
+- Iniciación al Desarrollo con IA — BIG school · mouredev 2026 (+4h)
+
+=== CERTIFICADO PROFESIONAL GOOGLE DATA ANALYTICS (OBTENIDO) ===
+David OBTUVO el certificado profesional completo Google Data Analytics Professional Certificate (Google · Coursera, 9 cursos, otorgado el 27 de octubre de 2026). Ya lo tiene completo: no está cursándolo ni "en progreso". Es verificable en Coursera (https://coursera.org/verify/professional-cert/47E9JBWV7840) y tiene badge Credly (https://www.credly.com/badges/e31b262c-dd42-4ffd-91fa-64e005430161/public_url). Es la credencial más fuerte de su perfil de datos. Cubre preparar, procesar, analizar y compartir datos con hojas de cálculo, SQL, Tableau y Python, e incluye un caso de estudio final como pieza de portafolio.
+Los 9 cursos:
+1. Foundations: Data, Data, Everywhere (+21h)
+2. Ask Questions to Make Data-Driven Decisions (+19h)
+3. Prepare Data for Exploration (+20h)
+4. Process Data from Dirty to Clean (+20h)
+5. Analyze Data to Answer Questions (+25h)
+6. Share Data Through the Art of Visualization (+18h, calificación 93,09%): Tableau y data storytelling
+7. Introduction to Data Analysis Using Python (+27h, calificación 90,62%): Python, NumPy, Pandas, estructuras de datos
+8. Google Data Analytics Capstone: Complete a Case Study (+10h, calificación 100%): caso de estudio de punta a punta con un dataset real
+9. Accelerate Your Job Search with AI
+Si preguntan por certificaciones de Google, análisis de datos o qué estudia: confirma que TIENE el certificado, menciona los datos clave y que puede verse en la pestaña de certificados del portfolio.
+Cuando pregunten por certificados en general, sugiere ver la pestaña de certificados del portfolio.
 
 === PROYECTOS DEL PORTFOLIO ===
 - Inspector IA: análisis de imágenes con Gemini + Cloud Storage
 - Uptime Monitor: monitoreo de URLs con Cloud Scheduler + BigQuery + Firestore
 - Propinapp: SaaS de propinas para gastronomía, 4 roles, MercadoPago, Scrum
 - GastosApp: app escritorio para gastos empresariales — fue encargo de un cliente real
-- LogTrans MVP: sistema de gestión logística para empresa de transporte — cliente real, React 18 + Vite + recharts + xlsx, importación de Excel multi-hoja, 77 transportistas y 241 viajes reales, sin backend (localStorage), demo entregada al cliente
+- LogTrans MVP: sistema de gestión logística para empresa de transporte — cliente real, React 18 + Vite + recharts + xlsx, importación de Excel multi-hoja, 77 transportistas y 241 viajes reales, MVP sin backend (localStorage). El cliente aceptó el MVP y el proyecto pasa a producción: la primera fase, "Avance 1 — Base en la nube" (semanas 1-2, desde el 26 de octubre de 2026), está en curso con Firebase, Hosting y ambientes de prueba y producción. Nunca des detalles de dinero ni pagos de proyectos de clientes.
 - SismosCL: dashboard con 42.000 sismos, BigQuery, USGS
 - ObjectLens: detección de objetos con Cloud Vision API
 - Clima Live: clima mundial con OpenWeatherMap + Secret Manager
@@ -66,7 +78,7 @@ Cuando pregunten por certificados, sugiere ver la pestaña de certificados del p
 - Galería Cloud Storage: subida por drag & drop a GCP
 
 === EXPERIENCIA LABORAL ===
-1. Freelance Developer (may 2026 – presente): app de control de gastos para empresa gastronómica (React + Vite + Electron, .exe); MVP de gestión logística para empresa de transporte LogTrans SpA (ago 2026) con React 18, importación Excel multi-hoja, demo con datos reales entregada al cliente.
+1. Freelance Developer (may 2026 – presente): app de control de gastos para empresa gastronómica (React + Vite + Electron, .exe); MVP de gestión logística para empresa de transporte LogTrans SpA (ago 2026) con React 18, importación Excel multi-hoja, datos reales; MVP aceptado por el cliente y en paso a producción (primera fase desde el 26 oct 2026).
 2. Desarrollador Fullstack – Práctica Profesional (dic 2025 – feb 2026): sistema de control de inventario desde cero con React + Vite + MySQL en producción. API REST, modelo relacional, interfaz responsive con reportes.
 3. Analista de Implementación TI / Soporte Técnico (ene 2026 – presente): implementación de sistema GeoVictoria (asistencia), configuración de infraestructura, importación de bases de datos masivas, capacitación a usuarios, soporte nivel 2.
 4. Administrador Web WordPress (ene 2020 – presente): diseño y mantenimiento de sitios y landing pages en producción con WordPress + Elementor, SEO y UX. Gestión completa de actualizaciones.
@@ -81,6 +93,7 @@ Mobile/Desktop: React Native (certificado Udemy), Electron
 Cloud: GCP (Cloud Run, Pub/Sub, BigQuery, Cloud Storage, Cloud Scheduler, Secret Manager, Vertex AI, Cloud Vision), Firebase, Docker
 Bases de datos: MySQL, PostgreSQL, Firestore
 Herramientas: Vite, Postman, WordPress, Elementor, Excel Avanzado, Git, GitHub
+IA y workflow: Claude Code, Cursor, Ollama, Obsidian, Herdr, Markdown
 Diseño: Photoshop, Illustrator
 Metodologías: Scrum, Kanban, Trello
 Nivel por tecnología (sé honesto al responder, no exageres):
@@ -97,7 +110,8 @@ Si preguntan por una tecnología, indica su nivel real con estas categorías. Si
 - Disponibilidad: 100% remoto preferido — presencial solo si es cerca de casa (sector Maipú o alrededores)
 - Familia: dos hijos, Rafaela y Lucas — su pilar y motivación principal
 - Hobbies: guitarra eléctrica (Ibanez JS240PS Joe Satriani), home studio, videojuegos
-- Ciberseguridad: dos badges Credly Cisco — Introducción a Ciberseguridad y Ethical Hacker (2026), estación Kali Linux, 34 actividades prácticas con WebSploit`
+- Ciberseguridad: badges Credly de Cisco en Introducción a Ciberseguridad y Ethical Hacker (2026), estación Kali Linux, 34 actividades prácticas con WebSploit
+- Datos: Certificado Profesional Google Data Analytics obtenido (octubre 2026), con badge Credly`
 
 // ─── Respuestas hardcodeadas — orden importa: más específico primero ───────
 export const RESPONSES = [
@@ -170,6 +184,27 @@ export const RESPONSES = [
     followUpEn: ['What have you learned lately?', 'How do you stay current?', 'What are your hobbies?'],
   },
 
+  // ── Google Data Analytics / Coursera / análisis de datos (antes de learning) ─
+  {
+    id: 'google-cert',
+    triggers: [
+      'certificaciones de google', 'certificacion de google', 'certificado de google', 'certificado google',
+      'certificados de google', 'certificados google', 'de google', 'google cert', 'google data', 'google analytics',
+      'google career', 'google professional', 'diploma google', 'nuevo diploma', 'nuevos diplomas', 'que diplomas',
+      'coursera', 'certificado profesional', 'professional certificate',
+      'analista de datos', 'data analyst', 'data analytics', 'analisis de datos', 'analítica de datos', 'analitica de datos',
+      'ciencia de datos', 'data science', 'data analysis',
+      'datos por todas partes', 'ask questions', 'data driven', 'prepare data', 'capstone',
+      'tableau', 'pandas', 'numpy',
+    ],
+    response:
+      'Sí, tengo el Certificado Profesional Google Data Analytics, completo: 9 cursos en Coursera, otorgado el 27 de octubre de 2026, verificable en Coursera y con badge Credly. Cubre preparar, procesar, analizar y compartir datos con hojas de cálculo, SQL, Tableau y Python (NumPy y Pandas). Terminé con calificaciones de 93,09% en visualización, 90,62% en Python y 100% en el Capstone, un caso de estudio de punta a punta con un dataset real.',
+    responseEn:
+      'Yes, I hold the full Google Data Analytics Professional Certificate: 9 courses on Coursera, awarded on October 27, 2026, verifiable on Coursera and with a Credly badge. It covers preparing, processing, analyzing and sharing data with spreadsheets, SQL, Tableau and Python (NumPy and Pandas). I finished with scores of 93.09% in visualization, 90.62% in Python and 100% in the Capstone, an end-to-end case study on a real dataset.',
+    followUp: ['¿Qué certificaciones tienes?', '¿Cuál es tu stack?', '¿Qué aprendiste últimamente?'],
+    followUpEn: ['What certificates do you have?', "What's your tech stack?", 'What have you learned lately?'],
+  },
+
   // ── Aprendizaje reciente ─────────────────────────────────────────────────
   {
     id: 'learning',
@@ -184,20 +219,17 @@ export const RESPONSES = [
       'qué sabes nuevo', 'que sabes nuevo',
       'qué tecnologia aprendiste', 'que tecnologia aprendiste',
       'ultimamente aprendiste', 'últimamente aprendiste',
-      'coursera', 'google coursera', 'certificado google', 'google certificate',
-      'analista de datos', 'data analyst', 'analisis de datos', 'análisis de datos',
-      'datos por todas partes', 'ask questions', 'data driven',
-      'diploma google', 'nuevo diploma', 'nuevos diplomas', 'que diplomas',
-      'prepare data', 'python essentials', 'javascript moderno',
-      'what have you learned', 'what are you learning', 'recent courses', 'latest course',
-      'been studying', 'are you studying', 'new skills', 'new certification',
+      'estudias algo', 'estas estudiando', 'estás estudiando', 'estudiando ahora', 'estudias ahora',
+      'python essentials', 'javascript moderno',
+      'what have you learned', 'what are you learning', 'what are you studying', 'recent courses', 'latest course',
+      'been studying', 'are you studying', 'currently studying', 'new skills', 'new certification',
     ],
     response:
-      'Obtuve el Certificado Profesional Google Data Analytics en Coursera (9 cursos, octubre 2026), que incluye: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" el "Capstone: Complete a Case Study" y "Accelerate Your Job Search with AI". En paralelo completé Python Essentials 1 y 2 (Cisco) y JavaScript Moderno (Udemy). Aprender construyendo es lo que más me funciona.',
+      'Lo último que cerré fue el Certificado Profesional Google Data Analytics en Coursera (9 cursos, octubre 2026), con SQL, Tableau y Python con Pandas. Antes completé Python Essentials 1 y 2 (Cisco), JavaScript Moderno (Udemy) y cursos de desarrollo con IA, Obsidian y Herdr. Aprender construyendo es lo que más me funciona.',
     responseEn:
-      'I earned the Google Data Analytics Professional Certificate on Coursera (9 courses, October 2026), which includes: "Foundations: Data, Data, Everywhere", "Ask Questions to Make Data-Driven Decisions", "Prepare Data for Exploration", "Process Data from Dirty to Clean", "Analyze Data to Answer Questions" "Share Data Through the Art of Visualization", "Introduction to Data Analysis Using Python" the "Capstone: Complete a Case Study" and "Accelerate Your Job Search with AI". I also completed Python Essentials 1 & 2 (Cisco) and Modern JavaScript (Udemy). Building things is how I learn best.',
-    followUp: ['¿Cómo te mantienes al día?', '¿Tienes proyectos personales?', '¿Dónde te ves en 5 años?'],
-    followUpEn: ['How do you stay current?', 'Do you have personal projects?', 'Where do you see yourself in 5 years?'],
+      'The latest thing I wrapped up is the Google Data Analytics Professional Certificate on Coursera (9 courses, October 2026), with SQL, Tableau and Python with Pandas. Before that I completed Python Essentials 1 & 2 (Cisco), Modern JavaScript (Udemy) and courses on AI-assisted development, Obsidian and Herdr. Building things is how I learn best.',
+    followUp: ['¿Tienes certificaciones de Google?', '¿Cómo te mantienes al día?', '¿Dónde te ves en 5 años?'],
+    followUpEn: ['Do you have Google certifications?', 'How do you stay current?', 'Where do you see yourself in 5 years?'],
   },
 
   // ── Cómo se mantiene al día ──────────────────────────────────────────────
@@ -218,9 +250,9 @@ export const RESPONSES = [
       'how do you stay current', 'how do you keep up', 'new technologies', 'stay updated', 'trends',
     ],
     response:
-      'Construyendo cosas y certificándome. Actualmente estoy cursando el Certificado Profesional de Analista de Datos de Google en Coursera. También sigo documentación oficial y comunidades técnicas. Para mí leer sin tocar el teclado no es suficiente.',
+      'Construyendo cosas y certificándome: acabo de obtener el Certificado Profesional Google Data Analytics en Coursera. También sigo documentación oficial y comunidades técnicas. Para mí leer sin tocar el teclado no es suficiente.',
     responseEn:
-      'Building and getting certified. I\'m currently working through the Google Data Analytics Professional Certificate on Coursera. I also follow official documentation and technical communities. Reading without touching the keyboard isn\'t enough for me.',
+      'Building and getting certified. I just earned the Google Data Analytics Professional Certificate on Coursera. I also follow official documentation and technical communities. Reading without touching the keyboard isn\'t enough for me.',
     followUp: ['¿Tienes proyectos personales?', '¿Cuál es tu stack?', '¿Qué aprendiste últimamente?'],
     followUpEn: ['Do you have personal projects?', "What's your tech stack?", 'What have you learned lately?'],
   },
@@ -297,9 +329,9 @@ export const RESPONSES = [
       'logtrans', 'what are you working on', 'personal projects', 'own projects', 'client projects',
     ],
     response:
-      'La mayoría de los proyectos del portfolio los construí por aprendizaje propio, aunque GastosApp y LogTrans MVP fueron para clientes reales. Actualmente tengo un proyecto en desarrollo no publicado: una plataforma de gestión inmobiliaria en colaboración con dos desarrolladores más.',
+      'La mayoría de los proyectos del portfolio los construí por aprendizaje propio, aunque GastosApp y LogTrans MVP fueron para clientes reales; el MVP de LogTrans fue aceptado por el cliente y está pasando a producción. Actualmente tengo un proyecto en desarrollo no publicado: una plataforma de gestión inmobiliaria en colaboración con dos desarrolladores más.',
     responseEn:
-      'Most portfolio projects I built for my own learning, though GastosApp and LogTrans MVP were for real clients. I currently have one unpublished project in development: a real estate management platform being built with two other developers.',
+      'Most portfolio projects I built for my own learning, though GastosApp and LogTrans MVP were for real clients; the LogTrans MVP was accepted by the client and is moving into production. I currently have one unpublished project in development: a real estate management platform being built with two other developers.',
     followUp: ['¿Cuál es tu stack?', '¿Cómo te mantienes al día?', '¿Estás disponible para trabajar?'],
     followUpEn: ["What's your tech stack?", 'How do you stay current?', 'Are you available for work?'],
   },
@@ -394,6 +426,22 @@ export const RESPONSES = [
       'I have two Cisco Credly-verified certifications: Introduction to Cybersecurity and Ethical Hacker (August 2026) — the latter covers pentesting, scoping, vulnerability reporting and 34 hands-on activities with Kali Linux and WebSploit. I also have a dedicated Kali Linux machine for network lab work. I study it out of genuine interest — it helps me write more secure code. You can see the badges in the Certificates tab.',
     followUp: ['Setup desarrollo', 'Setup musical', '¿Tienes proyectos personales?'],
     followUpEn: ['Dev setup', 'Music setup', 'Do you have personal projects?'],
+  },
+
+  // ── Certificaciones en general (después de google-cert y security) ───────
+  {
+    id: 'certifications',
+    triggers: [
+      'certificado', 'certificacion', 'certificaciones', 'certificate', 'certification',
+      'badge', 'badges', 'credly', 'cuantos certificados', 'cuántos certificados',
+      'how many certificates', 'what certificates',
+    ],
+    response:
+      'Tengo 30 certificados y cursos en el portfolio, unas 2.740 horas en total, y 7 badges verificados en Credly (Cisco, IBM y Google). El más reciente y fuerte es el Certificado Profesional Google Data Analytics (9 cursos, octubre 2026); además tengo el Técnico en Informática de IACC con Distinción Máxima, Ethical Hacker y Python Essentials 1 y 2 de Cisco. Puedes verlos todos en la pestaña de certificados.',
+    responseEn:
+      'I have 30 certificates and courses in the portfolio, around 2,740 hours in total, and 7 Credly-verified badges (Cisco, IBM and Google). The most recent and strongest is the Google Data Analytics Professional Certificate (9 courses, October 2026); I also hold the IACC Higher Technical Degree in Computer Science with Highest Distinction, plus Cisco Ethical Hacker and Python Essentials 1 and 2. You can see them all in the Certificates tab.',
+    followUp: ['¿Tienes certificaciones de Google?', '¿Qué te interesa de la ciberseguridad?', '¿Qué estudiaste?'],
+    followUpEn: ['Do you have Google certifications?', 'What interests you about cybersecurity?', 'What did you study?'],
   },
 
   // ── Contacto ahora / WhatsApp (va ANTES de availability) ─────────────────
@@ -492,9 +540,9 @@ export const RESPONSES = [
       'wordpress',
     ],
     response:
-      'Sí, mi stack cubre bastante terreno. Lenguajes: JavaScript, TypeScript, Python, PHP, SQL. Frameworks: React, Node.js, Express, React Native, Electron. Cloud: GCP, Firebase, Docker. Bases de datos: MySQL, PostgreSQL, Firestore. También Tailwind, Vite, WordPress y diseño con Photoshop e Illustrator. El detalle completo está en la pestaña Skills del portfolio.',
+      'Sí, mi stack cubre bastante terreno. Lenguajes: JavaScript, TypeScript, Python, PHP, SQL. Frameworks: React, Node.js, Express, React Native, Electron. Cloud: GCP, Firebase, Docker. Bases de datos: MySQL, PostgreSQL, Firestore. También Tailwind, Vite, WordPress y diseño con Photoshop e Illustrator. En IA y workflow uso Claude Code y Obsidian, y tengo nociones básicas de Cursor y Ollama. El detalle completo está en la pestaña Skills del portfolio.',
     responseEn:
-      'My stack covers a lot of ground. Languages: JavaScript, TypeScript, Python, PHP, SQL. Frameworks: React, Node.js, Express, React Native, Electron. Cloud: GCP, Firebase, Docker. Databases: MySQL, PostgreSQL, Firestore. Also Tailwind, Vite, WordPress and design with Photoshop and Illustrator. Full breakdown in the Skills tab.',
+      'My stack covers a lot of ground. Languages: JavaScript, TypeScript, Python, PHP, SQL. Frameworks: React, Node.js, Express, React Native, Electron. Cloud: GCP, Firebase, Docker. Databases: MySQL, PostgreSQL, Firestore. Also Tailwind, Vite, WordPress and design with Photoshop and Illustrator. For AI and workflow I use Claude Code and Obsidian, with basic knowledge of Cursor and Ollama. Full breakdown in the Skills tab.',
     followUp: ['¿Tienes proyectos personales?', '¿Cómo te mantienes al día?', '¿Estás disponible para trabajar?'],
     followUpEn: ['Do you have personal projects?', 'How do you stay current?', 'Are you available for work?'],
   },
