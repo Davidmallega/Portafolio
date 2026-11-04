@@ -13,7 +13,7 @@ Desarrollador Fullstack (Full Stack Developer) con base en React, Node.js, Googl
 
 **Lenguajes y Frameworks:** JavaScript (React, Node.js, Express), Python (NumPy, Pandas), PHP, SQL, HTML/CSS, Tailwind, REST APIs.
 **Cloud y DevOps:** Google Cloud Platform (Cloud Run, BigQuery, Pub/Sub, Cloud Storage, Secret Manager, Cloud Scheduler, Vertex AI), Firebase (Firestore, Auth, Hosting), Docker, CI/CD (GitHub Actions), Coolify (self-hosted deploy), Git.
-**IA y Workflow:** Claude Code, Cursor (con Python), Ollama (RAG local), Obsidian, Herdr, Markdown (docs-as-code).
+**IA y Workflow:** Claude Code, Cursor (con Python), Ollama (RAG local), Obsidian, Herdr, Markdown (docs-as-code), prompting.
 **Bases de Datos:** MySQL, Firestore (NoSQL), BigQuery, SQLite.
 **Herramientas y Metodologías:** WordPress, Vite, Electron, React Native, Excel avanzado, GeoVictoria; Scrum, Kanban.
 
@@ -53,7 +53,7 @@ Monitoreo event-driven: Cloud Scheduler dispara health-checks cada 15 min en par
 - AI Fundamentals with IBM SkillsBuild — Cisco + IBM (40 h) · 2026
 - Iniciación al Desarrollo con IA — BIG school · mouredev (4 h) · 2026
 
-*+24 certificaciones adicionales en el portafolio*
+*+28 certificaciones adicionales en el portafolio*
 
 ## HABILIDADES E INTERESES
 

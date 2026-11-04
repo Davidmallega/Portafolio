@@ -27,7 +27,7 @@ IMPORTANTE: Detecta el idioma del visitante y responde SIEMPRE en ese mismo idio
 - Diplomado Programación Avanzada — IACC 2024 (+300h): patrones de diseño, arquitectura, algoritmos
 - Diplomado Fundamentos de Programación y BD — IACC 2024 (+400h): lógica, SQL, modelado
 
-=== CERTIFICACIONES Y CURSOS (30 en el portfolio, ~2.740 horas en total; 7 con badge Credly) ===
+=== CERTIFICACIONES Y CURSOS (34 en el portfolio, ~2.744 horas en total; 7 con badge Credly) ===
 Badges Credly (7): Introduction to Cybersecurity (Cisco), AI Fundamentals with IBM SkillsBuild (Cisco), Artificial Intelligence Fundamentals (IBM SkillsBuild), Ethical Hacker (Cisco), Python Essentials 1 (Cisco), Python Essentials 2 (Cisco) y Google Data Analytics Professional Certificate (Google · Coursera, octubre 2026).
 - Introduction to Cybersecurity — Cisco 2026 (+40h, badge Credly)
 - Ethical Hacker — Cisco Networking Academy 2026 (+70h, badge verificado Credly): ethical hacking, pentesting, Kali Linux, WebSploit, scoping y reporte de vulnerabilidades
@@ -47,6 +47,10 @@ Badges Credly (7): Introduction to Cybersecurity (Cisco), AI Fundamentals with I
 - Obsidian: Tu Segundo Cerebro con IA — Hola Mundo 2026 (+1h)
 - Herdr: domina la terminal y tus agentes — Hola Mundo 2026 (+1h)
 - Iniciación al Desarrollo con IA — BIG school · mouredev 2026 (+4h)
+- Introduction to AI — Google · Coursera, noviembre 2026 (+1h, 100%): qué es la IA, capacidades y límites, supervisión humana
+- Discover the Art of Prompting — Google · Coursera, noviembre 2026 (+1h, 80%): prompts claros, rol, few-shot prompting
+- Maximize Productivity With AI Tools — Google · Coursera, noviembre 2026 (+1h, 80%): IA generativa en el trabajo, Google Workspace y Gemini
+- Use AI Responsibly — Google · Coursera, noviembre 2026 (+1h, 80%): daños, sesgos y riesgos de privacidad y seguridad de la IA, y buenas prácticas para usarla con responsabilidad
 
 === CERTIFICADO PROFESIONAL GOOGLE DATA ANALYTICS (OBTENIDO) ===
 David OBTUVO el certificado profesional completo Google Data Analytics Professional Certificate (Google · Coursera, 9 cursos, otorgado el 27 de octubre de 2026). Ya lo tiene completo: no está cursándolo ni "en progreso". Es verificable en Coursera (https://coursera.org/verify/professional-cert/47E9JBWV7840) y tiene badge Credly (https://www.credly.com/badges/e31b262c-dd42-4ffd-91fa-64e005430161/public_url). Es la credencial más fuerte de su perfil de datos. Cubre preparar, procesar, analizar y compartir datos con hojas de cálculo, SQL, Tableau y Python, e incluye un caso de estudio final como pieza de portafolio.
@@ -437,9 +441,9 @@ export const RESPONSES = [
       'how many certificates', 'what certificates',
     ],
     response:
-      'Tengo 30 certificados y cursos en el portfolio, unas 2.740 horas en total, y 7 badges verificados en Credly (Cisco, IBM y Google). El más reciente y fuerte es el Certificado Profesional Google Data Analytics (9 cursos, octubre 2026); además tengo el Técnico en Informática de IACC con Distinción Máxima, Ethical Hacker y Python Essentials 1 y 2 de Cisco. Puedes verlos todos en la pestaña de certificados.',
+      'Tengo 34 certificados y cursos en el portfolio, unas 2.744 horas en total, y 7 badges verificados en Credly (Cisco, IBM y Google). El más reciente y fuerte es el Certificado Profesional Google Data Analytics (9 cursos, octubre 2026); además tengo el Técnico en Informática de IACC con Distinción Máxima, Ethical Hacker y Python Essentials 1 y 2 de Cisco. Puedes verlos todos en la pestaña de certificados.',
     responseEn:
-      'I have 30 certificates and courses in the portfolio, around 2,740 hours in total, and 7 Credly-verified badges (Cisco, IBM and Google). The most recent and strongest is the Google Data Analytics Professional Certificate (9 courses, October 2026); I also hold the IACC Higher Technical Degree in Computer Science with Highest Distinction, plus Cisco Ethical Hacker and Python Essentials 1 and 2. You can see them all in the Certificates tab.',
+      'I have 34 certificates and courses in the portfolio, around 2,744 hours in total, and 7 Credly-verified badges (Cisco, IBM and Google). The most recent and strongest is the Google Data Analytics Professional Certificate (9 courses, October 2026); I also hold the IACC Higher Technical Degree in Computer Science with Highest Distinction, plus Cisco Ethical Hacker and Python Essentials 1 and 2. You can see them all in the Certificates tab.',
     followUp: ['¿Tienes certificaciones de Google?', '¿Qué te interesa de la ciberseguridad?', '¿Qué estudiaste?'],
     followUpEn: ['Do you have Google certifications?', 'What interests you about cybersecurity?', 'What did you study?'],
   },
