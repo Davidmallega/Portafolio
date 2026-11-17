@@ -244,7 +244,9 @@ function CertImageModal({ certImg, onClose }) {
 
 function FeaturedCert({ cert, onClick, lang, t }) {
   const desc = lang === 'en' && cert.descriptionEn ? cert.descriptionEn : cert.description
-  const label = lang === 'en' ? 'Professional Certificate' : 'Certificado Profesional'
+  const label = lang === 'en'
+    ? (cert.featuredLabelEn ?? 'Professional Certificate')
+    : (cert.featuredLabel ?? 'Certificado Profesional')
   return (
     <div
       className="relative mb-4 lg:mb-6 rounded-2xl border border-[#e8d88a]/40 overflow-hidden"
@@ -343,7 +345,7 @@ export default function Certificates() {
   const filteredCerts = activeFilter === 'all'
     ? certificates
     : certificates.filter(FILTERS.find(f => f.id === activeFilter)?.match ?? (() => true))
-  const featuredCert = filteredCerts.find(c => c.featured)
+  const featuredCerts = filteredCerts.filter(c => c.featured)
   const gridCerts    = filteredCerts.filter(c => !c.featured)
 
   return (
@@ -400,9 +402,9 @@ export default function Certificates() {
           })}
         </div>
 
-        {featuredCert && (
-          <FeaturedCert cert={featuredCert} onClick={setSelected} lang={lang} t={t} />
-        )}
+        {featuredCerts.map(c => (
+          <FeaturedCert key={c.id} cert={c} onClick={setSelected} lang={lang} t={t} />
+        ))}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
           {gridCerts.map(c => (

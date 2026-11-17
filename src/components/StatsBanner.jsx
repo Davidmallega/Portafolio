@@ -11,6 +11,9 @@ function parseHours(effort) {
   return parseInt(m[1].replace(/\./g, ''), 10)
 }
 
+// El título IACC (1.100h) ya incluye los diplomados: countHours:false evita contarlo dos veces.
+const hoursOf = c => (c.countHours === false ? 0 : parseHours(c.effort))
+
 function buildMonthRange(start, end) {
   const out = []
   let [y, m] = start.split('-').map(Number)
@@ -149,7 +152,7 @@ export default function StatsBanner() {
   }, [])
 
   // ── Totales ──────────────────────────────────────────────────────────────
-  const totalHours = certificates.reduce((acc, c) => acc + parseHours(c.effort), 0)
+  const totalHours = certificates.reduce((acc, c) => acc + hoursOf(c), 0)
   const totalCerts = certificates.length
 
   // ── Deltas ───────────────────────────────────────────────────────────────
@@ -162,8 +165,8 @@ export default function StatsBanner() {
 
   const certsMonth = byMonth.length
   const certsYear  = byYear.length
-  const hoursMonth = byMonth.reduce((s, c) => s + parseHours(c.effort), 0)
-  const hoursYear  = byYear.reduce((s, c) => s + parseHours(c.effort), 0)
+  const hoursMonth = byMonth.reduce((s, c) => s + hoursOf(c), 0)
+  const hoursYear  = byYear.reduce((s, c) => s + hoursOf(c), 0)
 
   const labelMonth = lang === 'en' ? 'this month' : 'este mes'
   const labelYear  = lang === 'en' ? 'this year'  : 'este año'
@@ -180,7 +183,7 @@ export default function StatsBanner() {
     return months.map(month => ({
       month,
       count: certificates.filter(c => c.addedAt === month).length,
-      hours: certificates.filter(c => c.addedAt === month).reduce((s, c) => s + parseHours(c.effort), 0),
+      hours: certificates.filter(c => c.addedAt === month).reduce((s, c) => s + hoursOf(c), 0),
     }))
   }, [ym])
 

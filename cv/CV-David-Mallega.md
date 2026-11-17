@@ -53,7 +53,7 @@ Monitoreo event-driven: Cloud Scheduler dispara health-checks cada 15 min en par
 - AI Fundamentals with IBM SkillsBuild — Cisco + IBM (40 h) · 2026
 - Iniciación al Desarrollo con IA — BIG school · mouredev (4 h) · 2026
 
-*+28 certificaciones adicionales en el portafolio*
+*+31 certificaciones adicionales en el portafolio*
 
 ## HABILIDADES E INTERESES
 

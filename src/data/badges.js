@@ -62,4 +62,13 @@ export const credlyBadges = [
     url: 'https://www.credly.com/badges/e31b262c-dd42-4ffd-91fa-64e005430161/public_url',
     cert: '/assets/certificates/google-data-analytics-credly.webp',
   },
+  {
+    id: 'c659c584-f881-46dc-9bf8-7178064e0418',
+    name: 'Google AI Essentials',
+    issuer: 'Google · Coursera',
+    date: 'Noviembre 2026',
+    img: 'https://images.credly.com/images/ea3eec65-ddad-4242-9c59-1defac0fa2d9/image.png',
+    url: 'https://www.credly.com/badges/c659c584-f881-46dc-9bf8-7178064e0418/public_url',
+    cert: '/assets/certificates/google-ai-essentials-credly.webp',
+  },
 ]
