@@ -332,6 +332,37 @@ const INFLUENCERS = [
   { name: 'mouredev',       handle: 'moure.dev',          url: 'https://moure.dev/' },
 ]
 
+const PLATFORMS = [
+  { name: 'Coursera',                 handle: 'coursera.org',            url: 'https://www.coursera.org/' },
+  { name: 'Cisco Networking Academy', handle: 'netacad.com',             url: 'https://www.netacad.com/' },
+  { name: 'IBM SkillsBuild',          handle: 'skillsbuild.org',         url: 'https://skillsbuild.org/' },
+  { name: 'Santander Open Academy',   handle: 'santanderopenacademy.com', url: 'https://www.santanderopenacademy.com/' },
+  { name: 'SENCE',                    handle: 'sence.gob.cl',            url: 'https://sence.gob.cl/' },
+  { name: 'IACC',                     handle: 'iacc.cl',                 url: 'https://www.iacc.cl/' },
+  { name: 'Udemy',                    handle: 'udemy.com',               url: 'https://www.udemy.com/' },
+  { name: 'Credly',                   handle: 'credly.com',              url: 'https://www.credly.com/' },
+]
+
+function RefChip({ item }) {
+  return (
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:border-[#4ec9b0]/40 hover:bg-[#4ec9b0]/05 transition-all duration-200"
+    >
+      <div>
+        <p className="font-sans text-[13px] text-white/70 group-hover:text-white transition-colors leading-tight">
+          {item.name}
+        </p>
+        <p className="font-mono text-[10px] text-white/25 group-hover:text-[#4ec9b0]/60 transition-colors">
+          {item.handle} ↗
+        </p>
+      </div>
+    </a>
+  )
+}
+
 export default function Certificates() {
   const r1 = useReveal()
   const r2 = useReveal()
@@ -422,7 +453,7 @@ export default function Certificates() {
           {t.certificates.badgesNote}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
-          {credlyBadges.map(b => (
+          {[...credlyBadges].reverse().sort((a, b) => b.issued.localeCompare(a.issued)).map(b => (
             <BadgeCard key={b.id} badge={b} t={t} onViewCert={(img, name) => setCertImg({ img, name })} />
           ))}
         </div>
@@ -441,24 +472,16 @@ export default function Certificates() {
             : '// creadores que me mantienen al día con las tecnologías'}
         </p>
         <div className="flex flex-wrap gap-3">
-          {INFLUENCERS.map(inf => (
-            <a
-              key={inf.handle}
-              href={inf.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:border-[#4ec9b0]/40 hover:bg-[#4ec9b0]/05 transition-all duration-200"
-            >
-              <div>
-                <p className="font-sans text-[13px] text-white/70 group-hover:text-white transition-colors leading-tight">
-                  {inf.name}
-                </p>
-                <p className="font-mono text-[10px] text-white/25 group-hover:text-[#4ec9b0]/60 transition-colors">
-                  {inf.handle} ↗
-                </p>
-              </div>
-            </a>
-          ))}
+          {INFLUENCERS.map(inf => <RefChip key={inf.handle} item={inf} />)}
+        </div>
+
+        <p className="font-mono text-[10px] text-white/20 mt-10 mb-8">
+          {lang === 'en'
+            ? '// platforms and institutions where I study and get certified'
+            : '// plataformas e instituciones donde estudio y me certifico'}
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {PLATFORMS.map(p => <RefChip key={p.handle} item={p} />)}
         </div>
       </div>
 
